@@ -227,10 +227,10 @@ body.body[data-page="play"] {
 /* ===== ЛІВА БІЧНА ПАНЕЛЬ: ЛОКАЦІЇ (сітка 2x3) ===== */
 .ActiveLocations {
     position: absolute;
-    top: 12vh;
+    top: 14vh;
     left: 1vw;
     width: 12vw;
-    height: 65vh;
+    height: 63vh;
     background-color: #A88E7F;
     border-radius: 10px;
     display: grid;
@@ -256,10 +256,10 @@ body.body[data-page="play"] {
 /* ===== ПРАВА БІЧНА ПАНЕЛЬ: КАРТИ В РУЦІ + PREVIEW ===== */
 .MyAndEnemyPoints {
     position: absolute;
-    top: 12vh;
+    top: 14vh;
     right: 1vw;
     width: 8vw;
-    height: 65vh;
+    height: 63vh;
     display: flex;
     flex-direction: column;
     gap: 1vh;
@@ -275,11 +275,11 @@ body.body[data-page="play"] {
 /* ===== ЦЕНТРАЛЬНА ІГРОВА ДОШКА ===== */
 .board {
     position: absolute;
-    top: 12vh;
+    top: 14vh;
     left: 50%;
     transform: translateX(-50%);
     width: 66vw;
-    height: 66vh;
+    height: 63vh;
     background-color: #F23131;
     border-radius: 20px;
 }
@@ -290,7 +290,7 @@ body.body[data-page="play"] {
     top: 2vh;
     left: 1vw;
     width: 20vw;
-    height: 62vh;
+    height: 59vh;
     background-color: #D9D9D980;
     border-radius: 10px;
 }
@@ -301,7 +301,7 @@ body.body[data-page="play"] {
     top: 2vh;
     right: 1vw;
     width: 20vw;
-    height: 62vh;
+    height: 59vh;
     background-color: #D9D9D980;
     border-radius: 10px;
 }
@@ -313,7 +313,7 @@ body.body[data-page="play"] {
     left: 50%;
     transform: translateX(-50%);
     width: 23vw;
-    height: 17vh;
+    height: 16vh;
     background-color: #D9D9D980;
     border-radius: 10px;
 }
@@ -325,7 +325,7 @@ body.body[data-page="play"] {
     left: 50%;
     transform: translateX(-50%);
     width: 23vw;
-    height: 17vh;
+    height: 16vh;
     background-color: #D9D9D980;
     border-radius: 10px;
 }
@@ -337,7 +337,7 @@ body.body[data-page="play"] {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 23vw;
-    height: 20vh;
+    height: 18vh;
     background-color: #D9D9D9;
     border-radius: 10px;
 }
@@ -346,9 +346,9 @@ body.body[data-page="play"] {
 .Moves {
     position: absolute;
     left: 0;
-    bottom: 13vh;
-    width: 14vw;
-    height: 14vh;
+    bottom: 12vh;
+    width: 15vw;
+    height: 12vh;
     background-color: #906565;
     clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
 }
@@ -358,8 +358,8 @@ body.body[data-page="play"] {
     border-radius: 25px;
     background-color: #D9D9D9;
     width: 7vw;
-    height: 5vh;
-    top: 1.5vh;
+    height: 4.5vh;
+    top: 1.2vh;
     left: 1.3vw;
     font-size: clamp(18px, 2vw, 32px);
     font-family: "Jura";
@@ -372,7 +372,7 @@ body.body[data-page="play"] {
 .MyHealth {
     position: absolute;
     left: 14.5vw;
-    bottom: 15.5vh;
+    bottom: 14vh;
     width: 7vw;
     height: 2.5vh;
     background-color: #E9D6AC;
@@ -401,9 +401,9 @@ body.body[data-page="play"] {
 .Drops {
     position: absolute;
     right: 0;
-    bottom: 13vh;
-    width: 14vw;
-    height: 14vh;
+    bottom: 12vh;
+    width: 15vw;
+    height: 12vh;
     background-color: #906565;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
     display: flex;
@@ -417,8 +417,8 @@ body.body[data-page="play"] {
     border-radius: 25px;
     background-color: #D9D9D9;
     width: 7vw;
-    height: 5vh;
-    top: 1.5vh;
+    height: 4.5vh;
+    top: 1.2vh;
     right: 1.3vw;
     font-size: clamp(18px, 2vw, 32px);
     font-family: "Jura";
