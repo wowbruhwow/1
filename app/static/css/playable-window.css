@@ -97,7 +97,7 @@ body.body[data-page="play"] {
 
 .hourglass_border {
   position: absolute;
-  top: 1vh;
+  top: 2.5vh;
   left: 1.5vw;
   display: flex;
   justify-content: center;
@@ -346,7 +346,7 @@ body.body[data-page="play"] {
 .Moves {
     position: absolute;
     left: 0;
-    bottom: 13vh;
+    bottom: 0;
     width: 14vw;
     height: 14vh;
     background-color: #906565;
@@ -372,7 +372,7 @@ body.body[data-page="play"] {
 .MyHealth {
     position: absolute;
     left: 14.5vw;
-    bottom: 15.5vh;
+    bottom: 2.5vh;
     width: 7vw;
     height: 2.5vh;
     background-color: #E9D6AC;
@@ -401,7 +401,7 @@ body.body[data-page="play"] {
 .Drops {
     position: absolute;
     right: 0;
-    bottom: 13vh;
+    bottom: 0;
     width: 14vw;
     height: 14vh;
     background-color: #906565;
