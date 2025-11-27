@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
+<html lang="ua">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Профіль гравця — City Legends</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/player-profile.css') }}">
+    </head>
+    <body class="body">
+
+        <div class="AvatarAndSettings">
+            <button class="GoBackBtn"></button>
+            <button class="Avatar"></button>
+            <button class="Settings"></button>
+        </div>
+
+        <div class="InfoAboutPlayers">
+            <div class="NicknameRow">
+                <input id="nicknameInput" type="text" value="{{ user.nickname }}" disabled>
+
+                <button id="editNicknameBtn" class="nick-btn edit-btn" type="button"></button>
+                <button id="saveNicknameBtn" class="nick-btn save-btn" type="button"></button>
+            </div>
+            <p class="profile-email">Email: {{ user.email }}</p>
+            <p class="profile-stats">Матчів: {{ user.matches_played }} | Перемог: {{ user.wins }}</p>
+        </div>
+
+        <div class="MakeOrJoinToRoom">
+
+            <div class="MakeRoom">
+                <div class="MakeRoomButtonWrapper">
+                    <button class="MakeRoomButton" id="createRoomBtnAnchor">
+                        - Створити кімнату -
+                    </button>
+                </div>
+            </div>
+
+            <div class="JoinRoom">
+                <div class="JoinRoomButtonWrapper">
+                    <button class="JoinRoomButton" id="joinRoomBtnAnchor">
+                        - Знайти кімнату -
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- === CREATE MODAL (залишаю всередині wrapper, працює нормально) === -->
+        <div id="createRoomModal" class="modal">
+            <div class="modal-content">
+                <div class="room-window">
+
+                    <div class="modal-block modal-name">
+                        <label>- Назва кімнати -</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="players-block">
+                        <label>- Кількість гравців -</label>
+                        <div class="modal-row">
+                            <button>2</button>
+                            <button>4</button>
+                            <button>Довільний</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-block modal-access">
+                        <label>- Доступ -</label>
+                        <div class="modal-row">
+                            <button>Відкрита</button>
+                            <button>Приватна</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-block modal-password">
+                        <label>- Пароль -</label>
+                        <input type="password">
+                    </div>
+
+                    <div class="modal-block modal-mode">
+                        <label>- Режим гри -</label>
+                        <div class="modal-row">
+                            <button>Швидка</button>
+                            <button>Класична</button>
+                        </div>
+                    </div>
+
+                    <button class="confirmBtn">Підтвердити</button>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- === JOIN MODAL (ВИНЕСЕНО ПІД BODY) === -->
+        <div id="joinRoomModal" class="modal">
+            <div class="modal-content">
+                <div class="room-window">
+
+                    <div class="modal-block">
+                        <label>- Назва кімнати / ID / Код -</label>
+                        <input type="text" id="joinRoomIdInput" placeholder="Напр.: 1 або CL-1">
+                    </div>
+
+                    <div class="players-block">
+                        <label>- Кількість гравців -</label>
+                        <div class="modal-row">
+                            <button>2</button>
+                            <button>4</button>
+                            <button>Довільний</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-block">
+                        <label>- Режим гри -</label>
+                        <div class="modal-row">
+                            <button>Швидка</button>
+                            <button>Класична</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-block">
+                        <label>- Доступ -</label>
+                        <div class="modal-row">
+                            <button>Відкрита</button>
+                            <button>Приватна</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-block">
+                        <label>- Пароль -</label>
+                        <input type="password" id="joinRoomPasswordInput">
+                    </div>
+
+                    <button class="confirmBtn">Підтвердити</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="ChatAndRoomInfo"></div>
+
+        <!-- Панель після створення кімнати -->
+        <div id="roomCreatedPanel" class="created-panel" data-room-id="{{ room.id if room else '' }}">
+            <div class="created-panel-content">
+
+                <button class="close-created-panel"></button>
+
+                <div class="created-chat-block">
+
+                    <div class="chat-messages" id="chatMessages"></div>
+
+                    <div class="chat-input-row">
+                        <input id="chatInput" type="text" placeholder="Введіть повідомлення...">
+                        <button id="chatSendBtn" class="chat-send"></button>
+                    </div>
+
+                </div>
+
+                <div class="created-tabs">
+                    <button class="tab-btn active" data-tab="players">Інформація гравців</button>
+                    <button class="tab-btn" data-tab="game">Інформація гри</button>
+                </div>
+
+                <div class="created-info">
+                    <div class="tab-content" id="tab-players"></div>
+                    <div class="tab-content" id="tab-game" style="display:none;"></div>
+                </div>
+
+                <button class="start-game-btn">Почати</button>
+
+            </div>
+        </div>
+        
+        
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </body>
+</html>

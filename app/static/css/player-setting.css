@@ -1,0 +1,279 @@
+/* SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software */
+
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Kelly+Slab&display=swap');
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *::before, *:after {
+  box-sizing: border-box;
+}
+
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*===================================================================*//*# sourceMappingURL=style.css.map */
+
+.body {
+  background-color: #78665B;
+  max-width: 1920px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.avatars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: clamp(24px, 2vw, 40px);
+  row-gap: clamp(32px, 3vw, 56px);
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  max-width: min(81.3vw, 1400px);
+  margin: clamp(24px, 2.2vw, 44px) auto auto auto;
+  padding: 0 clamp(16px, 2vw, 32px);
+}
+
+.SaveAndResetButtons {
+    display: flex;
+    justify-content: center;   /* центрує кнопки горизонтально */
+    align-items: center;       /* вирівнює їх вертикально */
+    gap: 5vw;                  /* відстань між кнопками */
+    margin-top: 6vw;           /* відступ зверху від аватарок */
+}
+
+.base_avatar,
+.custom_avatar {
+  width: clamp(100px, 14.64vw, 240px);
+  height: clamp(100px, 14.64vw, 240px);
+  border-radius: 50%;
+  border: 3px solid #7E7E7E;
+  background-color: #ccc;
+  transition: transform 0.2s;
+}
+
+.SaveButton,
+.ResetButton {
+  width: clamp(160px, 13.5vw, 260px);
+  height: clamp(48px, 4.31vw, 80px);
+  min-height: 44px;
+  border-radius: 12px;
+  border: 3px solid #7E7E7E;
+  background-color: #D9D9D9;
+  font-family: "Jura", sans-serif;
+  font-size: clamp(14px, 1.2vw, 22px);
+  transition: transform 0.2s;
+}
+
+.backgrounds{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(16px, 3vw, 48px);
+    margin-top: clamp(32px, 4vw, 64px);
+    flex-wrap: wrap;
+    padding: 0 clamp(16px, 2vw, 32px);
+}
+
+.Background_1,
+.Background_2,
+.Background_3 {
+  width: clamp(220px, 26vw, 400px);
+  height: clamp(120px, 14vw, 220px);
+  border-radius: 12px;
+  border: 3px solid #7E7E7E;
+  background-color: #D9D9D9;
+  font-family: "Jura", sans-serif;
+  font-size: clamp(14px, 1.2vw, 22px);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.container {
+    padding-bottom: 1.5vw; /* отступ после всего контента */
+}
+
+.BackButton {
+  display: block;
+  margin: clamp(24px, 2.25vw, 44px) auto clamp(40px, 5vw, 96px) auto;
+  width: clamp(180px, 14.83vw, 280px);
+  height: clamp(44px, 3.98vw, 76px);
+  min-height: 44px;
+  border-radius: 12px;
+  border: 3px solid #7E7E7E;
+  background-color: #D9D9D9;
+  font-family: "Jura", sans-serif;
+  font-size: clamp(14px, 1.2vw, 22px);
+  transition: transform 0.2s;
+}
+
+.base_avatar:hover,
+.custom_avatar:hover {
+    transform: scale(1.05);
+}
+
+.SaveButton:hover,
+.ResetButton:hover,
+.Background_1:hover,
+.Background_2:hover,
+.Background_3:hover,
+.BackButton:hover {
+  transform: translateY(-3px);
+}
+
+/* ===================== RESPONSIVE: великі екрани ===================== */
+@media (min-width: 1680px) {
+  .avatars {
+    grid-gap: 40px;
+    row-gap: 56px;
+  }
+
+  .base_avatar,
+  .custom_avatar {
+    width: 240px;
+    height: 240px;
+  }
+
+  .SaveButton,
+  .ResetButton {
+    width: 260px;
+    height: 80px;
+    font-size: 22px;
+  }
+
+  .Background_1,
+  .Background_2,
+  .Background_3 {
+    width: 400px;
+    height: 220px;
+  }
+
+  .BackButton {
+    width: 280px;
+    height: 76px;
+    font-size: 22px;
+  }
+}
+
+/* ===================== RESPONSIVE: середні екрани ===================== */
+@media (max-width: 1024px) {
+  .avatars {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 90%;
+  }
+
+  .backgrounds {
+    flex-wrap: wrap;
+    gap: clamp(16px, 3vw, 48px);
+  }
+
+  .Background_1,
+  .Background_2,
+  .Background_3 {
+    width: clamp(200px, 30vw, 340px);
+    height: clamp(100px, 15vw, 180px);
+  }
+}
+
+@media (max-width: 640px) {
+  .avatars {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+    row-gap: 24px;
+  }
+
+  .base_avatar,
+  .custom_avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .SaveAndResetButtons {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .SaveButton,
+  .ResetButton {
+    width: 140px;
+    height: 48px;
+    font-size: 14px;
+  }
+
+  .backgrounds {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .Background_1,
+  .Background_2,
+  .Background_3 {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 2 / 1;
+  }
+
+  .BackButton {
+    width: 160px;
+    height: 48px;
+    font-size: 14px;
+  }
+}

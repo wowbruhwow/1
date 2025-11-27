@@ -1,0 +1,502 @@
+/* SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software */
+
+@charset "UTF-8";
+/* ===================== CITY LEGENDS — DESIGN TOKENS ===================== */
+:root {
+  /* ---------- Brand contexts ---------- */
+  /* Home / page */
+  --home-bg: rgba(52, 39, 31, 1);
+  --home-surface:rgba(217, 217, 217, 1);
+  --home-text: #2A201A; /* текст на page-bg (≥ 4.5:1) */
+  /* Cards / content surfaces */
+  --surface: #ffffff; /* картки/панелі */
+  --surface-muted: #E8E8E8; /* допоміжні блоки/теги */
+  --surface-contrast: #5C4646; /* темна поверхня для модалок у лобі (Create/Find Room) */
+  /* Auth modals */
+  --auth-bg-dark: rgba(42, 32, 26, 1); /* Вхідне/Увійти/Зареєструватися */
+  --auth-surface: rgba(217, 217, 217, 1);
+  /* Відновлення пароля */
+  --reset-bg: rgba(217, 217, 217, 1);
+  --reset-text-on-everything-else: rgba(255, 255, 255, 1);
+  --reset-surface: rgba(92, 70, 70, 1);
+  /*Player Settings*/
+  --pl-setting-bg:rgba(120, 102, 91, 1);
+  --pl-setting-surface: rgba(217, 217, 217, 1);
+  --pl-setting-surface-circles: rgba(92, 70, 70, 1);
+  /*Question and Answers*/
+  --QnA-bg:rgba(52, 39, 31, 1);
+  --QnA-surface-question: rgba(189, 172, 158, 1);
+  --QnA-surface-answers: rgba(188, 171, 157, 1);
+  --QnA-textsurface-question: rgba(217, 217, 217, 1);
+  --QnA-textsurface-answers: rgba(205, 205, 196, 1);
+  /*Welcome back*/
+  --WB-bg:rgba(168, 142, 127, 1);
+  --WB-surface: rgba(157, 130, 115, 1);
+  --WB-text:rgba(53, 39, 39, 1);
+  /*Confidential, License, Rules, Documentation */
+  --Universalpage-bg: rgba(52, 39, 31, 1);
+  --Universalpage-surface: rgba(189, 172, 158, 1);
+  /*Player Profile*/
+  --pl-profile-bg: rgba(168, 142, 127, 1);
+  --pl-profile-surface: rgba(92, 70, 70, 1);
+  /*Find/Create Room*/
+  --pl-FnCr-bg: rgba(147, 130, 117, 1);
+  --pl-FnCr-surface: rgba(74, 55, 50, 1);
+  --pl-FnCr-text: rgba(58, 47, 37, 1);
+  /* Chat in Created Room*/
+  --chat-bg: rgba(189, 172, 158, 1);
+  --chat-input-bg: rgba(232, 228, 214, 1);
+  --chat-ur-text: #7B4E3E;
+  --chat-thr-text: rgba(147, 130, 117, 1);
+  /* Text */
+  --text-on-light: #3A2F25; /* текст на світлому (панелі, світлі модалки) */
+  --text-on-dark: #FFFFFF; /* текст на темному (модалки, CTA, бульбашки) */
+  --text-card: #3C3333; /* текст у картках */
+  /* Borders / outline */
+  --border-FnCr-result: rgba(156, 147, 121, 1);
+  --border-subtle: #E8E8E8;
+  --border-strong: #533429; /* гарантований контраст на page-bg */
+  /* CTA / selections */
+  --cta: #7B4E3E;
+  --cta-hover: #674134; /* (—6% lightness) */
+  --cta-active: #523429; /* (—12% lightness) */
+  --toggle-active: #533429;
+  /* Focus ring (2 шари для контрасту і на світлому, і на темному) */
+  --focus-ring-inner: #FFFFFF;
+  --focus-ring-outer: #533429;
+  --focus-ring: 0 0 0 2px var(--focus-ring-inner), 0 0 0 4px var(--focus-ring-outer);
+  /* Overlay */
+  --overlay: rgba(0,0,0,.45);
+  /* Typography */
+  --font-sans: "MedievalSharp", "Orelega One", "Jaini Purva", "Jaldi", "Bona Nova", "Jim Nightshade", "Jura", "Joti One", "Kelly Slab", "Oi", system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px; /* базовий розмір */
+  --text-medium: 20px;
+  --text-lg: 24px;
+  --text-xl: 30px;
+  --text-2xl: 40px;
+  --text-3xl: 50px;
+  --text-xxl: 60px;
+  --line-tight: 1.25;
+  --line-normal: 1.5;
+  --line-relaxed: 1.65;
+  --h1: var(--text-xxl);
+  --h2: var(--text-3xl);
+  --h3: var(--text-2lg);
+  --h4: var(--text-xl);
+  /* Spacing — 8px step (є micro 4px за потреби) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  /* Radius */
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-round: 999px;
+  /* Border widths */
+  --bw-1: 1px;
+  --bw-2: 2px;
+  /*Blur*/
+  --blur-25: 25px;
+  --blur-8: 8px;
+  --blur-6: 6px;
+  --blur-4: 4px;
+  /* === Shadow / ring tokens === */
+  /* Примітка: у box-shadow НЕ пишемо 'solid' — правильний синтаксис без цього слова */
+  --shadow-ring-6: 0 0 0 6px rgba(0,0,0,.25);
+  --shadow-ring-4: 0 0 0 4px rgba(0,0,0,.25);
+  --shadow-hairline: 0 0 0 1px rgba(0,0,0,.25);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.12);
+  --shadow: 0 2px 8px rgba(0,0,0,.12);
+  /* Z-index */
+  --z-modal: 1000;
+  --link: var(--cta);
+  --link-hover: var(--cta-hover);
+  --dur-1: .15s;
+  --ease: cubic-bezier(.2,.7,.2,1);
+  /* === ЄДИНІ СТАНИ ДЛЯ УСІХ КНОПОК === */
+  /* focus-visible — спільний для всіх */
+  /* HOVER — однаково для всіх, кольори приходять зі змінних */
+  /* ACTIVE / PRESSED — однаково для всіх */
+  /* DISABLED — однаково для всіх */
+  /* LOADING — блокує взаємодію; можна показувати спінер усередині */
+  /* ===== РОЗМІРИ (спільні) ===== */
+  /* ===== СПІЛЬНИЙ СПІНЕР (за бажанням) ===== */
+  /* PRIMARY / CTA */
+  /* SECONDARY (світла поверхня) */
+  /* GHOST / TERTIARY */
+  /* DANGER */
+  /* ICON BUTTON (коло/квадрат — все одно успадковує стани) */
+  /* TOGGLE (натискання фіксує стан через aria-pressed) */
+}
+:root .btn {
+  /* базові змінні з дефолтами на випадок, якщо модифікатор не задав */
+  --btn-bg: transparent;
+  --btn-fg: var(--text-on-light);
+  --btn-bd: transparent;
+  --btn-bg-hover: var(--btn-bg);
+  --btn-fg-hover: var(--btn-fg);
+  --btn-bd-hover: var(--btn-bd);
+  --btn-bg-active: var(--btn-bg-hover);
+  --btn-fg-active: var(--btn-fg-hover);
+  --btn-bd-active: var(--btn-bd-hover);
+  --btn-disabled-opacity: .55;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  height: var(--btn-h, 40px);
+  padding: 0 var(--btn-pad-x, 16px);
+  font-size: var(--btn-fs, var(--text-base));
+  line-height: 1;
+  border-radius: var(--radius);
+  border: var(--bw-1) solid var(--btn-bd);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: background var(--dur-1) var(--ease), color var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease), transform var(--dur-1) var(--ease), opacity var(--dur-1) var(--ease);
+}
+:root .btn:focus {
+  outline: none;
+}
+:root .btn:focus-visible {
+  box-shadow: var(--focus-ring);
+}
+:root .btn:not([disabled]):not([aria-disabled=true]):not(.is-loading):hover {
+  background: var(--btn-bg-hover);
+  color: var(--btn-fg-hover);
+  border-color: var(--btn-bd-hover);
+}
+:root .btn:not([disabled]):not([aria-disabled=true]):not(.is-loading):active,
+:root .btn[aria-pressed=true] {
+  background: var(--btn-bg-active);
+  color: var(--btn-fg-active);
+  border-color: var(--btn-bd-active);
+  transform: translateY(1px);
+}
+:root .btn[disabled], :root .btn[aria-disabled=true], :root .btn.is-disabled {
+  opacity: var(--btn-disabled-opacity);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+:root .btn[data-loading=true], :root .btn.is-loading {
+  pointer-events: none;
+  opacity: 0.9;
+}
+:root .btn--s {
+  --btn-h: 32px;
+  --btn-pad-x: 12px;
+  --btn-fs: 14px;
+}
+:root .btn--m {
+  --btn-h: 40px;
+  --btn-pad-x: 16px;
+  --btn-fs: 16px;
+}
+:root .btn--l {
+  --btn-h: 48px;
+  --btn-pad-x: 20px;
+  --btn-fs: 16px;
+}
+:root .btn__spinner {
+  display: none;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+:root .btn.is-loading .btn__spinner,
+:root .btn[data-loading=true] .btn__spinner {
+  display: inline-block;
+  margin-right: 8px;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+:root .btn--primary {
+  --btn-bg: var(--cta);
+  --btn-fg: var(--text-on-dark);
+  --btn-bd: var(--border-strong);
+  --btn-bg-hover: var(--cta-hover);
+  --btn-fg-hover: var(--text-on-dark);
+  --btn-bd-hover: var(--border-strong);
+  --btn-bg-active: var(--cta-active);
+  --btn-fg-active: var(--text-on-dark);
+  --btn-bd-active: var(--border-strong);
+}
+:root .btn--secondary {
+  --btn-bg: var(--surface);
+  --btn-fg: var(--text-on-light);
+  --btn-bd: var(--border-subtle);
+  --btn-bg-hover: var(--surface-muted);
+  --btn-fg-hover: var(--text-on-light);
+  --btn-bd-hover: var(--border-subtle);
+  --btn-bg-active: var(--surface);
+  --btn-fg-active: var(--text-on-light);
+  --btn-bd-active: var(--border-strong);
+}
+:root .btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--link);
+  --btn-bd: transparent;
+  --btn-bg-hover: var(--surface-hover, rgba(0,0,0,.04));
+  --btn-fg-hover: var(--link-hover);
+  --btn-bd-hover: transparent;
+  --btn-bg-active: transparent;
+  --btn-fg-active: var(--link-hover);
+  --btn-bd-active: transparent;
+  box-shadow: none;
+}
+:root .btn--danger {
+  /* якщо маєш danger-токени — підстав їх; нижче дефолти */
+  --btn-bg: var(--danger, #C0392B);
+  --btn-fg: var(--text-on-dark);
+  --btn-bd: var(--border-strong);
+  --btn-bg-hover: var(--danger-hover, #A93226);
+  --btn-bg-active: var(--danger-active, #922B21);
+}
+:root .btn--icon {
+  width: var(--btn-h, 40px);
+  padding: 0;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+:root .btn--toggle {
+  --btn-bg: var(--surface);
+  --btn-fg: var(--text-on-light);
+  --btn-bd: var(--border-subtle);
+  --btn-bg-hover: var(--surface-muted);
+  --btn-bd-active: var(--border-strong);
+}
+:root .btn--toggle[aria-pressed=true] {
+  --btn-bg: var(--toggle-active);
+  --btn-fg: var(--text-on-dark);
+  --btn-bd: var(--border-strong);
+}
+
+/* ===================== GLOBAL BASE ===================== */
+html, body {
+  background: var(--home-bg);
+  color: var(--home-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--line-normal);
+}
+
+/* Контентні поверхні (щоб завжди мати контрастний текст ≥ 4.5:1) */
+.surface, .card, .panel {
+  background: var(--surface);
+  color: var(--text-on-light);
+  border: var(--bw-1) solid var(--border-subtle);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Темні модалки (Lobby Create/Find, Auth dark) */
+.modal--dark {
+  background: var(--surface-contrast);
+  color: var(--text-on-dark);
+}
+
+/* Світла auth-модалка (Password Recovery) */
+.modal--light {
+  background: var(--reset-bg);
+  color: var(--reset-surface);
+  text-decoration-color: var(--text-on-light);
+}
+
+/* Фокус для всіх інтерактивних елементів */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-sm);
+}
+
+/* Лінки */
+a[href] {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a[href]:hover {
+  color: var(--link-hover);
+  text-decoration-thickness: 3px;
+}
+
+/* Мін. клікабельна зона */
+button, [role=button], .icon-btn {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Приклад CTA-кнопки з non-text контрастним бордером (≥3:1) */
+.btn--cta {
+  background: var(--cta);
+  color: var(--text-on-dark);
+  border: var(--bw-2) solid var(--border-strong); /* 533429 проти A88E7F = 3.62:1 */
+}
+
+.btn--cta:hover {
+  background: var(--cta-hover);
+}
+
+.btn--cta:active {
+  background: var(--cta-active);
+}
+
+/* Приклади токенів для полів вводу */
+.input {
+  background: var(--surface);
+  color: var(--text-on-light);
+  border: var(--bw-1) solid var(--border-subtle);
+}
+
+.input:focus-visible {
+  border-color: var(--border-strong);
+  box-shadow: var(--focus-ring);
+}
+
+/* ===================== TOAST (SYSTEM MESSAGES) ===================== */
+/*
+  Відповідно до SITE_LOGIC.md та ART.md:
+  - позиція: 20px від верхнього краю екрана, по центру;
+  - фон: світла поверхня (аналог #D9D9D9);
+  - текст: темний, добре читабельний;
+  - один контейнер на сторінку: #app-toast.
+*/
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-modal);
+  min-width: min(420px, 90vw);
+  max-width: min(560px, 95vw);
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  background: var(--surface-muted);
+  color: var(--text-on-light);
+  border: var(--bw-1) solid var(--border-subtle);
+  box-shadow: var(--shadow);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  text-align: center;
+}
+
+/* Стан hidden контролюється через hidden-атрибут у HTML/JS */
+.toast[hidden] {
+  display: none;
+}
+
+/* ===================== RESPONSIVE SYSTEM ===================== */
+
+/* Адаптивні CSS-змінні для різних breakpoints */
+:root {
+  --container-max-width: 1530px;
+  --container-padding: clamp(16px, 3vw, 48px);
+  --section-gap: clamp(32px, 5vw, 80px);
+  --card-gap: clamp(16px, 2vw, 32px);
+  
+  /* Fluid typography */
+  --fs-hero: clamp(40px, 4vw, 60px);
+  --fs-h1: clamp(32px, 3.5vw, 50px);
+  --fs-h2: clamp(28px, 3vw, 45px);
+  --fs-h3: clamp(24px, 2.5vw, 40px);
+  --fs-body-lg: clamp(18px, 1.8vw, 30px);
+  --fs-body: clamp(16px, 1.5vw, 22px);
+  --fs-body-sm: clamp(14px, 1.3vw, 18px);
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Responsive container utility */
+.responsive-container {
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Breakpoint-specific adjustments */
+@media (max-width: 1680px) {
+  :root {
+    --section-gap: clamp(24px, 4vw, 60px);
+  }
+}
+
+@media (max-width: 1440px) {
+  :root {
+    --section-gap: clamp(20px, 3.5vw, 48px);
+    --card-gap: clamp(12px, 1.8vw, 24px);
+  }
+}
+
+@media (max-width: 1366px) {
+  :root {
+    --section-gap: clamp(16px, 3vw, 40px);
+  }
+}
+
+@media (max-width: 1280px) {
+  :root {
+    --container-padding: clamp(12px, 2.5vw, 32px);
+    --section-gap: clamp(16px, 2.5vw, 32px);
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --container-padding: 16px;
+    --section-gap: 24px;
+    --card-gap: 16px;
+  }
+}
+
+/* ===================== PAGE LAYOUT: STICKY FOOTER ===================== */
+.page-with-footer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-footer {
+  flex-shrink: 0;
+}
+
+/* На широких екранах футер тримаємо в один рядок, якщо текст влазить */
+@media (min-width: 1200px) {
+  .page-with-footer .page-footer {
+    white-space: nowrap;
+  }
+}

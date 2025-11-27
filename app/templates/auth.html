@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Авторизація — City Legends</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Jim+Nightshade:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oi:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}" />
+  </head>
+  <body data-page="auth-choice">
+    <div class="main-container page-with-footer">
+      <div class="page-main">
+        <div class="rectangle">
+          <span class="urban-legends">Міські Легенди</span>
+        </div>
+
+        <!-- Екран вибору: логін / реєстрація -->
+        <button type="button" class="login-button" data-nav="login">
+          <span class="login">- Увійти -</span>
+        </button>
+        <button type="button" class="register-button" data-nav="register">
+          <span class="register-text">- Зареєструватися -</span>
+        </button>
+      </div>
+
+      <span class="footer-links page-footer">
+        © City Legends | Версія гри | Соцмережі | Ліцензія | Конфіденційність |
+        Документація | Зв’язатися з нами |
+      </span>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+  </body>
+</html>

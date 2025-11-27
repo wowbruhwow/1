@@ -1,0 +1,688 @@
+/* SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software */
+
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Kelly+Slab&display=swap');
+
+/* ============================================================
+   ЗАНУЛЮЮЧИЙ КОД
+============================================================ */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* ============================================================
+   ОСНОВНІ СТИЛІ СТОРІНКИ
+============================================================ */
+
+.body {
+    margin: 0;
+    background-color: #F1E9D2;
+    font-family: "Jura", system-ui, sans-serif;
+}
+
+/* Full-screen game layout only on Play screen */
+body.body[data-page="play"] {
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.game-layout {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.hourglass_border {
+  position: absolute;
+  top: 1vh;
+  left: 1.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5.88vw;
+  height: 9vh;
+  background: black;
+  clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%, 30% 50%);
+  overflow: hidden;
+  margin: 0;
+}
+
+.hourglass {
+  width: 5.3vw;
+  height: 8vh;
+  background: #ccc;
+  clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%, 30% 50%);
+  overflow: hidden;
+}
+
+.PlayersAndButtonsMenu {
+  position: absolute;
+  top: 2.5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vh;
+  z-index: 1000;
+}
+
+.buttons {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.CardsFAQ {
+  position: relative;
+  left: 38px;
+  width: 9.15vw;
+  height: 3.5vh;
+  background-color: #947070;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  font-size: clamp(12px, 1.2vw, 18px);
+  clip-path: polygon(0% 0%, 100% 0%, 71.42% 100%, 0% 100%);
+}
+
+.GameMenu {
+  width: 9.15vw;
+  height: 3.5vh;
+  background-color: #947070;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  font-size: clamp(12px, 1.2vw, 18px);
+  clip-path: polygon(28.57% 0%, 100% 0%, 71.42% 100%, 0% 100%);
+}
+
+.GameChat {
+    position: relative;
+  right: 38px;
+  width: 9.15vw;
+  height: 3.5vh;
+  background-color: #947070;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  font-size: clamp(12px, 1.2vw, 18px);
+  clip-path: polygon(0% 100%, 28.57% 0%, 100% 0%, 100% 100%);
+}
+
+.Players {
+    width: 21.3vw;
+    height: 4.5vh;
+    background-color: #663A3A;
+    margin-top: 0;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 1vw;
+}
+
+.PlayerME,
+.Player_1,
+.Player_2,
+.Player_3 {
+    width: 2.48vw;
+    height: 3.5vh;
+    border-radius: 50%;
+    background-color: #ccc;
+    transition: transform 0.2s;
+}
+
+.PlayerME:hover,
+.Player_1:hover,
+.Player_2:hover,
+.Player_3:hover {
+    transform: scale(1.05);
+}
+
+.EnemyHealth {
+    position: absolute;
+    top: 2.5vh;
+    right: 2vw;
+
+    width: 7.58vw;
+    height: 2.5vh;
+    background-color: #E9D6AC;
+    border-radius: 20px;
+    border: 1px solid #E7BF65;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.5vw;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+/* ===== ЛІВА БІЧНА ПАНЕЛЬ: ЛОКАЦІЇ (сітка 2x3) ===== */
+.ActiveLocations {
+    position: absolute;
+    top: 12vh;
+    left: 1vw;
+    width: 12vw;
+    height: 65vh;
+    background-color: #A88E7F;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0.8vh;
+    padding: 1vh 0.5vw;
+}
+
+/* Слоти для карт локацій */
+.ActiveLocations .Position_0,
+.ActiveLocations .Position_1,
+.ActiveLocations .Position_2,
+.ActiveLocations .Position_3,
+.ActiveLocations .Position_4,
+.ActiveLocations .Position_5 {
+    background-color: #D9D9D9;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== ПРАВА БІЧНА ПАНЕЛЬ: КАРТИ В РУЦІ + PREVIEW ===== */
+.MyAndEnemyPoints {
+    position: absolute;
+    top: 12vh;
+    right: 1vw;
+    width: 8vw;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.MyPoints,
+.EnemyPoints {
+    flex: 1;
+    background-color: #D9D9D9;
+    border-radius: 8px;
+}
+
+/* ===== ЦЕНТРАЛЬНА ІГРОВА ДОШКА ===== */
+.board {
+    position: absolute;
+    top: 12vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 66vw;
+    height: 66vh;
+    background-color: #F23131;
+    border-radius: 20px;
+}
+
+/* Ліва світла дошка */
+.MyLightSideBoard {
+    position: absolute;
+    top: 2vh;
+    left: 1vw;
+    width: 20vw;
+    height: 62vh;
+    background-color: #D9D9D980;
+    border-radius: 10px;
+}
+
+/* Права світла дошка */
+.EnemyLightSideBoard {
+    position: absolute;
+    top: 2vh;
+    right: 1vw;
+    width: 20vw;
+    height: 62vh;
+    background-color: #D9D9D980;
+    border-radius: 10px;
+}
+
+/* Верхня дарксайд дошка */
+.MyDarkSideBoard {
+    position: absolute;
+    top: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 23vw;
+    height: 17vh;
+    background-color: #D9D9D980;
+    border-radius: 10px;
+}
+
+/* Нижня дарксайд дошка */
+.EnemyDarkSideBoard {
+    position: absolute;
+    bottom: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 23vw;
+    height: 17vh;
+    background-color: #D9D9D980;
+    border-radius: 10px;
+}
+
+/* Центральна дошка для спеціальних карт */
+.SpecialCardsBoard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 23vw;
+    height: 20vh;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+
+/* ===== НИЖНЯ ПАНЕЛЬ: ХОДИ ===== */
+.Moves {
+    position: absolute;
+    left: 0;
+    bottom: 13vh;
+    width: 14vw;
+    height: 14vh;
+    background-color: #906565;
+    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+}
+
+.Moves p {
+    position: absolute;
+    border-radius: 25px;
+    background-color: #D9D9D9;
+    width: 7vw;
+    height: 5vh;
+    top: 1.5vh;
+    left: 1.3vw;
+    font-size: clamp(18px, 2vw, 32px);
+    font-family: "Jura";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== ЗДОРОВ'Я ГРАВЦЯ ===== */
+.MyHealth {
+    position: absolute;
+    left: 14.5vw;
+    bottom: 15.5vh;
+    width: 7vw;
+    height: 2.5vh;
+    background-color: #E9D6AC;
+    border-radius: 20px;
+    border: 1px solid #E7BF65;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.5vw;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+/* ===== РУКА ГРАВЦЯ (НИЖНЯ ТРАПЕЦІЯ) ===== */
+.Hand {
+    position: absolute;
+    left: 4vw;
+    bottom: 0;
+    width: 92vw;
+    height: 13vh;
+    background-color: #B49B73;
+    clip-path: polygon(0% 100%, 17% 0%, 83% 0%, 100% 100%);
+}
+
+/* ===== СКИД (ПРАВА НИЖНЯ ПАНЕЛЬ) ===== */
+.Drops {
+    position: absolute;
+    right: 0;
+    bottom: 13vh;
+    width: 14vw;
+    height: 14vh;
+    background-color: #906565;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.OpenDrops {
+    position: absolute;
+    border-radius: 25px;
+    background-color: #D9D9D9;
+    width: 7vw;
+    height: 5vh;
+    top: 1.5vh;
+    right: 1.3vw;
+    font-size: clamp(18px, 2vw, 32px);
+    font-family: "Jura";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.OpenDrops:hover{
+    background-color: #aeadad;
+    transform: translateY(-3px);
+}
+
+/* ============================================================
+   СПЛИВНЕ ВІКНО СКИДУ
+============================================================ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 5000;
+
+    overflow-y: auto;
+    padding: 5vh 0;
+}
+
+.modal_drops {
+    width: 56.73vw;
+    height: 60vh;
+    background-color: #C9BE9F;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.popup_name {
+  font-family: "Jura";
+  text-align: center;
+  font-size: 2.61vw;
+  background-color: #422828;  
+  color: white;
+  border-radius: 12px;
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.5);
+  width: 25.16vw;
+  height: 3.07vw;
+  position: absolute;
+  top: 3.24vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #422828;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #6c4242;
+}
+
+.modal_form {
+  margin-top: 12.2vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ============================================================
+   МОДАЛЬНЕ ВІКНО GAME MENU
+============================================================ */
+.modal_gameMenu {
+  width: 45.75vw;
+  height: 42.48vw;
+  background-color: #f2ebd9;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  padding: 3vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.exit_title {
+  width: 35.94vw;
+  height: 6.27vw;
+  font-family: "Jura";
+  font-size: 2.6vw;
+  background-color: #7c6b6b;
+  color: #f5f5f5;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2vh;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.yes_no_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw; /* відстань між "Так" і "Ні" */
+}
+
+.menu_buttons_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+}
+
+.menu_btn {
+  font-family: "Jura";
+  font-size: 1.6vw;
+  background-color: #a99797;
+  color: #2b2b2b;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.menu_btn:hover {
+  transform: scale(1.05);
+}
+
+/* Вісімкутники ("Так" / "Ні") */
+.polygon_btn {
+  color: #f5f5f5;
+  width: 16.89vw;
+  height: 9.77vw;
+  clip-path: polygon(15% 0, 85% 0, 100% 25%, 100% 75%, 85% 100%, 15% 100%, 0 75%, 0 25%);
+}
+
+/* Трапеція ("Налаштування") */
+.trapezoid_btn {
+  width: 35.94vw;
+  height: 6.6vw;
+  background-color: #7a7272;
+  clip-path: polygon(0 100%, 20% 0%, 100% 0%, 80% 100%);
+  color: white;
+}
+
+/* Шестикутник ("Назад") */
+.hex_btn {
+  color: #f5f5f5;
+  width: 13.98vw;
+  height: 5.22vw;
+  clip-path: polygon(15% 0, 85% 0, 100% 25%, 100% 75%, 85% 100%, 15% 100%, 0 75%, 0 25%);
+  font-size: 1.6vw;
+  margin-top: 10vh;
+}
+
+/* === GAME CHAT WINDOW === */
+.game-chat-window {
+    position: fixed;
+    top: 10vw;
+    right: 2vw;
+    width: 22vw;
+    height: 28vw;
+    background: #5C4646;
+    border-radius: 0.6vw;
+    box-shadow: 0 0 1vw rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    z-index: 99999;
+
+    pointer-events: auto; /* чат взаємодіє */
+}
+
+.game-chat-header {
+    position: relative;
+    height: 2.5vw;
+    background: #7A6A66;
+    border-radius: 0.6vw 0.6vw 0 0;
+    color: white;
+    font-family: "Jura";
+    font-size: 1.2vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 0.8vw;
+    cursor: move;
+}
+
+
+.game-chat-close {
+    background: none;
+    border: none;
+    font-size: 1.6vw;
+    color: white;
+    cursor: pointer;
+}
+
+.game-chat-messages {
+    flex-grow: 1;
+    background: #E8D8CC;
+    margin: 0.5vw;
+    border-radius: 0.5vw;
+    padding: 0.5vw;
+    overflow-y: auto;
+    font-size: 0.9vw;
+}
+
+.game-chat-input-row {
+    display: flex;
+    gap: 0.4vw;
+    padding: 0.5vw;
+}
+
+#gameChatInput {
+    flex-grow: 1;
+    border-radius: 0.4vw;
+    border: none;
+    padding-left: 0.6vw;
+    height: 2vw;
+}
+
+.game-chat-send {
+    width: 2.2vw;
+    height: 2vw;
+    background-color: #c79d77;
+    background-image: url("/assets/art/send_icon.png");
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 0.4vw;
+    cursor: pointer;
+}
+
+.game-chat-send:hover {
+    background-color: #d5a882;
+}
+
+.game-chat-close {
+    position: absolute;
+    right: 0.5vw;
+    top: 0.2vw;
+    z-index: 999999 !important;
+    pointer-events: auto !important;
+}

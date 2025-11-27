@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Реєстрація — City Legends</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registration.css') }}" />
+  </head>
+  <body data-page="register">
+    <div class="main-container page-with-footer">
+      <button type="button" class="button-exit" data-nav="back"></button>
+      <div class="page-main">
+        <div class="flex-column-f">
+          <div class="template">
+            <div class="rectangle">
+              <span class="register">Зареєструватися</span>
+            </div>
+
+            <form class="auth-form" data-form="register" novalidate>
+              <div class="flex-row-f" data-field="nickname">
+                <div class="rectangle-1">
+                  <span class="unique-name">Унікальне ім’я</span>
+                </div>
+                <div class="input-button">
+                  <input
+                    type="text"
+                    name="nickname"
+                    class="auth-input"
+                    maxlength="16"
+                    placeholder="Вкажіть унікальний нік"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="flex-row-ded" data-field="email">
+                <div class="rectangle-2">
+                  <span class="email">Електронна пошта</span>
+                </div>
+                <div class="input-button-3">
+                  <input
+                    type="email"
+                    name="email"
+                    class="auth-input"
+                    placeholder="&lt;name@example.com&gt;"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="flex-row-a" data-field="email-confirm">
+                <div class="rectangle-4">
+                  <span class="span-repeat-mail">Повторити пошту</span>
+                </div>
+                <div class="input-data-button">
+                  <input
+                    type="email"
+                    name="email_confirm"
+                    class="auth-input"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="flex-row-b" data-field="password">
+                <div class="rectangle-5">
+                  <span class="span-password">Пароль</span>
+                </div>
+                <div class="input-button-6">
+                  <input
+                    type="password"
+                    name="password"
+                    class="auth-input"
+                    maxlength="20"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="flex-row-f-7" data-field="password-confirm">
+                <div class="rectangle-8">
+                  <span class="repeat-password">Повторити пароль</span>
+                </div>
+                <div class="input-button-9">
+                  <input
+                    type="password"
+                    name="password_confirm"
+                    class="auth-input"
+                    maxlength="20"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="flex-row-dd" data-field="terms">
+                <button
+                  type="button"
+                  class="checkmark-button"
+                  data-toggle="terms"
+                  aria-pressed="false"
+                ></button>
+                <span class="agree-license-privacy">
+                  Погоджуюсь з Ліцензією та Політикою конфіденційності
+                </span>
+              </div>
+
+              <div class="form-messages" aria-live="polite"></div>
+
+              <button type="submit" class="rectangle-a">
+                <span class="login">Створити акаунт</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <span class="copyright-version-social page-footer">
+        © City Legends | Версія гри | Соцмережі | Ліцензія | Конфіденційність |
+        Документація | Зв’язатися з нами |
+      </span>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+  </body>
+</html>

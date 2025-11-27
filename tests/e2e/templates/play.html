@@ -1,0 +1,35 @@
+<!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>City Legends — Play</title>
+  </head>
+  <body>
+    <main role="main" aria-labelledby="play-title">
+      <header>
+        <h1 id="play-title">Play</h1>
+        <p>Room: {{ room_id }}</p>
+      </header>
+
+      <section aria-label="Match status">
+        {% if state == "myTurn" %}
+          <p role="status" aria-live="polite">Your turn — play a card.</p>
+        {% elif state == "finished" %}
+          <p role="status" aria-live="polite">Match finished.</p>
+        {% else %}
+          <p role="status" aria-live="polite">Waiting for opponent…</p>
+        {% endif %}
+      </section>
+
+      {% if state == "finished" %}
+        <div role="dialog" aria-modal="true" aria-labelledby="result-title">
+          <h2 id="result-title">Match result</h2>
+          <p>Player 1 wins by technical victory.</p>
+          <button type="button">Back to lobby</button>
+        </div>
+      {% endif %}
+    </main>
+  </body>
+</html>

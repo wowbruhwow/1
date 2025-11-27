@@ -1,0 +1,479 @@
+# SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software
+openapi: 3.0.3
+info:
+  title: City Legends HTTP API
+  version: 0.1.0
+  description: |
+    REST-контракт для прототипу бекенду City Legends.
+    Цей контракт покриває базові флоу авторизації та лобі/кімнат.
+    HTTP-мок реалізовано у файлі mocks/api/server.py.
+servers:
+  - url: http://localhost:5002
+    description: Локальний HTTP-мок (Flask, mocks/api/server.py)
+  - url: http://localhost:5000
+    description: Основний Flask-додаток (run.py + app/api.py, БД PostgreSQL)
+
+paths:
+  /auth/login:
+    post:
+      tags: [Auth]
+      summary: Логін користувача за емейлом і паролем.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthLoginRequest'
+      responses:
+        '200':
+          description: Успішний вхід.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthLoginResponse'
+        '400':
+          description: Помилка валідації вхідних даних.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Невірні дані входу.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security: []
+
+  /auth/register:
+    post:
+      tags: [Auth]
+      summary: Реєстрація нового акаунта.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRegisterRequest'
+      responses:
+        '201':
+          description: Акаунт створено, лист підтвердження надіслано.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthRegisterResponse'
+        '400':
+          description: Помилка валідації (нік, емейл тощо).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security: []
+
+  /auth/reset:
+    post:
+      tags: [Auth]
+      summary: Запит на відновлення пароля.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthResetRequest'
+      responses:
+        '200':
+          description: Лист з інструкцією відправлено.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResetResponse'
+        '400':
+          description: Помилка валідації емейлу.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security: []
+
+  /rooms:
+    get:
+      tags: [Rooms]
+      summary: Отримати список доступних кімнат для матчмейкінгу.
+      parameters:
+        - in: query
+          name: mode
+          schema:
+            type: string
+            enum: [quick, classic]
+          description: Фільтр за режимом гри.
+        - in: query
+          name: access
+          schema:
+            type: string
+            enum: [public, private]
+          description: Фільтр за типом доступу до кімнати.
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+          description: Скільки кімнат повернути за один запит.
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            minimum: 0
+          description: Зсув для пагінації.
+      responses:
+        '200':
+          description: Список кімнат.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomListResponse'
+        '401':
+          description: Неавторизований запит (у реальному бекенді може вимагати токен).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    post:
+      tags: [Rooms]
+      summary: Створення нової кімнати.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoomCreateRequest'
+      responses:
+        '201':
+          description: Кімнату створено.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomCreateResponse'
+        '400':
+          description: Помилка валідації (наприклад, немає назви кімнати).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /rooms/{id}/join:
+    post:
+      tags: [Rooms]
+      summary: Приєднання до існуючої кімнати.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: Ідентифікатор кімнати.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoomJoinRequest'
+      responses:
+        '200':
+          description: Успішне приєднання до кімнати.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomJoinResponse'
+        '400':
+          description: Помилка валідації запиту.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Невірний пароль для приватної кімнати.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Кімнату не знайдено.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /profile/nickname:
+    post:
+      tags: [Profile]
+      summary: Оновити нікнейм поточного користувача.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [nickname]
+              properties:
+                nickname:
+                  type: string
+                  maxLength: 16
+      responses:
+        '200':
+          description: Нікнейм оновлено.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [ok, message, user]
+                properties:
+                  ok:
+                    type: boolean
+                  message:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/AuthUser'
+        '400':
+          description: Помилка валідації ніку.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Користувач неавторизований.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  # bearerAuth лишається задекларованим для майбутнього реального бекенду,
+  # але у цьому моковому контракті глобальний security не застосовується.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    AuthUser:
+      type: object
+      description: Базова інформація про гравця.
+      properties:
+        id:
+          type: string
+        nickname:
+          type: string
+        email:
+          type: string
+          format: email
+        stats:
+          type: object
+          properties:
+            matchesPlayed:
+              type: integer
+              minimum: 0
+            wins:
+              type: integer
+              minimum: 0
+
+    AuthLoginRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          minLength: 8
+        rememberMe:
+          type: boolean
+          description: Чи зберігати сесію довше (для реального бекенду).
+
+    AuthLoginResponse:
+      type: object
+      required: [ok, message, token, user]
+      properties:
+        ok:
+          type: boolean
+          description: Завжди true для успішної відповіді.
+        message:
+          type: string
+          description: Людинозрозумілий текст (див. mocks/api/auth/login-success.json).
+        token:
+          type: string
+          description: Короткоживучий bearer-токен (у мокові — фіксоване значення).
+        user:
+          $ref: '#/components/schemas/AuthUser'
+
+    AuthRegisterRequest:
+      type: object
+      required: [nickname, email, password]
+      properties:
+        nickname:
+          type: string
+          maxLength: 16
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          minLength: 8
+
+    AuthRegisterResponse:
+      type: object
+      required: [ok, message, token, user]
+      properties:
+        ok:
+          type: boolean
+        message:
+          type: string
+          description: Текст успіху (див. mocks/api/auth/register-success.json).
+        token:
+          type: string
+        user:
+          $ref: '#/components/schemas/AuthUser'
+
+    AuthResetRequest:
+      type: object
+      required: [email]
+      properties:
+        email:
+          type: string
+          format: email
+
+    AuthResetResponse:
+      type: object
+      required: [ok, message]
+      properties:
+        ok:
+          type: boolean
+        message:
+          type: string
+          description: Текст успіху (див. mocks/api/auth/reset-success.json).
+
+    Room:
+      type: object
+      description: Кімната для матчмейкінгу.
+      required: [id, name, mode, maxPlayers, currentPlayers, access, hasPassword, status]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        mode:
+          type: string
+          enum: [quick, classic]
+        maxPlayers:
+          type: integer
+          minimum: 2
+          maximum: 4
+        currentPlayers:
+          type: integer
+          minimum: 0
+        access:
+          type: string
+          enum: [public, private]
+        hasPassword:
+          type: boolean
+        status:
+          type: string
+          enum: [waiting, in_progress, finished]
+        pingMs:
+          type: integer
+          minimum: 0
+          description: Мок-значення пінгу до сервера.
+
+    RoomListResponse:
+      type: object
+      properties:
+        rooms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Room'
+
+    RoomCreateRequest:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        mode:
+          type: string
+          enum: [quick, classic]
+          default: quick
+        maxPlayers:
+          type: integer
+          enum: [2, 4]
+          default: 2
+        access:
+          type: string
+          enum: [public, private]
+          default: public
+        password:
+          type: string
+          minLength: 4
+          maxLength: 20
+          description: Обов'язковий, якщо access=private (у мокові мінімально перевіряється).
+        turnDurationSec:
+          type: integer
+          enum: [30, 45]
+          description: Тривалість ходу згідно з режимом (Швидка/Класична).
+
+    RoomCreateResponse:
+      type: object
+      required: [ok, room, inviteCode]
+      properties:
+        ok:
+          type: boolean
+        room:
+          $ref: '#/components/schemas/Room'
+        inviteCode:
+          type: string
+          description: Код/посилання для запрошення в кімнату.
+
+    RoomJoinRequest:
+      type: object
+      properties:
+        password:
+          type: string
+          description: Пароль, якщо кімната приватна.
+        asSpectator:
+          type: boolean
+          description: Приєднатися як спостерігач (на майбутнє).
+
+    RoomJoinResponse:
+      type: object
+      required: [ok, room, playerId, wsUrl]
+      properties:
+        ok:
+          type: boolean
+        room:
+          $ref: '#/components/schemas/Room'
+        playerId:
+          type: string
+        wsUrl:
+          type: string
+          description: WebSocket URL для підключення до матчу (див. docs/dev/api/ws-events.md).
+
+    ErrorResponse:
+      type: object
+      required: [ok, code, message]
+      properties:
+        ok:
+          type: boolean
+          description: Для помилок завжди false.
+        code:
+          type: string
+          description: Машиночитний код помилки (наприклад, validation_error, not_found, forbidden).
+        message:
+          type: string
+          description: Текстове пояснення помилки.
+        details:
+          type: object
+          additionalProperties: true
+          description: Додаткові деталі (поле → повідомлення), якщо потрібно.
+

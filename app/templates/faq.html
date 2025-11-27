@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kelly+Slab:wght@400&display=swap" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/faq.css') }}" />
+  </head>
+  <body>
+    <div class="main-container page-with-footer">
+      <div class="page-main">
+        <div class="flex-row-base">
+          <div class="question-template">
+            <div class="question-button">
+              <span class="question-text">тут просто питання</span>
+            </div>
+            <div class="question-button-1"></div>
+            <div class="question-button-2"></div>
+            <div class="question-button-3"></div>
+            <div class="question-button-4"></div>
+            <div class="question-button-5"></div>
+            <div class="question-button-6"></div>
+          </div>
+          <div class="response-template">
+            <div class="response-zone">
+              <span class="answer-section">тут відповіді на питання</span>
+            </div>
+          </div>
+        </div>
+        <button class="back-button" type="button"><span class="back">назад</span></button>
+      </div>
+      <span class="city-legends page-footer">
+        © City Legends | Версія гри | Соцмережі | Ліцензія | Конфіденційність |
+        Документація | Зв’язатися з нами |
+      </span>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/faq.js') }}"></script>
+  </body>
+</html>

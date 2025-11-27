@@ -1,0 +1,16 @@
+/* SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+body { min-height: 100dvh; text-rendering: optimizeLegibility; }
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+
+/* Фокус залишаємо під контроль токенів */
+:focus { outline: none; }
+:focus-visible { box-shadow: var(--focus-ring); border-radius: var(--radius-sm); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

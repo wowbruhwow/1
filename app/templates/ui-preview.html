@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
+<html lang="ua">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>City Legends — Screen Demos</title>
+
+  <!-- CSS -->
+  <link href="{{ url_for('static', filename='css/reset_page_style.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style.patched.css') }}" rel="stylesheet">
+
+  <!-- Основний JS (твій ui.js) -->
+  <script src="{{ url_for('static', filename='js/ui.patched.js') }}" defer></script>
+
+  <!-- Fonts (опційно, щоб побачити таски з типографії) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Orelega+One&family=Jaini+Purva&family=Jaldi:wght@400;700&family=Bona+Nova:wght@400;700&family=Jim+Nightshade&family=Jura:wght@400;600;700&family=Joti+One&family=Kelly+Slab&family=Oi&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+  <!-- Дрібна демо-верстка (лише для сторінки) -->
+  <style>
+    :root { --gap: 24px; }
+    body { margin:0; }
+    .demo-section { padding: 32px; display:grid; gap:16px; }
+    .demo-row { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+    .demo-card { padding:16px; border-radius: var(--radius); border: var(--bw-1) solid var(--border-subtle); background: var(--surface); color: var(--text-on-light); }
+    .title { font-size: var(--text-lg); margin: 0 0 8px; }
+    .subtitle { font-size: var(--text-sm); opacity:.8; margin:0 0 8px; }
+    .stack { display:grid; gap:8px; }
+
+    /* Мінімум бази, щоб не залежати від зовнішнього порядку підключення */
+
+  </style>
+</head>
+<body>
+
+  <!-- ====================== HOME / PAGE ====================== -->
+  <section class="demo-section" data-screen="home" style="background: var(--home-bg); color: var(--home-text)">
+    <div class="demo-card">
+      <h2 class="title">Home / Page</h2>
+      <p class="subtitle">Кнопки — усі варіанти й розміри, + стани</p>
+      <div class="stack">
+        <!-- Primary S/M/L -->
+        <div class="demo-row">
+          <button class="btn btn--primary btn--s" data-loading-on-click>
+            <span class="btn__spinner" aria-hidden="true"></span><span class="btn__label">Primary S</span>
+          </button>
+          <button class="btn btn--primary btn--m" data-loading-on-click data-loading-time="1200">
+            <span class="btn__spinner" aria-hidden="true"></span><span class="btn__label">Primary M</span>
+          </button>
+          <button class="btn btn--primary btn--l" data-loading-on-click>
+            <span class="btn__spinner" aria-hidden="true"></span><span class="btn__label">Primary L</span>
+          </button>
+          <button class="btn btn--primary btn--m" disabled aria-disabled="true">Disabled</button>
+        </div>
+
+        <!-- Secondary S/M/L -->
+        <div class="demo-row">
+          <button class="btn btn--secondary btn--s" data-loading-on-click>
+            <span class="btn__spinner" aria-hidden="true"></span><span class="btn__label">Secondary S</span>
+          </button>
+          <button class="btn btn--secondary btn--m" data-loading-on-click>
+            <span class="btn__spinner" aria-hidden="true"></span><span class="btn__label">Secondary M</span>
+          </button>
+          <button class="btn btn--secondary btn--l" data-loading-on-click>
+            <span class="btn__spinner" aria-hidden="true"></span><span class="btn__label">Secondary L</span>
+          </button>
+          
+        </div>
+
+        <!-- Ghost S/M/L -->
+        <div class="demo-row">
+          <button class="btn btn--ghost btn--s">Ghost S</button>
+          <button class="btn btn--ghost btn--m">Ghost M</button>
+          <button class="btn btn--ghost btn--l">Ghost L</button>
+        </div>
+
+        <!-- Toggle + Icon + тригери модалок -->
+        <div class="demo-row">
+          <button class="btn btn--toggle btn--m" aria-pressed="false">Toggle (off)</button>
+          <button class="btn btn--icon btn--primary" aria-label="Star" id="save-button">★</button>
+          <button class="btn btn--primary" id="save-button">Зберегти</button>
+          <button class="btn btn--primary btn--m" data-open-modal="#modal-std">Відкрити модалку</button>
+          <button class="btn btn--secondary btn--m" data-open-modal="#modal-dark">Модалка (Dark)</button>
+          <button class="btn btn--ghost btn--m" data-open-modal="#modal-light">Модалка (Light)</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== AUTH (темна) ====================== -->
+  <section class="demo-section" data-screen="auth" style="background: var(--auth-bg-dark); color: var(--text-on-dark)">
+    <h2 class="title">Auth (Dark)</h2>
+    <div class="demo-card" style="background: var(--auth-surface); color: var(--text-on-light)">
+      <form class="stack" style="max-width:420px">
+        <label for="auth-email">Email</label>
+        <input id="auth-email" class="input" type="email" placeholder="you@example.com" />
+        <label for="auth-pass">Пароль</label>
+        <input id="auth-pass" class="input" type="password"
+               placeholder="Пароль"
+               data-validate="password"
+               data-error-target="#auth-pass-errors"
+               data-minlen="8" />
+        <small id="auth-pass-errors" class="error" aria-live="polite"></small>
+        <div class="demo-row" style="justify-content:flex-end">
+          <button type="button" class="btn btn--ghost btn--m">Скасувати</button>
+          <button type="submit" class="btn btn--primary btn--m" data-loading-on-click>Увійти</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ====================== RESET PASSWORD (світла) ====================== -->
+  <section class="demo-section" data-screen="reset" style="background: var(--reset-bg); color: var(--reset-text-on-everything-else)">
+    <h2 class="title">Password Recovery</h2>
+    <div class="demo-card" style="background: var(--reset-surface); color: var(--text-on-dark)">
+      <div class="stack" style="max-width:420px">
+        <label for="reset-email" style="color: var(--text-on-dark)">Email</label>
+        <input id="reset-email" class="input" type="email" aria-describedby="reset-help" />
+        <small id="reset-help" class="helper" style="color: var(--text-on-dark)">Ми надішлемо інструкції з відновлення.</small>
+        <div class="demo-row" style="justify-content:flex-end">
+          <button class="btn btn--ghost btn--m">Назад</button>
+          <button class="btn btn--primary btn--m" data-loading-on-click>Надіслати</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== QnA (акордеон) ====================== -->
+  <section class="demo-section" data-screen="qna" style="background: var(--QnA-bg); color: var(--text-on-dark)">
+    <h2 class="title">Question & Answers</h2>
+
+    <div class="qa-item" data-qa>
+      <button class="qa-q" aria-expanded="false" aria-controls="a1" id="q1">
+        <span>Яка столиця Франції?</span>
+        <span class="qa-icon">›</span>
+      </button>
+      <div class="qa-a" id="a1" role="region" aria-labelledby="q1" hidden>
+        <ul>
+          <li>Париж</li>
+          <li>Ліон</li>
+          <li>Марсель</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qa-item" data-qa>
+      <button class="qa-q" aria-expanded="false" aria-controls="a2" id="q2">
+        <span>Столиця України?</span>
+        <span class="qa-icon">›</span>
+      </button>
+      <div class="qa-a" id="a2" role="region" aria-labelledby="q2" hidden>
+        <ul><li>Київ</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== Loading (Linear Progress) ====================== -->
+  <section class="demo-section" data-screen="loading" style="background: var(--home-bg); color: var(--text-on-dark)">
+    <h2 class="title">Loading</h2>
+    <div class="stack">
+      <!-- determinate (анімуємо 0→100) -->
+      <div class="progress" id="demo-progress" data-progress data-value="0" data-max="100"
+           role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Loading…">
+        <div class="progress__bar"></div>
+      </div>
+      <span id="demo-progress-label">Loading… 0%</span>
+
+    </div>
+  </section>
+
+  <!-- ===== Overlay + 3 модалки (приховані; відкриваються з тригерів вище) ===== -->
+  <div class="overlay" hidden></div>
+  <div class="modal-wrap" hidden>
+    <!-- Std -->
+    <div id="modal-std" class="modal panel" role="dialog" aria-labelledby="m1-title" aria-describedby="m1-desc" hidden>
+      <h3 id="m1-title" class="title" style="margin:0 0 8px">Стандартна модалка</h3>
+      <p id="m1-desc" class="subtitle" style="margin:0 0 16px">Фокус-кільце, Esc, клік по тлі — працює.</p>
+      <div class="demo-row" style="justify-content:flex-end">
+        <button class="btn btn--ghost btn--m" data-close-modal>Скасувати</button>
+        <button class="btn btn--primary btn--m" data-close-modal>Ок</button>
+      </div>
+    </div>
+    <!-- Dark -->
+    <div id="modal-dark" class="modal modal--dark" role="dialog" aria-labelledby="m2-title" aria-describedby="m2-desc" hidden>
+      <h3 id="m2-title" class="title" style="margin:0 0 8px">Авторизація</h3>
+      <p id="m2-desc" class="subtitle" style="margin:0 0 16px">Увійдіть у свій акаунт.</p>
+      <div class="stack" style="max-width:420px">
+        <label for="m2-email">Email</label>
+        <input id="m2-email" class="input" type="email" />
+        <label for="m2-pass">Пароль</label>
+        <input id="m2-pass" class="input" type="password" />
+        <div class="demo-row" style="justify-content:flex-end">
+          <button class="btn btn--ghost btn--m" data-close-modal>Скасувати</button>
+          <button class="btn btn--primary btn--m">Увійти</button>
+        </div>
+      </div>
+    </div>
+    <!-- Light -->
+    <div id="modal-light" class="modal modal--light" role="dialog" aria-labelledby="m3-title" aria-describedby="m3-desc" hidden>
+      <h3 id="m3-title" class="title" style="margin:0 0 8px">Відновлення пароля</h3>
+      <p id="m3-desc" class="subtitle" style="margin:0 0 16px">Введіть email, і ми надішлемо інструкції.</p>
+      <div class="stack" style="max-width:420px">
+        <label for="m3-email">Email</label>
+        <input id="m3-email" class="input" type="email" aria-describedby="m3-help" />
+        <small id="m3-help" class="helper">Перевірте папку “Спам”.</small>
+        <div class="demo-row" style="justify-content:flex-end">
+          <button class="btn btn--ghost btn--m" data-close-modal>Назад</button>
+          <button class="btn btn--primary btn--m">Надіслати</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SHIM після ui.js: якщо ui.js з якихось причин не підхопиться, все одно працює ===== -->
+  <script>
+  (function(){
+    // 0) Якщо твій ui.js існує — виходимо (він усе зробить сам)
+    function hasUIKit(){ return typeof window.UIKit === 'object' && window.UIKit !== null; }
+
+    // 1) Прогрес (0→100) плавно
+    document.addEventListener('DOMContentLoaded', () => {
+      const bar = document.getElementById('demo-progress');
+      const label = document.getElementById('demo-progress-label');
+      if (!bar) return;
+
+      if (hasUIKit() && typeof UIKit.setProgress === 'function') {
+        // Використовуємо ваш API
+        let v = 0;
+        const tick = () => {
+          v = Math.min(100, v + 1);
+          UIKit.setProgress(bar, v, 100);
+          if (label) label.textContent = `Loading… ${v}%`;
+          if (v < 100) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      } else {
+        // Фолбек: напряму шириною
+        let v = 0;
+        const fill = bar.querySelector('.progress__bar');
+        const step = () => {
+          v = Math.min(100, v + 1);
+          if (fill) fill.style.width = v + '%';
+          if (label) label.textContent = `Loading… ${v}%`;
+          if (v < 100) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+    });
+
+    // 2) Модалки (тільки якщо немає UIKit)
+    if (!hasUIKit()) {
+      const qs  = (s, r=document) => r.querySelector(s);
+      const qsa = (s, r=document) => [...r.querySelectorAll(s)];
+      const getFocusable = (root) =>
+        qsa('a[href],button,textarea,input,select,[tabindex]:not([tabindex="-1"])', root)
+          .filter(el => !el.hasAttribute('disabled') && !el.getAttribute('aria-disabled') && el.offsetParent !== null);
+
+      const overlay = qs('.overlay');
+      const wrap = qs('.modal-wrap');
+      let lastFocus = null, openModal = null;
+
+      function open(id){
+        const modal = typeof id === 'string' ? qs(id) : id;
+        if (!modal) return;
+        lastFocus = document.activeElement;
+        overlay.hidden = false; overlay.style.display = 'block';
+        wrap.hidden = false; wrap.style.display = 'grid';
+        modal.hidden = false; modal.setAttribute('aria-modal','true');
+        document.documentElement.style.overflow = 'hidden';
+        const f = getFocusable(modal); (f[0]||modal).focus();
+        openModal = modal;
+
+        function trap(e){
+          if (e.key !== 'Tab') return;
+          const f = getFocusable(modal); if (!f.length) return;
+          const first = f[0], last = f[f.length-1];
+          if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+        }
+        modal.__trapHandler = trap; modal.addEventListener('keydown', trap);
+      }
+      function close(modalEl){
+        const modals = modalEl ? [modalEl] : qsa('.modal');
+        modals.forEach(m => {
+          m.hidden = true; m.removeAttribute('aria-modal');
+          if (m.__trapHandler){ m.removeEventListener('keydown', m.__trapHandler); delete m.__trapHandler; }
+        });
+        overlay.hidden = true; overlay.style.display = 'none';
+        wrap.hidden = true; wrap.style.display = 'none';
+        document.documentElement.style.overflow = '';
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+        openModal = null;
+      }
+
+      document.addEventListener('click', (e) => {
+        const o = e.target.closest('[data-open-modal]'); if (o){ open(o.getAttribute('data-open-modal')); return; }
+        const c = e.target.closest('[data-close-modal]'); if (c){ close(c.closest('.modal')); return; }
+        if (e.target.closest('.overlay')){ close(); }
+      });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && openModal) close(); });
+    }
+
+    // 3) Q&A акордеон (працює завжди, незалежно від ui.js)
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-qa]').forEach(item => {
+        const btn = item.querySelector('.qa-q');
+        const panel = item.querySelector('.qa-a');
+        if (!btn || !panel) return;
+        function toggle(open){
+          const willOpen = (open ?? panel.hidden);
+          panel.hidden = !willOpen;
+          item.toggleAttribute('open', willOpen);
+          btn.setAttribute('aria-expanded', String(willOpen));
+        }
+        btn.addEventListener('click', () => toggle());
+        btn.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+        });
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

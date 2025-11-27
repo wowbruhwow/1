@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Увійти — City Legends</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/authentication.css') }}" />
+  </head>
+  <body data-page="login">
+    <div class="main-container page-with-footer">
+      <button type="button" class="button-exit" data-nav="back"></button>
+      <div class="page-main">
+        <div class="flex-column-c">
+          <div class="template">
+            <div class="rectangle">
+              <span class="welcome-back">З поверненням!</span>
+            </div>
+
+            <form class="auth-form" data-form="login" novalidate>
+              <div class="flex-row" data-field="email">
+                <div class="rectangle-1">
+                  <span class="email">Електронна пошта</span>
+                </div>
+                <div class="data-input">
+                  <input
+                    type="email"
+                    name="email"
+                    class="auth-input"
+                    placeholder="&lt;name@example.com&gt;"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="flex-row-d" data-field="password">
+                <div class="rectangle-2">
+                  <span class="password">Пароль</span>
+                </div>
+                <div class="input-data-button">
+                  <input
+                    type="password"
+                    name="password"
+                    class="auth-input"
+                    maxlength="20"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="flex-row-3">
+                <div class="rectangle-4">
+                  <span class="forgot-password">Забули пароль?</span>
+                </div>
+                <button
+                  type="button"
+                  class="rectangle-5"
+                  data-nav="reset-password"
+                >
+                  <span class="click-here">тиць сюди</span>
+                </button>
+              </div>
+
+              <div class="form-messages" aria-live="polite"></div>
+
+              <button type="submit" class="rectangle-6">
+                <span class="login">Увійти</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <span class="footer-links page-footer">
+        © City Legends | Версія гри | Соцмережі | Ліцензія | Конфіденційність |
+        Документація | Зв’язатися з нами |
+      </span>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+  </body>
+</html>

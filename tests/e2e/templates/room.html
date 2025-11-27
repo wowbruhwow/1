@@ -1,0 +1,17 @@
+<!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Room {{ room_id }}</title>
+  </head>
+  <body>
+    <main>
+      <h1>Room #{{ room_id }}</h1>
+
+      <form method="post" action="/room/{{ room_id }}/join">
+        <button type="submit">Join</button>
+      </form>
+    </main>
+  </body>
+</html>

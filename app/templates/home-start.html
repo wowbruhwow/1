@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oi:wght@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orelega+One:wght@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=MedievalSharp:wght@500&display=swap" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home-start.css') }}" />
+  </head>
+  <body>
+    <div class="main-container page-with-footer">
+      <div class="page-main">
+        <div class="flex-row">
+          <div class="player-info"></div>
+          <div class="rectangle" data-open-faq>
+            <span class="question-mark">?</span>
+          </div>
+        </div>
+        <div class="rectangle-1">
+          <div class="rectangle-2">
+            <span class="urban-legends">Міські Легенди</span
+            ><span class="urban-legends-3">Міські Легенди</span>
+          </div>
+        </div>
+        <button type="button" class="rectangle-4" data-go-auth>
+          <span class="start">почати</span>
+        </button>
+        <button type="button" class="rectangle-5" data-open-how-to-play>
+          <span class="how-to-play">як грати</span>
+        </button>
+        <div class="line"></div>
+        <div class="flex-row-fa">
+          <div class="info">
+            <span class="image">ТУТ КАРТИНКА</span>
+          </div>
+          <div class="info-6">
+            <div class="rectangle-7"></div>
+            <div class="rectangle-8">
+              <span class="dynamicity">Динамічність</span
+              ><span class="text-content">тут просто текст (реально)</span>
+            </div>
+          </div>
+          <div class="info-9">
+            <span class="see-previous-template"
+              >див. попередній оцей ←<br />шаблон</span
+            >
+          </div>
+        </div>
+        <div class="line-a"></div>
+        <span class="whats-new">ЩО НОВОГО </span>
+        <div class="rectangle-b" data-news-slider>
+          <div class="rectangle-c">
+            <span class="image-here" data-news-title>КАРТИНКА ТУТ</span>
+          </div>
+          <div class="rectangle-d">
+            <span class="description-here" data-news-description>ОПИС ТУТ</span>
+          </div>
+          <div class="flex-row-e">
+            <button type="button" class="back-arrow" data-news-prev></button>
+            <button type="button" class="arrow-forward" data-news-next></button>
+          </div>
+        </div>
+        <div class="flex-row-f" data-news-dots>
+          <button type="button" class="ellipse news-dot" data-news-index="0"></button>
+          <button type="button" class="ellipse-10 news-dot" data-news-index="1"></button>
+          <button type="button" class="ellipse-11 news-dot" data-news-index="2"></button>
+        </div>
+      </div>
+      <div class="footer-block page-footer">
+        <div class="rectangle-12">
+          <div class="our-game">
+            <span class="city-legends">© City Legends</span>
+          </div>
+          <div class="rectangle-16">
+            <span class="game-version">Версія гри</span>
+          </div>
+          <div class="rectangle-15">
+            <div class="discord-icon"></div>
+            <div class="insta-icon"></div>
+            <div class="telegram-icon"></div>
+          </div>
+          <div class="rectangle-17">
+            <span class="license">Ліцензія</span>
+          </div>
+          <div class="rectangle-13">
+            <span class="privacy">Конфіденційність</span>
+          </div>
+          <div class="rectangle-14">
+            <span class="documentation">Документація</span>
+          </div>
+        </div>
+        <div class="rectangle-18">
+          <span class="contact-us">Зв’язатися з нами</span>
+        </div>
+      </div>
+
+      <!-- Модалка з FAQ -->
+      <div class="faq-overlay" id="faqOverlay" hidden>
+        <div
+          class="faq-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Питання та відповіді"
+          tabindex="-1"
+        >
+          <iframe
+            class="faq-frame"
+            src="{{ url_for('faq') }}"
+            title="Питання та відповіді"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Модалка "Як грати" -->
+      <div class="howto-overlay" id="howToPlayOverlay" hidden>
+        <div
+          class="howto-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Як грати"
+          tabindex="-1"
+        >
+          <iframe
+            class="howto-frame"
+            src="{{ url_for('how_to_play') }}"
+            title="Як грати"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/home-start.js') }}"></script>
+  </body>
+</html>

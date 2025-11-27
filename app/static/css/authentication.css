@@ -1,0 +1,360 @@
+/* SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software */
+
+/* =====================================================================
+   LOGIN WINDOW — точне відтворення Login_Window.png (Figma, 1920×1080)
+   ===================================================================== */
+
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+
+  /* Розміри з макету (1530×814 артборд, Full HD viewport) */
+  --login-panel-width: 86%;        /* Сіра панель займає ~86% ширини контейнера */
+  --login-row-width: 100%;         /* Ряд полів на всю ширину панелі (з padding) */
+  --login-label-flex: 0 0 48%;     /* Ліва частина (лейбл) ~48% */
+  --login-input-flex: 1 0 0;       /* Права частина (інпут) — решта */
+  --login-row-height: clamp(54px, 4.5vw, 65px);
+  --login-row-gap: clamp(24px, 3vw, 40px);
+  --login-btn-width: clamp(280px, 25vw, 373px);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #2a201a;
+}
+
+/* ===================== MAIN CONTAINER ===================== */
+.main-container {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #2a201a;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* page-main займає весь простір і центрує контент */
+.main-container.page-with-footer .page-main {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(24px, 3vw, 48px);
+  max-width: 1530px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ===================== CLOSE BUTTON ===================== */
+.button-exit {
+  position: absolute;
+  top: clamp(12px, 1.5vw, 24px);
+  left: clamp(12px, 1.5vw, 24px);
+  width: clamp(36px, 3vw, 50px);
+  height: clamp(30px, 2.5vw, 42px);
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-14/YeowvJa6sy.png)
+    no-repeat center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* ===================== WRAPPER ===================== */
+.flex-column-c {
+  width: var(--login-panel-width);
+  max-width: 1320px;
+}
+
+/* ===================== GREY PANEL (template) ===================== */
+.template {
+  position: relative;
+  width: 100%;
+  background: #d9d9d9;
+  border-radius: clamp(12px, 1.5vw, 20px);
+  padding: clamp(56px, 5vw, 88px) clamp(32px, 4vw, 64px) clamp(72px, 6vw, 112px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--login-row-gap);
+}
+
+/* Glow/shadow behind panel */
+.template::before {
+  content: "";
+  position: absolute;
+  inset: -24px;
+  background: #d9d9d9;
+  border-radius: clamp(16px, 2vw, 28px);
+  filter: blur(6px);
+  z-index: -1;
+}
+
+/* ===================== HEADER: "З поверненням!" ===================== */
+.rectangle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(280px, 28vw, 420px);
+  height: clamp(40px, 3.5vw, 56px);
+  background: #412828;
+  border-radius: clamp(6px, 0.6vw, 10px);
+}
+
+.welcome-back {
+  color: #ffffff;
+  font-family: Jura, var(--default-font-family);
+  font-size: clamp(24px, 2.8vw, 44px);
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ===================== FORM ===================== */
+form.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--login-row-gap);
+}
+
+/* ===================== ROW (label + input) ===================== */
+.flex-row,
+.flex-row-d,
+.flex-row-3 {
+  width: var(--login-row-width);
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+}
+
+/* Label block (left side) */
+.rectangle-1,
+.rectangle-2,
+.rectangle-4 {
+  flex: var(--login-label-flex);
+  height: var(--login-row-height);
+  background: #6b4141;
+  border-radius: clamp(3px, 0.3vw, 5px) 0 0 clamp(3px, 0.3vw, 5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Label text */
+.email,
+.password,
+.forgot-password {
+  color: #ffffff;
+  font-family: Jura, var(--default-font-family);
+  font-size: clamp(22px, 2.5vw, 40px);
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Input block (right side) */
+.data-input,
+.input-data-button,
+.rectangle-5 {
+  flex: var(--login-input-flex);
+  height: var(--login-row-height);
+  background: #755b5b;
+  border-radius: 0 clamp(3px, 0.3vw, 5px) clamp(3px, 0.3vw, 5px) 0;
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(12px, 1.5vw, 24px);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.rectangle-5 {
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.rectangle-5:hover {
+  background: #8a6969;
+}
+
+/* Input field itself */
+.auth-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-family: Jura, var(--default-font-family);
+  font-size: clamp(18px, 2vw, 28px);
+}
+.auth-input::placeholder {
+  color: #e0d4d4;
+}
+
+/* "тиць сюди" text */
+.click-here {
+  color: #ffffff;
+  font-family: Jura, var(--default-font-family);
+  font-size: clamp(20px, 2.2vw, 36px);
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ===================== SUBMIT BUTTON ===================== */
+.rectangle-6 {
+  width: var(--login-btn-width);
+  height: clamp(44px, 3.8vw, 58px);
+  background: #543333;
+  border: none;
+  border-radius: clamp(3px, 0.4vw, 6px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.rectangle-6:hover {
+  background: #654444;
+  transform: translateY(-1px);
+}
+
+.login {
+  color: #ffffff;
+  font-family: Jura, var(--default-font-family);
+  font-size: clamp(24px, 2.6vw, 40px);
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ===================== FORM MESSAGES ===================== */
+.form-messages {
+  margin-top: clamp(16px, 1.5vw, 24px);
+  text-align: center;
+  font-family: Jura, var(--default-font-family);
+  font-size: clamp(14px, 1.2vw, 18px);
+  color: #ffdddd;
+}
+
+/* ===================== FOOTER ===================== */
+.footer-links {
+  width: 100%;
+  padding: clamp(16px, 2vw, 28px) clamp(24px, 3vw, 48px);
+  color: #938275;
+  font-family: "Bona Nova", var(--default-font-family);
+  font-size: clamp(11px, 1vw, 15px);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ===================== FIELD STATES ===================== */
+[data-field].field-input .data-input,
+[data-field].field-input .input-data-button {
+  outline: 2px solid #333131;
+}
+[data-field].field-success .data-input,
+[data-field].field-success .input-data-button {
+  outline: 2px solid #166400;
+}
+[data-field].field-error .data-input,
+[data-field].field-error .input-data-button {
+  outline: 2px solid #720000;
+}
+
+/* ===================== RESPONSIVE: великі екрани ===================== */
+@media (min-width: 1680px) {
+  :root {
+    --login-row-height: 65px;
+    --login-row-gap: 40px;
+    --login-btn-width: 373px;
+  }
+
+  .rectangle {
+    width: 420px;
+    height: 56px;
+  }
+
+  .welcome-back {
+    font-size: 44px;
+  }
+
+  .email,
+  .password,
+  .forgot-password {
+    font-size: 40px;
+  }
+
+  .click-here {
+    font-size: 36px;
+  }
+
+  .login {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .template {
+    padding: 88px 64px 112px;
+  }
+}
+
+/* ===================== RESPONSIVE: середні екрани ===================== */
+@media (max-width: 1280px) {
+  :root {
+    --login-panel-width: 90%;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --login-panel-width: 92%;
+    --login-row-height: 54px;
+    --login-row-gap: 24px;
+  }
+}
+
+/* ===================== RESPONSIVE: вузькі екрани ===================== */
+@media (max-width: 720px) {
+  :root {
+    --login-label-flex: 1 0 100%;
+    --login-input-flex: 1 0 100%;
+    --login-panel-width: 95%;
+  }
+
+  .flex-row,
+  .flex-row-d,
+  .flex-row-3 {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .rectangle-1,
+  .rectangle-2,
+  .rectangle-4 {
+    border-radius: clamp(3px, 0.3vw, 5px);
+  }
+
+  .data-input,
+  .input-data-button,
+  .rectangle-5 {
+    border-radius: clamp(3px, 0.3vw, 5px);
+  }
+}

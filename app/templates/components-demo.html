@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <title>Components Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS -->
+  <link href="{{ url_for('static', filename='css/reset-page.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+  <!-- JS (мій ui.js) — важливо: defer -->
+  <script src="{{ url_for('static', filename='js/ui.js') }}" defer></script>
+  <!-- бажано: підготовка з’єднання -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- основне підключення (всі твої сім’ї + кирилиця + swap) -->
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Orelega+One&family=Jaini+Purva&family=Jaldi:wght@400;700&family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Jim+Nightshade&family=Jura:wght@400;600;700&family=Joti+One&family=Kelly+Slab&family=Oi&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+</head>
+<body>
+
+<section aria-labelledby="btns-title" style="padding:24px; background:var(--home-bg); color:var(--home-text)">
+  <h2 id="btns-title" style="margin-bottom:12px">Buttons showcase</h2>
+
+  <!-- Primary -->
+  <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px">
+    <button class="btn btn--primary btn--s">Primary S</button>
+    <button class="btn btn--primary btn--m">Primary M</button>
+    <button class="btn btn--primary btn--l">Primary L</button>
+
+    <!-- Приклад "живого" автолоадінгу по кліку -->
+    <button class="btn btn--primary btn--m" data-loading-on-click data-loading-time="1200">Зберегти</button>
+
+    <!-- Приклад зафіксованого стану loading (демо спінера) -->
+    <button class="btn btn--primary btn--m is-loading" data-loading="true" aria-live="polite">
+      <span class="btn__spinner" aria-hidden="true"></span>
+      Loading…
+    </button>
+
+    <!-- Toggle -->
+    <button class="btn btn--toggle btn--m" aria-pressed="false">Сповіщення</button>
+
+    <!-- Disabled -->
+    <button class="btn btn--primary btn--m" disabled aria-disabled="true">Primary Disabled</button>
+  </div>
+
+  <!-- Secondary -->
+  <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px">
+    <button class="btn btn--secondary btn--s">Secondary S</button>
+    <button class="btn btn--secondary btn--m">Secondary M</button>
+    <button class="btn btn--secondary btn--l">Secondary L</button>
+
+    <button class="btn btn--secondary btn--m is-loading" data-loading="true" aria-live="polite">
+      <span class="btn__spinner" aria-hidden="true"></span>
+      Loading…
+    </button>
+
+    <button class="btn btn--secondary btn--m" disabled aria-disabled="true">Secondary Disabled</button>
+  </div>
+
+  <!-- Ghost -->
+  <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px">
+    <button class="btn btn--ghost btn--s">Ghost S</button>
+    <button class="btn btn--ghost btn--m">Ghost M</button>
+    <button class="btn btn--ghost btn--l">Ghost L</button>
+
+    <button class="btn btn--ghost btn--m is-loading" data-loading="true" aria-live="polite">
+      <span class="btn__spinner" aria-hidden="true"></span>
+      Loading…
+    </button>
+
+    <button class="btn btn--ghost btn--m" disabled aria-disabled="true">Ghost Disabled</button>
+  </div>
+
+  <!-- Додаткові приклади -->
+  <div style="display:flex; gap:12px; flex-wrap:wrap">
+    <button class="btn btn--danger btn--m">Danger</button>
+    <button class="btn btn--toggle btn--m" aria-pressed="false">Toggle (off)</button>
+    <button class="btn btn--toggle btn--m" aria-pressed="true">Toggle (on)</button>
+    <button class="btn btn--icon btn--primary" aria-label="Icon button">★</button>
+  </div>
+
+  <div style="height:16px"></div>
+
+  <!-- Тригери модалок -->
+  <div style="display:flex; gap:12px; flex-wrap:wrap">
+    <button class="btn btn--primary" data-open-modal="#m1">Відкрити модалку (Std)</button>
+    <button class="btn btn--secondary" data-open-modal="#m2">Відкрити модалку (Dark)</button>
+    <button class="btn btn--ghost" data-open-modal="#m3">Відкрити модалку (Light)</button>
+  </div>
+</section>
+
+<section aria-labelledby="form-title" style="padding:24px; background:var(--home-bg); color:var(--home-text)">
+  <h2 id="form-title" style="margin-bottom:12px">Form fields</h2>
+
+  <!-- OK state -->
+  <div class="form-group" style="display:grid; gap:8px; max-width:360px">
+    <label for="email" class="label">Email</label>
+    <input id="email" class="input" type="email" placeholder="you@example.com" aria-describedby="email-help" />
+    <p id="email-help" class="helper" style="font-size:var(--text-sm); color:var(--chat-thr-text)">
+      Ми ніколи не ділимось вашою електронною адресою.
+    </p>
+  </div>
+
+  <div style="height:16px"></div>
+
+  <!-- Error state -->
+  <div class="form-group" style="display:grid; gap:8px; max-width:360px">
+    <label for="password" class="label">Пароль</label>
+    <input id="password" class="input" type="password" aria-invalid="true" aria-describedby="password-error password-help" />
+    <p id="password-help" class="helper" style="font-size:var(--text-sm); color:var(--chat-thr-text)">
+      Мінімум 8 символів.
+    </p>
+    <p id="password-error" class="error" role="alert" style="font-size:var(--text-sm); color:#C0392B">
+      Пароль закороткий. Спробуйте ще.
+    </p>
+  </div>
+</section>
+
+<section aria-labelledby="progress-title" style="position:relative; min-height:160px; display:grid; place-items:center; background:var(--home-bg); color:var(--text-on-dark); padding:24px">
+  <h2 id="progress-title" class="sr-only" style="position:absolute; left:-9999px">Loading</h2>
+
+  <!-- Determinate -->
+  <div class="progress" data-progress data-value="45" data-max="100" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="45" aria-valuetext="Loading…"
+       style="width:min(560px,90vw); height:8px; border-radius:var(--radius-round); background:rgba(255,255,255,.25); overflow:hidden;">
+    <div class="progress__bar" style="height:100%; width:45%; background:var(--cta);"></div>
+  </div>
+
+  <p style="margin-top:12px; color:var(--text-on-dark)">Loading… 45%</p>
+
+  <!-- Indeterminate -->
+  <div class="progress" data-progress data-indeterminate
+       style="margin-top:16px; width:min(560px,90vw); height:8px; border-radius:var(--radius-round); background:rgba(255,255,255,.25); overflow:hidden;">
+    <div class="progress__bar" style="height:100%; background:var(--cta);"></div>
+  </div>
+</section>
+
+<!-- ===== Overlay та модалки (ПО ЗАМОВЧУВАННЮ ПРИХОВАНІ) ===== -->
+<div class="overlay" hidden style="position:fixed; inset:0; background:var(--overlay); display:none;"></div>
+
+<div class="modal-wrap" hidden style="position:fixed; inset:0; display:none; place-items:center; z-index:var(--z-modal);">
+  <!-- 3.1 Стандартна світла -->
+  <div id="m1" class="modal panel" role="dialog" hidden aria-labelledby="m1-title" aria-describedby="m1-desc" style="width:min(560px, 92vw); padding:24px; outline:0">
+    <h3 id="m1-title" style="margin:0 0 8px">Стандартна модалка</h3>
+    <p id="m1-desc" style="margin:0 0 16px">Це приклад модального вікна із фокус-кільцем. Натисніть кнопку нижче.</p>
+    <div style="display:flex; gap:8px; justify-content:flex-end">
+      <button class="btn btn--ghost btn--m" data-close-modal>Скасувати</button>
+      <button class="btn btn--primary btn--m" data-close-modal>Підтвердити</button>
+    </div>
+  </div>
+
+  <!-- 3.2 Темна -->
+  <div id="m2" class="modal modal--dark" role="dialog" hidden aria-labelledby="m2-title" aria-describedby="m2-desc" style="width:min(560px, 92vw); padding:24px; border-radius:var(--radius)">
+    <h3 id="m2-title" style="margin:0 0 8px">Авторизація</h3>
+    <p id="m2-desc" style="margin:0 0 16px">Увійдіть у свій акаунт.</p>
+
+    <div class="form-group" style="display:grid; gap:8px; margin-bottom:12px">
+      <label for="m2-email">Email</label>
+      <input id="m2-email" class="input" type="email" />
+    </div>
+
+    <div class="form-group" style="display:grid; gap:8px; margin-bottom:16px">
+      <label for="m2-pass">Пароль</label>
+      <input id="m2-pass" class="input" type="password" />
+    </div>
+
+    <div style="display:flex; gap:8px; justify-content:flex-end">
+      <button class="btn btn--ghost btn--m" data-close-modal>Скасувати</button>
+      <button class="btn btn--primary btn--m">Увійти</button>
+    </div>
+  </div>
+
+  <!-- 3.3 Світла (Password Recovery) -->
+  <div id="m3" class="modal modal--light" role="dialog" hidden aria-labelledby="m3-title" aria-describedby="m3-desc" style="width:min(560px, 92vw); padding:24px; border-radius:var(--radius)">
+    <h3 id="m3-title" style="margin:0 0 8px">Відновлення пароля</h3>
+    <p id="m3-desc" style="margin:0 0 16px">Введіть email, і ми надішлемо інструкції з відновлення.</p>
+
+    <div class="form-group" style="display:grid; gap:8px; margin-bottom:16px">
+      <label for="m3-email">Email</label>
+      <input id="m3-email" class="input" type="email" aria-describedby="m3-help" />
+      <small id="m3-help" class="helper" style="font-size:var(--text-sm)">Перевірте папку “Спам”.</small>
+    </div>
+
+    <div style="display:flex; gap:8px; justify-content:flex-end">
+      <button class="btn btn--ghost btn--m" data-close-modal>Назад</button>
+      <button class="btn btn--primary btn--m">Надіслати</button>
+    </div>
+  </div>
+</div>
+
+<!-- Невеликий playground для прогресу (необов'язково)
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const p = document.querySelector('.progress[data-progress]:not([data-indeterminate])');
+    let v = 45;
+    setInterval(() => {
+      v = (v + 5) % 105;
+      if (window.UIKit) UIKit.setProgress(p, v);
+    }, 1200);
+  });
+</script>
+-->
+
+</body>
+</html>

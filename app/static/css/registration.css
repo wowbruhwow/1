@@ -1,0 +1,415 @@
+/* SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software */
+
+/* =====================================================================
+   REGISTRATION WINDOW — responsive design matching Sign_Up_Window.png
+   ===================================================================== */
+
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+
+  /* Розміри з макету (аналогічно authentication.css) */
+  --reg-panel-width: 86%;
+  --reg-row-width: 100%;
+  --reg-label-flex: 0 0 48%;
+  --reg-input-flex: 1 0 0;
+  --reg-row-height: clamp(54px, 4.5vw, 65px);
+  --reg-row-gap: clamp(20px, 2.5vw, 32px);
+  --reg-btn-width: clamp(280px, 25vw, 373px);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #2a201a;
+}
+
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
+
+/* ===================== MAIN CONTAINER ===================== */
+.main-container {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #2a201a;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* page-main займає весь простір і центрує контент */
+.main-container.page-with-footer .page-main {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(24px, 3vw, 48px);
+  max-width: 1530px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ===================== CLOSE BUTTON ===================== */
+.button-exit {
+  position: absolute;
+  top: clamp(12px, 1.5vw, 24px);
+  left: clamp(12px, 1.5vw, 24px);
+  width: clamp(36px, 3vw, 50px);
+  height: clamp(30px, 2.5vw, 42px);
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-14/prvPmh3vqp.png)
+    no-repeat center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* ===================== WRAPPER ===================== */
+.flex-column-f {
+  width: var(--reg-panel-width);
+  max-width: 1320px;
+}
+
+/* ===================== GREY PANEL (template) ===================== */
+.template {
+  position: relative;
+  width: 100%;
+  background: #d9d9d9;
+  border-radius: clamp(12px, 1.5vw, 20px);
+  padding: clamp(48px, 4vw, 72px) clamp(32px, 4vw, 64px) clamp(56px, 5vw, 88px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--reg-row-gap);
+}
+
+/* Glow/shadow behind panel */
+.template::before {
+  content: "";
+  position: absolute;
+  inset: -24px;
+  background: #d9d9d9;
+  border-radius: clamp(16px, 2vw, 28px);
+  filter: blur(6px);
+  z-index: -1;
+}
+
+/* ===================== HEADER: "Зареєструватися" ===================== */
+.rectangle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(280px, 28vw, 420px);
+  height: clamp(40px, 3.5vw, 56px);
+  background: #412828;
+  border-radius: clamp(6px, 0.6vw, 10px);
+}
+
+.register {
+  color: #ffffff;
+  font-family: Jura, var(--default-font-family);
+  font-size: clamp(24px, 2.8vw, 44px);
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ===================== FORM ===================== */
+form.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--reg-row-gap);
+}
+
+/* ===================== ROW (label + input) ===================== */
+.flex-row-f,
+.flex-row-ded,
+.flex-row-a,
+.flex-row-b,
+.flex-row-f-7 {
+  width: var(--reg-row-width);
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+}
+
+/* Label block (left side) */
+.rectangle-1,
+.rectangle-2,
+.rectangle-4,
+.rectangle-5,
+.rectangle-8 {
+  flex: var(--reg-label-flex);
+  height: var(--reg-row-height);
+  background: #6b4141;
+  border-radius: clamp(3px, 0.3vw, 5px) 0 0 clamp(3px, 0.3vw, 5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Label text */
+.unique-name,
+.email,
+.span-repeat-mail,
+.span-password,
+.repeat-password {
+  color: #ffffff;
+  font-family: Jura, var(--default-font-family);
+  font-size: clamp(20px, 2.2vw, 36px);
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Input block (right side) */
+.input-button,
+.input-button-3,
+.input-data-button,
+.input-button-6,
+.input-button-9 {
+  flex: var(--reg-input-flex);
+  height: var(--reg-row-height);
+  background: #755b5b;
+  border-radius: 0 clamp(3px, 0.3vw, 5px) clamp(3px, 0.3vw, 5px) 0;
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(12px, 1.5vw, 24px);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+/* Input field itself */
+.auth-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-family: Jura, var(--default-font-family);
+  font-size: clamp(18px, 2vw, 28px);
+}
+.auth-input::placeholder {
+  color: #e0d4d4;
+}
+
+/* ===================== CHECKBOX ROW ===================== */
+.flex-row-dd {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(12px, 1.5vw, 20px);
+  width: 100%;
+  padding: 0 clamp(8px, 1vw, 16px);
+}
+
+.checkmark-button {
+  flex-shrink: 0;
+  width: clamp(24px, 2vw, 32px);
+  height: clamp(24px, 2vw, 32px);
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-14/GkAq2DUfPU.png)
+    no-repeat center;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+}
+.checkmark-button[aria-pressed="true"] {
+  background-image: url("/assets/art/Agree_Mark_ART.png");
+}
+
+.agree-license-privacy {
+  color: #000000;
+  font-family: Jura, var(--default-font-family);
+  font-size: clamp(16px, 1.6vw, 24px);
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  white-space: normal;
+}
+
+/* ===================== SUBMIT BUTTON ===================== */
+.rectangle-a {
+  width: var(--reg-btn-width);
+  height: clamp(44px, 3.8vw, 58px);
+  background: #543333;
+  border: none;
+  border-radius: clamp(3px, 0.4vw, 6px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.rectangle-a:hover {
+  background: #654444;
+  transform: translateY(-1px);
+}
+
+.login {
+  color: #ffffff;
+  font-family: Jura, var(--default-font-family);
+  font-size: clamp(24px, 2.6vw, 40px);
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ===================== FORM MESSAGES ===================== */
+.form-messages {
+  margin-top: clamp(16px, 1.5vw, 24px);
+  text-align: center;
+  font-family: Jura, var(--default-font-family);
+  font-size: clamp(14px, 1.2vw, 18px);
+  color: #ffdddd;
+}
+
+/* ===================== FIELD STATES ===================== */
+[data-field].field-input .input-button,
+[data-field].field-input .input-button-3,
+[data-field].field-input .input-data-button,
+[data-field].field-input .input-button-6,
+[data-field].field-input .input-button-9 {
+  outline: 2px solid #333131;
+}
+[data-field].field-success .input-button,
+[data-field].field-success .input-button-3,
+[data-field].field-success .input-data-button,
+[data-field].field-success .input-button-6,
+[data-field].field-success .input-button-9 {
+  outline: 2px solid #166400;
+}
+[data-field].field-error .input-button,
+[data-field].field-error .input-button-3,
+[data-field].field-error .input-data-button,
+[data-field].field-error .input-button-6,
+[data-field].field-error .input-button-9 {
+  outline: 2px solid #720000;
+}
+
+/* ===================== FOOTER ===================== */
+.copyright-version-social {
+  width: 100%;
+  padding: clamp(16px, 2vw, 28px) clamp(24px, 3vw, 48px);
+  color: #938275;
+  font-family: "Bona Nova", var(--default-font-family);
+  font-size: clamp(11px, 1vw, 15px);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ===================== RESPONSIVE: великі екрани ===================== */
+@media (min-width: 1680px) {
+  :root {
+    --reg-row-height: 65px;
+    --reg-row-gap: 32px;
+    --reg-btn-width: 373px;
+  }
+
+  .rectangle {
+    width: 420px;
+    height: 56px;
+  }
+
+  .register {
+    font-size: 44px;
+  }
+
+  .unique-name,
+  .email,
+  .span-repeat-mail,
+  .span-password,
+  .repeat-password {
+    font-size: 36px;
+  }
+
+  .login {
+    font-size: 40px;
+  }
+
+  .agree-license-privacy {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .template {
+    padding: 72px 64px 88px;
+  }
+}
+
+/* ===================== RESPONSIVE: середні екрани ===================== */
+@media (max-width: 1280px) {
+  :root {
+    --reg-panel-width: 90%;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --reg-panel-width: 92%;
+    --reg-row-height: 54px;
+    --reg-row-gap: 20px;
+  }
+}
+
+/* ===================== RESPONSIVE: вузькі екрани ===================== */
+@media (max-width: 720px) {
+  :root {
+    --reg-label-flex: 1 0 100%;
+    --reg-input-flex: 1 0 100%;
+    --reg-panel-width: 95%;
+  }
+
+  .flex-row-f,
+  .flex-row-ded,
+  .flex-row-a,
+  .flex-row-b,
+  .flex-row-f-7 {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .rectangle-1,
+  .rectangle-2,
+  .rectangle-4,
+  .rectangle-5,
+  .rectangle-8 {
+    border-radius: clamp(3px, 0.3vw, 5px);
+  }
+
+  .input-button,
+  .input-button-3,
+  .input-data-button,
+  .input-button-6,
+  .input-button-9 {
+    border-radius: clamp(3px, 0.3vw, 5px);
+  }
+
+  .flex-row-dd {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .agree-license-privacy {
+    text-align: center;
+  }
+}

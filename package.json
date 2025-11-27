@@ -1,0 +1,7 @@
+{
+  "name": "city-legends",
+  "private": true,
+  "scripts": {
+    "ws:mock": "node mocks/ws-mock.js"
+  }
+}

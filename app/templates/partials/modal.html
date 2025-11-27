@@ -1,0 +1,20 @@
+<!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
+<!-- Окрема модалка (всередину .modal-wrap) -->
+<div id="modal-std" class="modal panel" role="dialog"
+     aria-labelledby="m-title" aria-describedby="m-desc" hidden>
+  <h3 id="m-title" class="title" style="margin:0 0 8px">Заголовок</h3>
+  <p  id="m-desc"  class="subtitle" style="margin:0 0 16px">Опис…</p>
+
+  <div class="stack" style="max-width:420px">
+    <label for="m-email">Email</label>
+    <input id="m-email" class="input" type="email" />
+  </div>
+
+  <div class="demo-row" style="justify-content:flex-end">
+    <button class="btn btn--ghost btn--m" data-close-modal>Скасувати</button>
+    <button class="btn btn--primary btn--m">Ок</button>
+  </div>
+</div>
+
+<!-- Тригер -->
+<button class="btn btn--primary btn--m" data-open-modal="#modal-std">Відкрити</button>

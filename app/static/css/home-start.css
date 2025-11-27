@@ -1,0 +1,791 @@
+/* SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software */
+
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #34271f;
+}
+
+.main-container {
+  position: relative;
+  max-width: 1530px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(16px, 2vw, 32px);
+  background: #34271f;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.main-container,
+.main-container * {
+  box-sizing: border-box;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  max-width: 1489px;
+  min-height: 82px;
+  margin: 17px auto 0;
+  padding: 0 clamp(8px, 1.5vw, 20px);
+  gap: clamp(12px, 2vw, 24px);
+  z-index: 56;
+}
+
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
+
+.player-info {
+  flex-shrink: 0;
+  position: relative;
+  width: min(328px, 40vw);
+  height: 80px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-17/EK9spLCCth.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 56;
+}
+.rectangle {
+  flex-shrink: 0;
+  position: relative;
+  width: 80px;
+  min-width: 60px;
+  height: 80px;
+  background: #d9d9d9;
+  z-index: 33;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.question-mark {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  top: 0;
+  left: 0;
+  color: #000000;
+  font-family: MedievalSharp, var(--default-font-family);
+  font-size: 80px;
+  font-weight: 500;
+  line-height: 72px;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 34;
+}
+.rectangle-1 {
+  position: relative;
+  width: min(953px, 90vw);
+  max-width: 100%;
+  height: auto;
+  min-height: 149px;
+  margin: clamp(32px, 4vw, 52px) auto 0;
+  padding: clamp(16px, 2vw, 27px) clamp(20px, 3vw, 99px);
+  background: #d9d9d9;
+  z-index: 1;
+  border-radius: 3px;
+}
+.rectangle-2 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  z-index: 4;
+  border-radius: 3px;
+}
+.urban-legends {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  color: #000000;
+  font-family: Oi, var(--default-font-family);
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+  z-index: 2;
+}
+.urban-legends-3 {
+  display: none;
+}
+.rectangle-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: min(223px, 80vw);
+  max-width: 100%;
+  height: 59px;
+  margin: clamp(16px, 2vw, 24px) auto 0;
+  background: #d9d9d9;
+  z-index: 31;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rectangle-4:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  color: #000000;
+  font-family: Orelega One, var(--default-font-family);
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 31;
+}
+.rectangle-5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: min(214px, 80vw);
+  max-width: 100%;
+  height: 38.455px;
+  margin: clamp(16px, 2vw, 24px) auto 0;
+  background: #d9d9d9;
+  z-index: 66;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rectangle-5:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.how-to-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  color: #000000;
+  font-family: Orelega One, var(--default-font-family);
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 66;
+}
+.line {
+  position: relative;
+  width: min(1500px, 100%);
+  height: 1px;
+  margin: clamp(60px, 8vw, 120px) auto 0;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-17/TcHmMaZ1DR.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 35;
+}
+.flex-row-fa {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+  gap: clamp(24px, 3vw, 48px);
+  position: relative;
+  width: 100%;
+  max-width: 1385px;
+  margin: clamp(40px, 5vw, 60px) auto 0;
+  padding: 0 clamp(8px, 2vw, 16px);
+  z-index: 46;
+}
+.info {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  background: #d9d9d9;
+  z-index: 38;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #000000;
+  font-family: Orelega One, var(--default-font-family);
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 39;
+}
+.info-6 {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  background: #d9d9d9;
+  z-index: 41;
+  border-radius: 25px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rectangle-7 {
+  position: relative;
+  width: 100%;
+  height: 157px;
+  background: #bababa;
+  z-index: 44;
+}
+.rectangle-8 {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 200px;
+  font-size: 0px;
+  background: #a4a4a4;
+  z-index: 42;
+  overflow: visible auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dynamicity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  color: #000000;
+  font-family: Orelega One, var(--default-font-family);
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 43;
+  text-shadow: 0 4px 3px rgba(0, 0, 0, 0.25);
+}
+.text-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  color: #000000;
+  font-family: Orelega One, var(--default-font-family);
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+  white-space: normal;
+  z-index: 45;
+}
+.info-9 {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  background: #d9d9d9;
+  z-index: 46;
+  border-radius: 25px;
+  box-shadow: 0 10px 6px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.see-previous-template {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+  color: #000000;
+  font-family: Orelega One, var(--default-font-family);
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+  z-index: 47;
+}
+.line-a {
+  position: relative;
+  width: min(1500px, 100%);
+  height: 1px;
+  margin: clamp(40px, 5vw, 59px) auto 0;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-17/cvjWcroWAV.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 36;
+}
+.whats-new {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: clamp(32px, 4vw, 48px) auto 0;
+  padding: 0 clamp(16px, 3vw, 58px);
+  color: #ffffff;
+  font-family: Bona Nova, var(--default-font-family);
+  font-size: clamp(32px, 3.5vw, 45px);
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: left;
+  text-decoration: underline;
+  white-space: nowrap;
+  z-index: 49;
+}
+.rectangle-b {
+  position: relative;
+  width: min(1400px, 95vw);
+  max-width: 100%;
+  min-height: 500px;
+  margin: clamp(20px, 2.5vw, 25px) auto 0;
+  padding: clamp(24px, 3vw, 34px);
+  background: #d9d9d9;
+  z-index: 48;
+  overflow: visible auto;
+  box-shadow: 8px 0 10px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.5vw, 34px);
+}
+.rectangle-c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  background: #7f7f7f;
+  z-index: 52;
+}
+.image-here {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  color: #ffffff;
+  font-family: Bona Nova, var(--default-font-family);
+  font-size: clamp(28px, 3.5vw, 45px);
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 52;
+}
+.rectangle-d {
+  position: relative;
+  width: 100%;
+  min-height: 120px;
+  padding: clamp(16px, 2vw, 24px) clamp(20px, 3vw, 48px);
+  box-sizing: border-box;
+  background: #c3c3c3;
+  z-index: 61;
+  display: flex;
+  align-items: center;
+}
+.description-here {
+  position: static;
+  display: block;
+  width: 100%;
+  color: #000000;
+  font-family: Bona Nova, var(--default-font-family);
+  font-size: clamp(18px, 2vw, 32px);
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: left;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  z-index: 61;
+}
+.flex-row-e {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 44px;
+  z-index: 63;
+}
+.back-arrow {
+  flex-shrink: 0;
+  position: relative;
+  width: 155px;
+  height: 44px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-17/qSqC5c1ALQ.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 63;
+}
+.arrow-forward {
+  flex-shrink: 0;
+  position: relative;
+  width: 155px;
+  height: 44px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-17/oQpMdwFyNa.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 62;
+}
+.flex-row-f {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  width: 100%;
+  height: 30px;
+  margin: clamp(12px, 1.5vw, 14px) auto 0;
+  z-index: 55;
+}
+.ellipse {
+  flex-shrink: 0;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-17/LmRqCwPATH.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 55;
+  border-radius: 50%;
+}
+.ellipse-10 {
+  flex-shrink: 0;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-17/RenJhYwCvy.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 53;
+  border-radius: 50%;
+}
+.ellipse-11 {
+  flex-shrink: 0;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-17/p3U8CgucPp.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 54;
+  border-radius: 50%;
+}
+
+/* Стани крапочок слайдера новин */
+.news-dot {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  opacity: 0.4;
+  transition: opacity 0.2s ease-out;
+}
+.news-dot.is-active {
+  opacity: 1;
+}
+
+/* FAQ & How-to-play modals */
+.faq-overlay,
+.howto-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.faq-overlay.is-open,
+.howto-overlay.is-open {
+  display: flex;
+}
+.faq-modal,
+.howto-modal {
+  position: relative;
+  width: min(1400px, 95vw);
+  height: min(900px, 95vh);
+  background: #2a201a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+}
+.faq-frame,
+.howto-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.rectangle-12 {
+  position: relative;
+  width: min(1430px, 95vw);
+  max-width: 100%;
+  min-height: 74px;
+  margin: clamp(32px, 4vw, 44px) auto 0;
+  padding: 12px;
+  background: #d9d9d9;
+  z-index: 7;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 12px;
+}
+.our-game {
+  position: relative;
+  min-width: min-content;
+  height: auto;
+  padding: 8px 16px;
+  background: #3f2525;
+  z-index: 21;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.city-legends {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  padding: 0 16px;
+  color: #ffffff;
+  font-family: Bona Nova, var(--default-font-family);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+}
+.rectangle-13 {
+  position: relative;
+  min-width: min-content;
+  height: auto;
+  padding: 8px 16px;
+  background: #3e2525;
+  z-index: 12;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.privacy {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  padding: 0 16px;
+  color: #ffffff;
+  font-family: Bona Nova, var(--default-font-family);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 13;
+}
+.rectangle-14 {
+  position: relative;
+  min-width: min-content;
+  height: auto;
+  padding: 8px 16px;
+  background: #3e2525;
+  z-index: 9;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.documentation {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  padding: 0 16px;
+  color: #ffffff;
+  font-family: Bona Nova, var(--default-font-family);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 10;
+}
+.rectangle-15 {
+  position: relative;
+  min-width: min-content;
+  height: auto;
+  padding: 8px 16px;
+  background: #3e2525;
+  z-index: 25;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.discord-icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-17/SgOeGpT051.png)
+    no-repeat center;
+  background-size: contain;
+  z-index: 26;
+}
+.insta-icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-17/5uZEAgOmAd.png)
+    no-repeat center;
+  background-size: contain;
+  z-index: 27;
+}
+.telegram-icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-17/rpMrjCTFVn.png)
+    no-repeat center;
+  background-size: contain;
+  z-index: 28;
+}
+.rectangle-16 {
+  position: relative;
+  min-width: min-content;
+  height: auto;
+  padding: 8px 16px;
+  background: #3f2525;
+  z-index: 18;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.game-version {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  padding: 0 16px;
+  color: #ffffff;
+  font-family: Bona Nova, var(--default-font-family);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+}
+.rectangle-17 {
+  position: relative;
+  min-width: min-content;
+  height: auto;
+  padding: 8px 16px;
+  background: #3e2525;
+  z-index: 15;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.license {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  padding: 0 16px;
+  color: #ffffff;
+  font-family: Bona Nova, var(--default-font-family);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 16;
+}
+.rectangle-18 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: min(341px, 90vw);
+  height: auto;
+  min-height: 33px;
+  padding: 8px 16px;
+  margin: clamp(20px, 2.5vw, 26px) auto 0;
+  background: #d9d9d9;
+  z-index: 59;
+  border-radius: 5px;
+}
+.contact-us {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  color: #3f2525;
+  font-family: Bona Nova, var(--default-font-family);
+  font-size: clamp(16px, 1.7vw, 22px);
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 59;
+}

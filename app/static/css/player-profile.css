@@ -1,0 +1,654 @@
+/* SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software */
+
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Kelly+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap');
+
+/* ============================================================
+   ЗАНУЛЮЮЧИЙ КОД
+============================================================ */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* ============================================================
+   ОСНОВНІ СТИЛІ СТОРІНКИ
+============================================================ */
+
+.body {
+  background-color: #A88E7F;
+  font-family: "Jura", sans-serif;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: auto;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2vw;
+}
+
+/* ==== Аватар і кнопка налаштувань ==== */
+.AvatarAndSettings {
+  position: absolute;
+  top: 1.5vw;
+  left: 1.5vw;
+}
+
+.GoBackBtn{
+  position: absolute;
+  top: 0vw;
+  left: 1.5vw;
+  width: 3.26vw;
+  height: 3.26vw;
+  border-radius: 50%;
+  background-color: #5C4646;
+  border: none;
+  transition: transform 0.2s;
+  background-image: url("/assets/art/Exit_Account.png");
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.Avatar {
+  position: absolute;
+  top: 0.39vw;
+  left: 3.07vw;
+  width: 16.99vw;
+  height: 16.99vw;
+  border-radius: 50%;
+  background-color: #5C4646;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.Settings {
+  position: absolute;
+  top: 14.35vw;
+  left: 18.5vw;
+  width: 3.26vw;
+  height: 3.26vw;
+  border-radius: 50%;
+  background-color: #5C4646;
+  border: none;
+  transition: transform 0.2s;
+  background-image: url("/assets/art/Setting.png");
+  background-size: 125%;
+  background-repeat: no-repeat;
+  background-position: 33% 33%;
+}
+
+.Settings:hover,
+.GoBackBtn:hover{
+  transform: scale(1.1);
+}
+
+/* ==== Інформація про гравця ==== */
+.InfoAboutPlayers {
+  position: absolute;
+  top: 2.5vw;
+  left: 26.2vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4vw;
+}
+
+.InfoAboutPlayers p {
+  width: 27.77vw;
+  height: 4.05vw;
+  background-color: #5C4646;
+  border-radius: 0.4vw;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* ==== Кімнати ==== */
+.MakeOrJoinToRoom {
+  position: absolute;
+  top: 21.45vw;
+  left: 2.45vw;
+  display: flex;
+  gap: 4vw;
+}
+
+.MakeRoom, 
+.JoinRoom {
+  position: relative;
+  width: 24.05228vw;
+  height: 32.67vw;
+  background-color: #5C4646;
+  border-radius: 0.6vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  text-align: center;
+  padding-top: 1.2vw;
+}
+
+.MakeRoomButton, 
+.JoinRoomButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18.95vw;
+  height: 4.7vw;
+  background-color: #907676;
+  border: none;
+  border-radius: 0.4vw;
+  font-size: 1.5vw;
+  font-weight: 500;
+  color: #2e1e1e;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.MakeRoomButton {
+    position: relative;
+    z-index: 10;
+}
+
+.MakeRoomButton:hover,
+.JoinRoomButton:hover {
+  transform: translateY(-0.3vw);
+  background-color: #856969;
+}
+
+/* ==== Секція чату ==== */
+.ChatAndRoomInfo {
+  position: absolute;
+  top: 1.5vw;
+  right: 1.5vw;
+  width: 39.21%;
+  height: 54vw;
+  background-color: #5C4646;
+  border-radius: 0.6vw;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* ====== МОДАЛКА ====== */
+.modal {
+    position: absolute;
+    display: none;
+    z-index: 2000;
+}
+
+.modal.open {
+    display: block;
+}
+
+.modal-content {
+    position: relative;
+    pointer-events: auto;
+}
+
+/* ====== ВІКНО ====== */
+.room-window {
+    width: 440px;
+    height: 26.14vw;
+    background: #938275;
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
+.room-window > label {
+    font-size: 24px;
+}
+
+/* ====== СПІЛЬНА СТРУКТУРА ДЛЯ ВСІХ ПОЛІВ ====== */
+
+.modal-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.modal-block label {
+    flex: 1;              /* label займає половину */
+    max-width: 50%;       /* не дозволяє стиснутися */
+    font-size: 20px;
+    background: #7A6A66;
+    border-radius: 12px;
+    border: 1px solid #4A3732;
+    padding: 6px 10px;
+    color: white;
+    text-align: center;
+    height: 44px;
+}
+
+.modal-block .modal-row,
+.modal-block input {
+    flex: 1;              /* інша половина */
+    max-width: 50%;
+}
+
+
+.modal-block input {
+    flex: 1;
+    height: 44px;
+    border-radius: 12px;
+    border: none;
+    padding: 5px 8px;
+    font-size: 15px;
+    background: #fff;
+    color: #2d2d2d;
+}
+
+/* ====== РЯДИ КНОПОК ====== */
+.modal-row {
+    flex: 1;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.modal-row button {
+    flex: 1;
+    min-width: 0;
+    height: 40px;
+    font-size: 18px;
+    background: #907676;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.modal-row button:hover {
+    background: #a68b8b;
+}
+
+/* ====== BLOCK: КІЛЬКІСТЬ ГРАВЦІВ ====== */
+.players-block {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.players-block label {
+    font-size: 24px;
+    text-align: center;
+    background: #7A6A66;
+    border-radius: 12px;
+    border: 1px solid #4A3732;
+    padding: 6px 10px;
+}
+
+/* ====== КНОПКА ПІДТВЕРДИТИ ====== */
+.confirmBtn {
+    color: white;
+    background: #c79d77;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: background 0.2s ease;
+    width: 50%;            /* у 2 рази вужча */
+    align-self: center;    /* центруємо всередині модалки */
+
+}
+
+.confirmBtn:hover {
+    background: #d5a882;
+}
+
+.MakeRoomButtonWrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* ====== КОЛЬОРОВИЙ ФОН ДЛЯ ВСІХ ЛЕЙБЛІВ ====== */
+.room-window label {
+    background: #7A6A66;        /* фон */
+    border-radius: 12px;
+    border: 1px solid #4A3732;
+    padding: 6px 10px;
+    color: #3A2F25;
+    font-family: 'Jim Nightshade';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#joinRoomModal {
+    top: var(--join-btn-bottom);
+    left: var(--join-btn-left);
+    transform: translate(-50%, 10px); 
+}
+
+#createRoomModal {
+    top: var(--btn-bottom);
+    left: var(--btn-left);
+    transform: translate(-50%, 10px);
+}
+
+.NicknameRow {
+    width: 27.77vw;
+    height: 4.05vw;
+    background-color: #5C4646;
+    border-radius: 0.4vw;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-left: 1vw;
+    padding-right: 0.7vw;
+}
+
+#nicknameInput {
+    width: 20vw;
+    height: 2.5vw;
+    border-radius: 0.4vw;
+    border: none;
+    font-size: 1.4vw;
+    padding-left: 0.7vw;
+    background: #7a6a66;
+    color: #f0e6e2;
+}
+
+.nick-btn {
+    width: 2.6vw;
+    height: 2.6vw;
+    border-radius: 0.3vw;
+    border: none;
+    background-color: #b08f86;
+    cursor: pointer;
+    background-size: 110%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.2s;
+    margin-left: 0.3vw;
+}
+
+.nick-btn:hover {
+    background-color: #c49e95;
+}
+
+.edit-btn {
+    background-image: url('/assets/art/Button_Pencil_ART.png'); /* заміни на свою іконку */
+}
+
+.save-btn {
+    background-image: url('/assets/art/Button_Save_NearNickname_ART.png'); /* заміни на свою іконку */
+}
+
+/* Панель після створення кімнати — ТЕПЕР НЕ МОДАЛКА */
+.created-panel {
+    position: absolute;
+    top: 1.5vw;
+    right: 1.5vw;
+
+    /* Розміри 1-в-1 як ChatAndRoomInfo */
+    width: 39.21%;
+    height: 54vw;
+
+    background-color: #5C4646;
+    border-radius: 0.6vw;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+
+    display: none; /* прихована */
+    z-index: 3000;
+}
+
+/* Внутрішній контейнер */
+.created-panel-content {
+    width: 100%;
+    height: 100%;
+    padding: 1.2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+/* Кнопка закриття */
+.close-created-panel {
+    position: absolute;
+    top: 0.6vw;
+    left: 0.6vw;
+    width: 1.8vw;
+    height: 1.8vw;
+    background-color: #c69a8b;
+    background-image: url('/assets/art/close_icon.png');
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
+    border-radius: 0.4vw;
+    border: none;
+    cursor: pointer;
+}
+
+/* Верхній блок */
+.created-top-block {
+    height: 8vw;
+    background: #b9a293;
+    border-radius: 0.6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vw;
+    padding: 1vw;
+}
+
+.created-room-name {
+    height: 2vw;
+    background: #8b6858;
+    border-radius: 0.6vw;
+}
+
+.created-room-mode {
+    height: 2vw;
+    background: #7c5a4d;
+    border-radius: 0.6vw;
+    width: 60%;
+}
+
+.created-room-lock {
+    height: 1.5vw;
+    width: 1.5vw;
+    background: #e6d6c7;
+    border-radius: 50%;
+}
+
+/* Вкладки */
+.created-tabs {
+    display: flex;
+    gap: 0.6vw;
+}
+
+.tab-btn {
+    flex: 1;
+    height: 2.3vw;
+    background: #b19a8f;
+    border: none;
+    border-radius: 0.6vw;
+    color: #3a2b28;
+    font-size: 1vw;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background: #e2d3c7;
+}
+
+/* Блок із даними */
+.created-info {
+    background: #ececec;
+    flex-grow: 1;
+    border-radius: 0.6vw;
+    padding: 0.6vw;
+    overflow-y: auto;
+}
+
+/* Кнопка старту */
+.start-game-btn {
+    width: 40%;
+    margin: 0 auto;
+    background: #c79d77;
+    border: none;
+    height: 2.8vw;
+    border-radius: 0.6vw;
+    color: white;
+    font-size: 1.2vw;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.start-game-btn:hover {
+    background: #dba97f;
+}
+
+/* Збільшена висота чату */
+/* Контейнер чату */
+.created-chat-block {
+    height: 15vw;
+    background: #b9a293;
+    border-radius: 0.6vw;
+    padding: 0.8vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vw;
+    margin-top: 3.2vw;
+    position: relative;
+}
+
+/* Кнопка закриття — тепер у правильному місці */
+.close-created-panel {
+    position: absolute;
+    top: 0.8vw;
+    left: 0.8vw;
+    width: 2.5vw;
+    height: 2.5vw;
+    z-index: 10;
+
+    background-color: #c69a8b;
+    background-image: url('/assets/art/Action_Logout.png');
+    background-repeat: no-repeat;
+    background-size: 145%;
+    background-position: center;
+
+    border-radius: 0.5vw;
+    border: none;
+
+    cursor: pointer;
+    z-index: 20; /* гарантія що поверх усього */
+}
+
+/* Поле повідомлень */
+.chat-messages {
+    flex-grow: 1;
+    background: #e8d8cc;
+    border-radius: 0.6vw;
+    padding: 0.6vw 0.8vw;
+    overflow-y: auto;
+    font-size: 1vw;
+}
+
+/* Рядок вводу */
+.chat-input-row {
+    display: flex;
+    gap: 0.6vw;
+    align-items: center;
+}
+
+/* Ввід */
+#chatInput {
+    flex-grow: 1;
+    height: 2.8vw;
+    border-radius: 0.5vw;
+    border: none;
+    padding-left: 1vw;
+    font-size: 1vw;
+
+    background: #ffffff;
+}
+
+/* Кнопка відправки */
+.chat-send {
+    width: 2.8vw;
+    height: 2.8vw;
+    background-color: #c79d77;
+    background-image: url("/assets/art/send_icon.png");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border-radius: 0.5vw;
+    border: none;
+    cursor: pointer;
+}
+
+.chat-send:hover {
+    background-color: #d5a882;
+}

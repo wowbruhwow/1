@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
+<html lang="ua">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Вікно гри — City Legends</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/playable-window.css') }}">
+    </head>
+    <body class="body" data-page="play">
+        <div class="game-layout">
+        <div class="hourglass_border">
+            <div class="hourglass"></div>
+        </div>
+
+        <div class="PlayersAndButtonsMenu">
+            <div class="buttons">
+                <button class="CardsFAQ" type="button" aria-label="Енциклопедія">Енциклопедія</button>
+                <button class="GameMenu" type="button" aria-label="Меню гри">Меню</button>
+                <button class="GameChat" type="button" aria-label="Чат гри">Чат</button>
+            </div>
+
+            <div class="Players">
+                <button class="PlayerME" type="button" aria-label="Ваш огляд"></button>
+                <button class="Player_1" type="button" aria-label="Гравець 1"></button>
+                <button class="Player_2" type="button" aria-label="Гравець 2"></button>
+                <button class="Player_3" type="button" aria-label="Гравець 3"></button>
+             </div>
+        </div>
+
+        <div class="EnemyHealth">
+            <p>❤️ ❤️ ❤️ ❤️ ❤️</p>
+        </div>
+
+        <div class="MyAndEnemyPoints">
+            <div class="MyPoints"></div>
+            <div class="EnemyPoints"></div>
+        </div>
+
+        <div class="ActiveLocations">
+            <div class="Position_0"></div>
+            <div class="Position_1"></div>
+            <div class="Position_2"></div>
+            <div class="Position_3"></div>
+            <div class="Position_4"></div>
+            <div class="Position_5"></div>
+        </div>
+
+        <div class="board">
+            <div class="MyLightSideBoard"></div>
+            <div class="EnemyDarkSideBoard"></div>
+            <div class="SpecialCardsBoard"></div>
+            <div class="MyDarkSideBoard"></div>
+            <div class="EnemyLightSideBoard"></div>
+        </div>
+
+        <div class="Cards"></div>
+
+        <div class="Moves">
+            <p id="MoveCount">5</p>
+        </div>
+
+        <div class="MyHealth">
+            <p>❤️ ❤️ ❤️ ❤️ ❤️</p>
+        </div>
+
+        <div class="Hand"></div>
+
+        <div class="Drops">
+            <button class="OpenDrops">Скид</button>
+        </div>
+        </div>
+        
+        <div class="modal-overlay" id="modalOverlay_drops" hidden>
+            <div
+              class="modal_drops"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="drops-title"
+              tabindex="-1"
+            >
+                <span class="modal-close" id="closeModal_drops" aria-label="Закрити">&times;</span>
+                <div class="popup_name" id="drops-title">Скинуті карти</div>
+
+                <div class="modal_form">
+                    <p style="font-family: 'Jura'; font-size: 1.3vw; color: #2b2b2b; text-align: center; margin-top: 5vh;">
+                        Тут відображатимуться карти, які ви скинули під час гри.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВСПЛИВНЕ ВІКНО МЕНЮ ГРИ -->
+        <div class="modal-overlay" id="modalOverlay_gameMenu" hidden>
+            <div
+              class="modal_gameMenu"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="game-menu-title"
+              tabindex="-1"
+            >
+                <span class="modal-close" id="closeModal_gameMenu" aria-label="Закрити">&times;</span>
+                <div class="exit_title" id="game-menu-title">~ Вийти з гри? ~</div>
+
+                <div class="menu_buttons_container">
+                    <div class="yes_no_container">
+                        <button class="menu_btn polygon_btn">-Так-</button>
+                        <button class="menu_btn polygon_btn">-Ні-</button>
+                    </div>
+                    <button class="menu_btn trapezoid_btn">-Налаштування-</button>
+                    <button class="menu_btn hex_btn">--Назад--</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- DEBUG FSM PANEL -->
+        <div id="fsm-debug" style="
+            position: fixed;
+            bottom: 1vw;
+            left: 1vw;
+            background: rgba(50, 50, 50, 0.8);
+            color: white;
+            padding: 1vw;
+            border-radius: 8px;
+            z-index: 999999;
+            font-family: monospace;
+            font-size: 0.9vw;
+        ">
+            <div>State: <span id="state-value">idle</span></div>
+
+            <div style="margin-top: .5vw;">Events:</div>
+            <button data-event="start">start</button>
+            <button data-event="myTurn">myTurn</button>
+            <button data-event="theirTurn">theirTurn</button>
+            <button data-event="finish">finish</button>
+
+            <div style="margin-top: .5vw;">Log:</div>
+            <div id="log" style="
+                max-height: 8vw;
+                overflow-y: auto;
+                background: rgba(0,0,0,.3);
+                padding: .5vw;
+                border-radius: 4px;
+            "></div>
+        </div>
+
+        <!-- === FLOATING GAME CHAT === -->
+    <div id="gameChatWindow" class="game-chat-window" hidden>
+        <div class="game-chat-header">
+            <span>Чат</span>
+
+            <!-- ОБОВʼЯЗКОВО ID !!! -->
+            <button id="closeGameChat" class="game-chat-close">✖</button>
+        </div>
+
+        <div id="gameChatMessages" class="game-chat-messages"></div>
+
+        <div class="game-chat-input-row">
+            <input id="gameChatInput" type="text">
+            <button id="gameChatSend" class="game-chat-send"></button>
+        </div>
+    </div>
+
+        <script src="{{ url_for('static', filename='js/play.js') }}"></script>
+
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
+<html lang="ua">
+<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Налаштування профілю — City Legends</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/player-setting.css') }}">
+    </head>
+    <body class="body">
+        <div class="avatars">
+            <button class="base_avatar" type="button" aria-label="Базовий аватар 1"></button>
+            <button class="base_avatar" type="button" aria-label="Базовий аватар 2"></button>
+            <button class="base_avatar" type="button" aria-label="Базовий аватар 3"></button>
+            <button class="base_avatar" type="button" aria-label="Базовий аватар 4"></button>
+            <button class="custom_avatar" type="button" aria-label="Користувацький аватар 1" onclick="openFilePicker(1)"></button>
+            <button class="custom_avatar" type="button" aria-label="Користувацький аватар 2" onclick="openFilePicker(2)"></button>
+            <button class="custom_avatar" type="button" aria-label="Користувацький аватар 3" onclick="openFilePicker(3)"></button>
+            <button class="custom_avatar" type="button" aria-label="Користувацький аватар 4" onclick="openFilePicker(4)"></button>
+        </div>
+
+        <div class="SaveAndResetButtons">
+            <button class="ResetButton">скинути</button>
+        </div>
+
+        <div class="backgrounds">
+            <button class="Background_1">тут вибрати фон</button>
+            <button class="Background_2">тут вибрати фон</button>
+            <button class="Background_3"></button>
+        </div>
+
+        <div class="container">
+            <button class="BackButton">назад</button>
+        </div>
+
+        <input type="file" id="avatarInput1" accept="image/*" style="display:none" onchange="setAvatar(this, 1)">
+        <input type="file" id="avatarInput2" accept="image/*" style="display:none" onchange="setAvatar(this, 2)">
+        <input type="file" id="avatarInput3" accept="image/*" style="display:none" onchange="setAvatar(this, 3)">
+        <input type="file" id="avatarInput4" accept="image/*" style="display:none" onchange="setAvatar(this, 4)">
+
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </body>
+</html>

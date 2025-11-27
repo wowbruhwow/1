@@ -1,0 +1,160 @@
+/* SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software */
+
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+.main-container {
+  overflow: hidden;
+}
+
+.main-container,
+.main-container * {
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.main-container {
+  position: relative;
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  background: #34271f;
+  padding: clamp(40px, 5vw, 60px) clamp(16px, 3vw, 32px) clamp(80px, 10vw, 105px);
+  overflow: visible;
+  min-height: 100vh;
+}
+
+.main-container > * {
+  max-width: 1530px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.question-template {
+  position: relative;
+  z-index: 0;
+  width: min(1250px, 95vw);
+  max-width: 100%;
+  min-height: 600px;
+  margin: 0 auto;
+  background: #bdac9e;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 3vw, 32px) clamp(24px, 3vw, 40px) clamp(20px, 2.5vw, 28px);
+}
+
+.question-template::before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  bottom: -25px;
+  left: -25px;
+  right: -25px;
+  background: #bdac9e;
+  border-radius: 40px;
+  filter: blur(12px);
+  z-index: -1;
+}
+
+.how-to-play-header {
+  margin-bottom: 12px;
+}
+
+.how-to-play-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #000000;
+  font-family: Kelly Slab, var(--default-font-family);
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 400;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.how-to-play-content {
+  flex: 1 1 auto;
+  background: #cdcdc3;
+  border-radius: 18px;
+  padding: 24px 28px;
+  overflow-y: auto;
+  color: #000000;
+  font-family: Kelly Slab, var(--default-font-family);
+  font-size: 18px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.how-to-play-content p {
+  margin: 0 0 1em;
+}
+
+.how-to-play-content p:last-child {
+  margin-bottom: 0;
+}
+
+.back-button {
+  position: relative;
+  width: min(227px, 80vw);
+  max-width: 100%;
+  height: 61px;
+  margin: clamp(40px, 5vw, 65px) auto clamp(20px, 3vw, 40px);
+  background: #d9d9d9;
+  border-radius: 10px;
+  z-index: 2;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #000000;
+  font-family: Bona Nova, var(--default-font-family);
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.city-legends {
+  position: relative;
+  margin: clamp(32px, 4vw, 48px) auto 0;
+  padding: clamp(12px, 1.8vw, 20px);
+  color: #4a3636;
+  font-family: Bona Nova, var(--default-font-family);
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  white-space: normal;
+}
