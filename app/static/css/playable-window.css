@@ -343,14 +343,17 @@ body.body[data-page="play"] {
 }
 
 /* ===== НИЖНЯ ПАНЕЛЬ: ХОДИ ===== */
+/* Repositioned to be part of bottom-centered layout near the deck area */
 .Moves {
     position: absolute;
-    left: 0;
+    /* Position near left side of Hand/deck area, not at viewport corner */
+    left: 4vw;
     bottom: 0;
     width: 14vw;
     height: 14vh;
     background-color: #906565;
     clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+    z-index: 1500;
 }
 
 .Moves p {
@@ -398,9 +401,11 @@ body.body[data-page="play"] {
 }
 
 /* ===== СКИД (ПРАВА НИЖНЯ ПАНЕЛЬ) ===== */
+/* Repositioned to be part of bottom-centered layout near the deck area */
 .Drops {
     position: absolute;
-    right: 0;
+    /* Position near right side of Hand/deck area, not at viewport corner */
+    right: 4vw;
     bottom: 0;
     width: 14vw;
     height: 14vh;
@@ -596,12 +601,14 @@ body.body[data-page="play"] {
 }
 
 /* === GAME CHAT WINDOW === */
+/* Floating chat window positioned above the right side of the board */
 .game-chat-window {
     position: fixed;
-    top: 10vw;
-    right: 2vw;
-    width: 22vw;
-    height: 28vw;
+    /* Position relative to board area - aligned with right side panel */
+    top: 12vh;
+    right: 10vw;
+    width: 20vw;
+    height: 26vw;
     background: #5C4646;
     border-radius: 0.6vw;
     box-shadow: 0 0 1vw rgba(0,0,0,0.6);
