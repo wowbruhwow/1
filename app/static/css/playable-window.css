@@ -120,14 +120,14 @@ body.body[data-page="play"] {
 
 .PlayersAndButtonsMenu {
   position: absolute;
-  top: 2.5vh;
+  top: 0.5vh;
   left: 50%;
   transform: translateX(-50%);
   width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1vh;
+  gap: 0.5vh;
   z-index: 1000;
 }
 
