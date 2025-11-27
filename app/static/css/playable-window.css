@@ -227,7 +227,7 @@ body.body[data-page="play"] {
 /* ===== ЛІВА БІЧНА ПАНЕЛЬ: ЛОКАЦІЇ (сітка 2x3) ===== */
 .ActiveLocations {
     position: absolute;
-    top: 12vh;
+    top: 14vh;
     left: 1vw;
     width: 12vw;
     height: 65vh;
@@ -256,7 +256,7 @@ body.body[data-page="play"] {
 /* ===== ПРАВА БІЧНА ПАНЕЛЬ: КАРТИ В РУЦІ + PREVIEW ===== */
 .MyAndEnemyPoints {
     position: absolute;
-    top: 12vh;
+    top: 14vh;
     right: 1vw;
     width: 8vw;
     height: 65vh;
@@ -275,7 +275,7 @@ body.body[data-page="play"] {
 /* ===== ЦЕНТРАЛЬНА ІГРОВА ДОШКА ===== */
 .board {
     position: absolute;
-    top: 12vh;
+    top: 14vh;
     left: 50%;
     transform: translateX(-50%);
     width: 66vw;
