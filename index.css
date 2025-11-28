@@ -1,0 +1,234 @@
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+.main-container {
+  overflow: hidden;
+}
+
+.main-container,
+.main-container * {
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
+
+.main-container {
+  position: relative;
+  width: 1530px;
+  height: 856px;
+  margin: 0 auto;
+  background: #f1e9d2;
+  border: 1px solid #502d2d;
+  overflow: hidden;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.flex-row {
+  position: relative;
+  width: 1500px;
+  height: 693px;
+  margin: 9px 0 0 12px;
+  z-index: 16;
+}
+.regroup {
+  position: absolute;
+  width: 220px;
+  height: 693px;
+  top: 0;
+  left: 9px;
+  z-index: 14;
+}
+.hourglass {
+  position: absolute;
+  width: 97.009px;
+  height: 117px;
+  top: -3.5px;
+  left: -3.509px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/6yqwiYFtdA.png)
+    no-repeat center;
+  background-size: cover;
+  filter: blur(1.5px);
+  z-index: 4;
+}
+.interaction-box {
+  position: absolute;
+  width: 113px;
+  height: 71px;
+  top: 20px;
+  left: 107px;
+  background: #837070;
+  z-index: 14;
+  border-radius: 5px;
+}
+.encyclopedia-map {
+  position: absolute;
+  width: 145.807px;
+  height: 47px;
+  top: 3.5px;
+  left: 568.5px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JRRepwptQw.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 1;
+}
+.menu-key {
+  position: absolute;
+  width: 146.336px;
+  height: 47px;
+  top: 3.5px;
+  left: 679.798px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/TeirzXO80a.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 2;
+}
+.chat-key {
+  position: absolute;
+  width: 145.728px;
+  height: 47px;
+  top: 3.5px;
+  left: 793.772px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/GpfiFvWbX7.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 3;
+}
+.player-icon-panel {
+  position: absolute;
+  width: 326px;
+  height: 47px;
+  top: 58px;
+  left: 590px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/p02KtYsPPX.png)
+    no-repeat center;
+  background-size: cover;
+}
+.enemy-hp {
+  position: absolute;
+  width: 116px;
+  height: 21px;
+  top: 84px;
+  left: 1247px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/cYHdmLreAt.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 16;
+}
+.glasses {
+  position: absolute;
+  width: 101px;
+  height: 395px;
+  top: 84px;
+  left: 1386px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/NNdzxro8vZ.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 11;
+}
+.special-cards {
+  position: absolute;
+  width: 320px;
+  height: 526px;
+  top: 118px;
+  left: 0;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/VHW24Ncrf9.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 9;
+  border-radius: 10px;
+}
+.card-zone {
+  position: absolute;
+  width: 1032px;
+  height: 575px;
+  top: 118px;
+  left: 331px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/EkabCrkL6h.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 7;
+}
+.card-back-template {
+  position: absolute;
+  width: 126px;
+  height: 185px;
+  top: 498px;
+  left: 1374px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/2XTVfzW3pM.png)
+    no-repeat center;
+  background-size: 100% 100%;
+  z-index: 13;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.flex-row-f {
+  position: relative;
+  width: 1490.5px;
+  height: 132px;
+  margin: 10px 0 0 15px;
+  z-index: 15;
+}
+.number-of-moves {
+  position: absolute;
+  width: 317.5px;
+  height: 132px;
+  top: 0;
+  left: 0;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/UwEwQPSyhQ.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 10;
+}
+.our-hp {
+  position: absolute;
+  width: 116px;
+  height: 21px;
+  top: 0;
+  left: 328px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/fkyMZhmpXN.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 15;
+}
+.discount {
+  position: absolute;
+  width: 317.5px;
+  height: 132px;
+  top: 0;
+  left: 1173px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JcV2P69SWX.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 6;
+}
+.table {
+  position: absolute;
+  width: 2228px;
+  height: 1001px;
+  top: 328px;
+  left: -350px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/K7Q1rxMGV7.png)
+    no-repeat center;
+  background-size: cover;
+  filter: blur(25px);
+  z-index: 5;
+}
+.card-selection-zone {
+  position: absolute;
+  width: 1730px;
+  height: 372px;
+  top: 742px;
+  left: -101px;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/9vQGQwmFA5.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 8;
+}
