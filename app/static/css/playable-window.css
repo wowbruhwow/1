@@ -120,7 +120,7 @@ body.body[data-page="play"] {
 
 .PlayersAndButtonsMenu {
   position: absolute;
-  top: 2.5vh;
+  top: 0.5vh;
   left: 50%;
   transform: translateX(-50%);
   width: auto;
@@ -207,7 +207,7 @@ body.body[data-page="play"] {
 
 .EnemyHealth {
     position: absolute;
-    top: 2.5vh;
+    top: 0.5vh;
     right: 2vw;
 
     width: 7.58vw;
@@ -275,7 +275,7 @@ body.body[data-page="play"] {
 /* ===== ЦЕНТРАЛЬНА ІГРОВА ДОШКА ===== */
 .board {
     position: absolute;
-    top: 12vh;
+    top: 13vh;
     left: 50%;
     transform: translateX(-50%);
     width: 66vw;
@@ -357,11 +357,11 @@ body.body[data-page="play"] {
     position: absolute;
     border-radius: 25px;
     background-color: #D9D9D9;
-    width: 7vw;
-    height: 5vh;
-    top: 1.5vh;
-    left: 1.3vw;
-    font-size: clamp(18px, 2vw, 32px);
+    width: 5vw;
+    height: 4vh;
+    top: 1vh;
+    left: 1vw;
+    font-size: clamp(14px, 1.5vw, 24px);
     font-family: "Jura";
     display: flex;
     justify-content: center;
@@ -416,11 +416,11 @@ body.body[data-page="play"] {
     position: absolute;
     border-radius: 25px;
     background-color: #D9D9D9;
-    width: 7vw;
-    height: 5vh;
-    top: 1.5vh;
-    right: 1.3vw;
-    font-size: clamp(18px, 2vw, 32px);
+    width: 5vw;
+    height: 4vh;
+    top: 1vh;
+    right: 1vw;
+    font-size: clamp(14px, 1.5vw, 24px);
     font-family: "Jura";
     display: flex;
     justify-content: center;
@@ -685,4 +685,46 @@ body.body[data-page="play"] {
     top: 0.2vw;
     z-index: 999999 !important;
     pointer-events: auto !important;
+}
+
+/* ============================================================
+   СТИЛІЗОВАНІ СЕРЦЯ ДЛЯ ЗДОРОВ'Я
+   Heart shape is created using CSS transform technique:
+   - Main square rotated 45deg becomes a diamond
+   - Two circle pseudo-elements on top and right create the heart lobes
+============================================================ */
+.heart {
+    display: inline-block;
+    width: 1.2vw;
+    height: 1.2vw;
+    background-color: #8B4513;
+    transform: rotate(-45deg);
+    position: relative;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 1.2vw;
+    height: 1.2vw;
+    background-color: #8B4513;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -0.6vw;
+    left: 0;
+}
+
+.heart::after {
+    left: 0.6vw;
+    top: 0;
+}
+
+.hearts-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3vw;
 }
