@@ -176,23 +176,25 @@ body.body[data-page="play"] {
 }
 
 .Players {
-    width: 21.3vw;
-    height: 4.5vh;
+    width: 18vw;
+    height: 4vh;
     background-color: #663A3A;
     margin-top: 0;
-    border-radius: 6px;
+    border-radius: 8px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 0 1vw;
+    padding: 0.5vh 1vw;
 }
 
 .PlayerME,
 .Player_1,
 .Player_2,
 .Player_3 {
-    width: 2.48vw;
-    height: 3.5vh;
+    width: 2vw;
+    height: 2vw;
+    max-width: 3vh;
+    max-height: 3vh;
     border-radius: 50%;
     background-color: #ccc;
     transition: transform 0.2s;
@@ -207,20 +209,17 @@ body.body[data-page="play"] {
 
 .EnemyHealth {
     position: absolute;
-    top: 2.5vh;
+    top: 2vh;
     right: 2vw;
-
-    width: 7.58vw;
+    width: 8vw;
     height: 2.5vh;
     background-color: #E9D6AC;
     border-radius: 20px;
-    border: 1px solid #E7BF65;
-
+    border: 2px solid #E7BF65;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 0.5vw;
-    box-sizing: border-box;
+    gap: 0.3vw;
     z-index: 1000;
 }
 
@@ -351,6 +350,7 @@ body.body[data-page="play"] {
     height: 14vh;
     background-color: #906565;
     clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+    filter: drop-shadow(0 -2px 0 black) drop-shadow(-2px 0 0 black);
 }
 
 .Moves p {
@@ -371,18 +371,18 @@ body.body[data-page="play"] {
 /* ===== ЗДОРОВ'Я ГРАВЦЯ ===== */
 .MyHealth {
     position: absolute;
-    left: 14.5vw;
-    bottom: 15.5vh;
-    width: 7vw;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 14vh;
+    width: 8vw;
     height: 2.5vh;
     background-color: #E9D6AC;
     border-radius: 20px;
-    border: 1px solid #E7BF65;
+    border: 2px solid #E7BF65;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 0.5vw;
-    box-sizing: border-box;
+    gap: 0.3vw;
     z-index: 1000;
 }
 
@@ -395,6 +395,7 @@ body.body[data-page="play"] {
     height: 13vh;
     background-color: #B49B73;
     clip-path: polygon(0% 100%, 17% 0%, 83% 0%, 100% 100%);
+    filter: drop-shadow(0 -3px 0 black);
 }
 
 /* ===== СКИД (ПРАВА НИЖНЯ ПАНЕЛЬ) ===== */
@@ -410,6 +411,7 @@ body.body[data-page="play"] {
     justify-content: center;
     align-items: center;
     z-index: 2000;
+    filter: drop-shadow(0 -2px 0 black) drop-shadow(2px 0 0 black);
 }
 
 .OpenDrops {
@@ -685,4 +687,34 @@ body.body[data-page="play"] {
     top: 0.2vw;
     z-index: 999999 !important;
     pointer-events: auto !important;
+}
+
+/* ===== СЕРЦЯ ДЛЯ ЗДОРОВ'Я ===== */
+.heart {
+    width: 0.8vw;
+    height: 0.8vw;
+    background-color: #6B3A3A;
+    transform: rotate(-45deg);
+    position: relative;
+    display: inline-block;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 0.8vw;
+    height: 0.8vw;
+    background-color: #6B3A3A;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -0.4vw;
+    left: 0;
+}
+
+.heart::after {
+    left: 0.4vw;
+    top: 0;
 }
