@@ -120,7 +120,7 @@ body.body[data-page="play"] {
 
 .PlayersAndButtonsMenu {
   position: absolute;
-  top: 2.5vh;
+  top: 0.5vh;
   left: 50%;
   transform: translateX(-50%);
   width: auto;
@@ -209,18 +209,20 @@ body.body[data-page="play"] {
 
 .EnemyHealth {
     position: absolute;
-    top: 2vh;
-    right: 2vw;
-    width: 8vw;
-    height: 2.5vh;
+    top: 10vh;
+    right: 1vw;
+    width: 7.5vw;
+    height: 2.2vh;
     background-color: #E9D6AC;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 2px solid #E7BF65;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.3vw;
+    gap: 0.2vw;
+    padding: 0 0.3vw;
     z-index: 1000;
+    overflow: hidden;
 }
 
 /* ===== ЛІВА БІЧНА ПАНЕЛЬ: ЛОКАЦІЇ (сітка 2x3) ===== */
@@ -274,11 +276,11 @@ body.body[data-page="play"] {
 /* ===== ЦЕНТРАЛЬНА ІГРОВА ДОШКА ===== */
 .board {
     position: absolute;
-    top: 12vh;
+    top: 14vh;
     left: 50%;
     transform: translateX(-50%);
     width: 66vw;
-    height: 66vh;
+    height: 62vh;
     background-color: #F23131;
     border-radius: 20px;
 }
@@ -371,19 +373,21 @@ body.body[data-page="play"] {
 /* ===== ЗДОРОВ'Я ГРАВЦЯ ===== */
 .MyHealth {
     position: absolute;
-    left: 10%;
+    left: 50%;
     transform: translateX(-50%);
-    bottom: 14vh;
-    width: 8vw;
-    height: 2.5vh;
+    bottom: 14.5vh;
+    width: 7.5vw;
+    height: 2.2vh;
     background-color: #E9D6AC;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 2px solid #E7BF65;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.3vw;
+    gap: 0.2vw;
+    padding: 0 0.3vw;
     z-index: 1000;
+    overflow: hidden;
 }
 
 /* ===== РУКА ГРАВЦЯ (НИЖНЯ ТРАПЕЦІЯ) ===== */
@@ -691,30 +695,31 @@ body.body[data-page="play"] {
 
 /* ===== СЕРЦЯ ДЛЯ ЗДОРОВ'Я ===== */
 .heart {
-    width: 0.8vw;
-    height: 0.8vw;
+    width: 0.7vw;
+    height: 0.7vw;
     background-color: #6B3A3A;
     transform: rotate(-45deg);
     position: relative;
     display: inline-block;
+    flex-shrink: 0;
 }
 
 .heart::before,
 .heart::after {
     content: '';
     position: absolute;
-    width: 0.8vw;
-    height: 0.8vw;
+    width: 0.7vw;
+    height: 0.7vw;
     background-color: #6B3A3A;
     border-radius: 50%;
 }
 
 .heart::before {
-    top: -0.4vw;
+    top: -0.35vw;
     left: 0;
 }
 
 .heart::after {
-    left: 0.4vw;
+    left: 0.35vw;
     top: 0;
 }
