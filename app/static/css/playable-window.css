@@ -16,7 +16,6 @@
   box-sizing: border-box;
 }
 
-
 nav, footer, header, aside {
   display: block;
 }
@@ -95,108 +94,151 @@ body.body[data-page="play"] {
     overflow: hidden;
 }
 
-.hourglass_border {
-  position: absolute;
-  top: 1vh;
-  left: 1.5vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 5.88vw;
-  height: 9vh;
-  background: black;
-  clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%, 30% 50%);
-  overflow: hidden;
-  margin: 0;
+/* ============================================================
+   ТАЙМЕР (ПІСОЧНИЙ ГОДИННИК)
+============================================================ */
+.hourglass-container {
+    position: absolute;
+    top: 1vh;
+    left: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5.88vw;
+    height: 9vh;
+    background: black;
+    clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%, 30% 50%);
+    overflow: hidden;
+    margin: 0;
+    z-index: 100;
 }
 
 .hourglass {
-  width: 5.3vw;
-  height: 8vh;
-  background: #ccc;
-  clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%, 30% 50%);
-  overflow: hidden;
+    width: 5.3vw;
+    height: 8vh;
+    background: #ccc;
+    clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%, 30% 50%);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.PlayersAndButtonsMenu {
-  position: absolute;
-  top: 0.5vh;
-  left: 50%;
-  transform: translateX(-50%);
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1vh;
-  z-index: 1000;
+#timer-seconds {
+    font-family: "Jura", sans-serif;
+    font-size: clamp(16px, 1.8vw, 28px);
+    font-weight: bold;
+    color: #333;
 }
 
-.buttons {
-  display: flex;
-  gap: 0;
-  align-items: center;
-  justify-content: center;
+/* ============================================================
+   КНОПКА ВЗАЄМОДІЇ
+============================================================ */
+.interaction-box {
+    position: absolute;
+    top: 1.5vh;
+    left: 8vw;
+    width: 6vw;
+    height: 4vh;
+    background-color: #D9D9D9;
+    border-radius: 6px;
+    z-index: 100;
+}
+
+/* ============================================================
+   КНОПКИ МЕНЮ (ТРАПЕЦІЄПОДІБНІ)
+============================================================ */
+.top-buttons {
+    position: absolute;
+    top: 0.5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
 }
 
 .CardsFAQ {
-  position: relative;
-  left: 38px;
-  width: 9.15vw;
-  height: 3.5vh;
-  background-color: #947070;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  font-size: clamp(12px, 1.2vw, 18px);
-  clip-path: polygon(0% 0%, 100% 0%, 71.42% 100%, 0% 100%);
+    position: relative;
+    left: 38px;
+    width: 9.15vw;
+    height: 3.5vh;
+    background-color: #947070;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    font-size: clamp(12px, 1.2vw, 18px);
+    font-family: "Jura", sans-serif;
+    color: #fff;
+    clip-path: polygon(0% 0%, 100% 0%, 71.42% 100%, 0% 100%);
 }
 
 .GameMenu {
-  width: 9.15vw;
-  height: 3.5vh;
-  background-color: #947070;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  font-size: clamp(12px, 1.2vw, 18px);
-  clip-path: polygon(28.57% 0%, 100% 0%, 71.42% 100%, 0% 100%);
+    width: 9.15vw;
+    height: 3.5vh;
+    background-color: #947070;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    font-size: clamp(12px, 1.2vw, 18px);
+    font-family: "Jura", sans-serif;
+    color: #fff;
+    clip-path: polygon(28.57% 0%, 100% 0%, 71.42% 100%, 0% 100%);
 }
 
 .GameChat {
     position: relative;
-  right: 38px;
-  width: 9.15vw;
-  height: 3.5vh;
-  background-color: #947070;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  font-size: clamp(12px, 1.2vw, 18px);
-  clip-path: polygon(0% 100%, 28.57% 0%, 100% 0%, 100% 100%);
+    right: 38px;
+    width: 9.15vw;
+    height: 3.5vh;
+    background-color: #947070;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    font-size: clamp(12px, 1.2vw, 18px);
+    font-family: "Jura", sans-serif;
+    color: #fff;
+    clip-path: polygon(0% 100%, 28.57% 0%, 100% 0%, 100% 100%);
 }
 
+.CardsFAQ:hover,
+.GameMenu:hover,
+.GameChat:hover {
+    background-color: #7d5d5d;
+}
+
+/* ============================================================
+   ПАНЕЛЬ ГРАВЦІВ
+============================================================ */
 .Players {
+    position: absolute;
+    top: 4.5vh;
+    left: 50%;
+    transform: translateX(-50%);
     width: 18vw;
     height: 4vh;
     background-color: #663A3A;
-    margin-top: 0;
     border-radius: 8px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding: 0.5vh 1vw;
+    z-index: 1000;
 }
 
 .PlayerME,
 .Player_1,
 .Player_2,
 .Player_3 {
-    width: 2vw;
-    height: 2vw;
-    max-width: 3vh;
-    max-height: 3vh;
+    width: 2.5vw;
+    height: 2.5vw;
+    max-width: 3.5vh;
+    max-height: 3.5vh;
     border-radius: 50%;
-    background-color: #ccc;
+    background-color: #fff;
+    border: none;
     transition: transform 0.2s;
 }
 
@@ -207,9 +249,12 @@ body.body[data-page="play"] {
     transform: scale(1.05);
 }
 
+/* ============================================================
+   ХП ВОРОГА
+============================================================ */
 .EnemyHealth {
     position: absolute;
-    top: 10vh;
+    top: 2vh;
     right: 1vw;
     width: 7.5vw;
     height: 2.2vh;
@@ -225,7 +270,9 @@ body.body[data-page="play"] {
     overflow: hidden;
 }
 
-/* ===== ЛІВА БІЧНА ПАНЕЛЬ: ЛОКАЦІЇ (сітка 2x3) ===== */
+/* ============================================================
+   ЛІВА ПАНЕЛЬ ЛОКАЦІЙ (сітка 2x3)
+============================================================ */
 .ActiveLocations {
     position: absolute;
     top: 12vh;
@@ -239,23 +286,69 @@ body.body[data-page="play"] {
     grid-template-rows: repeat(3, 1fr);
     gap: 0.8vh;
     padding: 1vh 0.5vw;
+    z-index: 100;
 }
 
-/* Слоти для карт локацій */
-.ActiveLocations .Position_0,
-.ActiveLocations .Position_1,
-.ActiveLocations .Position_2,
-.ActiveLocations .Position_3,
-.ActiveLocations .Position_4,
-.ActiveLocations .Position_5 {
+.location-slot {
     background-color: #D9D9D9;
     border-radius: 6px;
     width: 100%;
     height: 100%;
 }
 
-/* ===== ПРАВА БІЧНА ПАНЕЛЬ: КАРТИ В РУЦІ + PREVIEW ===== */
-.MyAndEnemyPoints {
+/* ============================================================
+   ЦЕНТРАЛЬНЕ ІГРОВЕ ПОЛЕ
+============================================================ */
+.board {
+    position: absolute;
+    top: 12vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 58vw;
+    height: 62vh;
+    background-color: #F23131;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh 1vw;
+    z-index: 50;
+}
+
+.board-left,
+.board-right {
+    width: 18vw;
+    height: 100%;
+    background-color: rgba(217, 217, 217, 0.5);
+    border-radius: 10px;
+}
+
+.board-center {
+    width: 18vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.board-top-zone,
+.board-bottom-zone {
+    width: 100%;
+    height: 28%;
+    background-color: rgba(217, 217, 217, 0.5);
+    border-radius: 10px;
+}
+
+.board-middle-zone {
+    width: 100%;
+    height: 38%;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+
+/* ============================================================
+   ПРАВА ПАНЕЛЬ
+============================================================ */
+.right-panel {
     position: absolute;
     top: 12vh;
     right: 1vw;
@@ -264,86 +357,24 @@ body.body[data-page="play"] {
     display: flex;
     flex-direction: column;
     gap: 1vh;
+    z-index: 100;
 }
 
-.MyPoints,
-.EnemyPoints {
+.right-slot {
     flex: 1;
     background-color: #D9D9D9;
     border-radius: 8px;
 }
 
-/* ===== ЦЕНТРАЛЬНА ІГРОВА ДОШКА ===== */
-.board {
-    position: absolute;
-    top: 14vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 66vw;
-    height: 62vh;
-    background-color: #F23131;
-    border-radius: 20px;
-}
-
-/* Ліва світла дошка */
-.MyLightSideBoard {
-    position: absolute;
-    top: 2vh;
-    left: 1vw;
-    width: 20vw;
-    height: 62vh;
-    background-color: #D9D9D980;
-    border-radius: 10px;
-}
-
-/* Права світла дошка */
-.EnemyLightSideBoard {
-    position: absolute;
-    top: 2vh;
-    right: 1vw;
-    width: 20vw;
-    height: 62vh;
-    background-color: #D9D9D980;
-    border-radius: 10px;
-}
-
-/* Верхня дарксайд дошка */
-.MyDarkSideBoard {
-    position: absolute;
-    top: 2vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 23vw;
-    height: 17vh;
-    background-color: #D9D9D980;
-    border-radius: 10px;
-}
-
-/* Нижня дарксайд дошка */
-.EnemyDarkSideBoard {
-    position: absolute;
-    bottom: 2vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 23vw;
-    height: 17vh;
-    background-color: #D9D9D980;
-    border-radius: 10px;
-}
-
-/* Центральна дошка для спеціальних карт */
-.SpecialCardsBoard {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 23vw;
-    height: 20vh;
+.right-slot-small {
+    height: 10vh;
     background-color: #D9D9D9;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
-/* ===== НИЖНЯ ПАНЕЛЬ: ХОДИ ===== */
+/* ============================================================
+   НИЖНІЙ ЛІВИЙ ТРИКУТНИК (ХОДИ)
+============================================================ */
 .Moves {
     position: absolute;
     left: 0;
@@ -353,6 +384,7 @@ body.body[data-page="play"] {
     background-color: #906565;
     clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
     filter: drop-shadow(0 -2px 0 black) drop-shadow(-2px 0 0 black);
+    z-index: 2000;
 }
 
 .Moves p {
@@ -364,13 +396,15 @@ body.body[data-page="play"] {
     top: 1.5vh;
     left: 1.3vw;
     font-size: clamp(18px, 2vw, 32px);
-    font-family: "Jura";
+    font-family: "Jura", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* ===== ЗДОРОВ'Я ГРАВЦЯ ===== */
+/* ============================================================
+   ХП ГРАВЦЯ
+============================================================ */
 .MyHealth {
     position: absolute;
     left: 50%;
@@ -390,19 +424,9 @@ body.body[data-page="play"] {
     overflow: hidden;
 }
 
-/* ===== РУКА ГРАВЦЯ (НИЖНЯ ТРАПЕЦІЯ) ===== */
-.Hand {
-    position: absolute;
-    left: 4vw;
-    bottom: 0;
-    width: 92vw;
-    height: 13vh;
-    background-color: #B49B73;
-    clip-path: polygon(0% 100%, 17% 0%, 83% 0%, 100% 100%);
-    filter: drop-shadow(0 -3px 0 black);
-}
-
-/* ===== СКИД (ПРАВА НИЖНЯ ПАНЕЛЬ) ===== */
+/* ============================================================
+   НИЖНІЙ ПРАВИЙ ТРИКУТНИК (СКИД)
+============================================================ */
 .Drops {
     position: absolute;
     right: 0;
@@ -427,16 +451,31 @@ body.body[data-page="play"] {
     top: 1.5vh;
     right: 1.3vw;
     font-size: clamp(18px, 2vw, 32px);
-    font-family: "Jura";
+    font-family: "Jura", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: transform 0.2s;
 }
 
-.OpenDrops:hover{
+.OpenDrops:hover {
     background-color: #aeadad;
     transform: translateY(-3px);
+}
+
+/* ============================================================
+   НИЖНЯ ТРАПЕЦІЯ (РУКА ГРАВЦЯ)
+============================================================ */
+.Hand {
+    position: absolute;
+    left: 4vw;
+    bottom: 0;
+    width: 92vw;
+    height: 13vh;
+    background-color: #B49B73;
+    clip-path: polygon(0% 100%, 17% 0%, 83% 0%, 100% 100%);
+    filter: drop-shadow(0 -3px 0 black);
+    z-index: 1000;
 }
 
 /* ============================================================
@@ -477,7 +516,7 @@ body.body[data-page="play"] {
 }
 
 .popup_name {
-  font-family: "Jura";
+  font-family: "Jura", sans-serif;
   text-align: center;
   font-size: 2.61vw;
   background-color: #422828;  
@@ -533,7 +572,7 @@ body.body[data-page="play"] {
 .exit_title {
   width: 35.94vw;
   height: 6.27vw;
-  font-family: "Jura";
+  font-family: "Jura", sans-serif;
   font-size: 2.6vw;
   background-color: #7c6b6b;
   color: #f5f5f5;
@@ -561,7 +600,7 @@ body.body[data-page="play"] {
 }
 
 .menu_btn {
-  font-family: "Jura";
+  font-family: "Jura", sans-serif;
   font-size: 1.6vw;
   background-color: #a99797;
   color: #2b2b2b;
@@ -611,11 +650,15 @@ body.body[data-page="play"] {
     background: #5C4646;
     border-radius: 0.6vw;
     box-shadow: 0 0 1vw rgba(0,0,0,0.6);
-    display: flex;
+    display: none;
     flex-direction: column;
     z-index: 99999;
 
     pointer-events: auto; /* чат взаємодіє */
+}
+
+.game-chat-window:not([hidden]) {
+    display: flex;
 }
 
 .game-chat-header {
@@ -624,7 +667,7 @@ body.body[data-page="play"] {
     background: #7A6A66;
     border-radius: 0.6vw 0.6vw 0 0;
     color: white;
-    font-family: "Jura";
+    font-family: "Jura", sans-serif;
     font-size: 1.2vw;
 
     display: flex;

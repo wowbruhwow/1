@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
 <html lang="ua">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Вікно гри — City Legends</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/playable-window.css') }}">
-    </head>
-    <body class="body" data-page="play">
-        <div class="game-layout">
-        <div class="hourglass_border">
-            <div class="hourglass"></div>
-        </div>
-
-        <div class="PlayersAndButtonsMenu">
-            <div class="buttons">
-                <button class="CardsFAQ" type="button" aria-label="Енциклопедія">Енциклопедія</button>
-                <button class="GameMenu" type="button" aria-label="Меню гри">Меню</button>
-                <button class="GameChat" type="button" aria-label="Чат гри">Чат</button>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вікно гри — City Legends</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/playable-window.css') }}" />
+</head>
+<body class="body" data-page="play">
+    <div class="game-layout">
+        <!-- ВЕРХНЯ ЧАСТИНА -->
+        <!-- Таймер (пісочний годинник) -->
+        <div class="hourglass-container">
+            <div class="hourglass">
+                <span id="timer-seconds">60</span>
             </div>
-
-            <div class="Players">
-                <button class="PlayerME" type="button" aria-label="Ваш огляд"></button>
-                <button class="Player_1" type="button" aria-label="Гравець 1"></button>
-                <button class="Player_2" type="button" aria-label="Гравець 2"></button>
-                <button class="Player_3" type="button" aria-label="Гравець 3"></button>
-             </div>
         </div>
-
+        
+        <!-- Кнопка взаємодії -->
+        <div class="interaction-box"></div>
+        
+        <!-- Кнопки меню -->
+        <div class="top-buttons">
+            <button class="CardsFAQ" type="button" aria-label="Енциклопедія">Енциклопедія</button>
+            <button class="GameMenu" type="button" aria-label="Меню гри">Меню</button>
+            <button class="GameChat" type="button" aria-label="Чат гри">Чат</button>
+        </div>
+        
+        <!-- Панель гравців -->
+        <div class="Players">
+            <button class="PlayerME" type="button" aria-label="Ваш огляд"></button>
+            <button class="Player_1" type="button" aria-label="Гравець 1"></button>
+            <button class="Player_2" type="button" aria-label="Гравець 2"></button>
+            <button class="Player_3" type="button" aria-label="Гравець 3"></button>
+        </div>
+        
+        <!-- ХП ворога -->
         <div class="EnemyHealth">
             <span class="heart"></span>
             <span class="heart"></span>
@@ -36,35 +44,42 @@
             <span class="heart"></span>
             <span class="heart"></span>
         </div>
-
-        <div class="MyAndEnemyPoints">
-            <div class="MyPoints"></div>
-            <div class="EnemyPoints"></div>
-        </div>
-
+        
+        <!-- ЛІВА ПАНЕЛЬ ЛОКАЦІЙ -->
         <div class="ActiveLocations">
-            <div class="Position_0"></div>
-            <div class="Position_1"></div>
-            <div class="Position_2"></div>
-            <div class="Position_3"></div>
-            <div class="Position_4"></div>
-            <div class="Position_5"></div>
+            <div class="location-slot"></div>
+            <div class="location-slot"></div>
+            <div class="location-slot"></div>
+            <div class="location-slot"></div>
+            <div class="location-slot"></div>
+            <div class="location-slot"></div>
         </div>
-
+        
+        <!-- ЦЕНТРАЛЬНЕ ІГРОВЕ ПОЛЕ -->
         <div class="board">
-            <div class="MyLightSideBoard"></div>
-            <div class="EnemyDarkSideBoard"></div>
-            <div class="SpecialCardsBoard"></div>
-            <div class="MyDarkSideBoard"></div>
-            <div class="EnemyLightSideBoard"></div>
+            <div class="board-left"></div>
+            <div class="board-center">
+                <div class="board-top-zone"></div>
+                <div class="board-middle-zone"></div>
+                <div class="board-bottom-zone"></div>
+            </div>
+            <div class="board-right"></div>
         </div>
-
-        <div class="Cards"></div>
-
+        
+        <!-- ПРАВА ПАНЕЛЬ -->
+        <div class="right-panel">
+            <div class="right-slot"></div>
+            <div class="right-slot"></div>
+            <div class="right-slot-small"></div>
+        </div>
+        
+        <!-- НИЖНЯ ЧАСТИНА -->
+        <!-- Лівий трикутник (ходи) -->
         <div class="Moves">
             <p id="MoveCount">5</p>
         </div>
-
+        
+        <!-- ХП гравця -->
         <div class="MyHealth">
             <span class="heart"></span>
             <span class="heart"></span>
@@ -72,13 +87,15 @@
             <span class="heart"></span>
             <span class="heart"></span>
         </div>
-
-        <div class="Hand"></div>
-
+        
+        <!-- Правий трикутник (скид) -->
         <div class="Drops">
             <button class="OpenDrops">Скид</button>
         </div>
-        </div>
+        
+        <!-- Нижня трапеція (карти) -->
+        <div class="Hand"></div>
+    </div>
         
         <div class="modal-overlay" id="modalOverlay_drops" hidden>
             <div
