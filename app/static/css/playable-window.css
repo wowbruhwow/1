@@ -209,18 +209,14 @@ body.body[data-page="play"] {
 
 .EnemyHealth {
     position: absolute;
-    top: 2vh;
-    right: 2vw;
-    width: 8vw;
+    top: 9.8vh;
+    right: 2.4vw;
+    width: 7.6vw;
     height: 2.5vh;
-    background-color: #E9D6AC;
-    border-radius: 20px;
-    border: 2px solid #E7BF65;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.3vw;
-    z-index: 1000;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/cYHdmLreAt.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 16;
 }
 
 /* ===== ЛІВА БІЧНА ПАНЕЛЬ: ЛОКАЦІЇ (сітка 2x3) ===== */
@@ -346,11 +342,12 @@ body.body[data-page="play"] {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 14vw;
-    height: 14vh;
-    background-color: #906565;
-    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
-    filter: drop-shadow(0 -2px 0 black) drop-shadow(-2px 0 0 black);
+    width: 20.75vw;
+    height: 15.4vh;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/UwEwQPSyhQ.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 10;
 }
 
 .Moves p {
@@ -371,31 +368,27 @@ body.body[data-page="play"] {
 /* ===== ЗДОРОВ'Я ГРАВЦЯ ===== */
 .MyHealth {
     position: absolute;
-    left: 10%;
-    transform: translateX(-50%);
-    bottom: 14vh;
-    width: 8vw;
+    left: 21.5vw;
+    bottom: 15.4vh;
+    width: 7.6vw;
     height: 2.5vh;
-    background-color: #E9D6AC;
-    border-radius: 20px;
-    border: 2px solid #E7BF65;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.3vw;
-    z-index: 1000;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/fkyMZhmpXN.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 15;
 }
 
 /* ===== РУКА ГРАВЦЯ (НИЖНЯ ТРАПЕЦІЯ) ===== */
 .Hand {
     position: absolute;
-    left: 4vw;
+    left: -6.6vw;
     bottom: 0;
-    width: 92vw;
-    height: 13vh;
-    background-color: #B49B73;
-    clip-path: polygon(0% 100%, 17% 0%, 83% 0%, 100% 100%);
-    filter: drop-shadow(0 -3px 0 black);
+    width: 113vw;
+    height: 43.5vh;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/9vQGQwmFA5.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 8;
 }
 
 /* ===== СКИД (ПРАВА НИЖНЯ ПАНЕЛЬ) ===== */
@@ -403,15 +396,15 @@ body.body[data-page="play"] {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 14vw;
-    height: 14vh;
-    background-color: #906565;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+    width: 20.75vw;
+    height: 15.4vh;
+    background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JcV2P69SWX.png)
+      no-repeat center;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2000;
-    filter: drop-shadow(0 -2px 0 black) drop-shadow(2px 0 0 black);
 }
 
 .OpenDrops {
@@ -689,32 +682,4 @@ body.body[data-page="play"] {
     pointer-events: auto !important;
 }
 
-/* ===== СЕРЦЯ ДЛЯ ЗДОРОВ'Я ===== */
-.heart {
-    width: 0.8vw;
-    height: 0.8vw;
-    background-color: #6B3A3A;
-    transform: rotate(-45deg);
-    position: relative;
-    display: inline-block;
-}
 
-.heart::before,
-.heart::after {
-    content: '';
-    position: absolute;
-    width: 0.8vw;
-    height: 0.8vw;
-    background-color: #6B3A3A;
-    border-radius: 50%;
-}
-
-.heart::before {
-    top: -0.4vw;
-    left: 0;
-}
-
-.heart::after {
-    left: 0.4vw;
-    top: 0;
-}
