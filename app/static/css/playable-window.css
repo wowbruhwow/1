@@ -371,7 +371,7 @@ body.body[data-page="play"] {
 /* ===== ЗДОРОВ'Я ГРАВЦЯ ===== */
 .MyHealth {
     position: absolute;
-    left: 50%;
+    left: 10%;
     transform: translateX(-50%);
     bottom: 14vh;
     width: 8vw;
