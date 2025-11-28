@@ -731,8 +731,8 @@ body.body[data-page="play"] {
   font-size: 1.6vw;
   color: white;
   cursor: pointer;
-  z-index: 999999 !important;
-  pointer-events: auto !important;
+  z-index: 100000;
+  pointer-events: auto;
 }
 
 .game-chat-messages {
