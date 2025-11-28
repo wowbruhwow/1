@@ -689,13 +689,15 @@ body.body[data-page="play"] {
 
 /* ============================================================
    СТИЛІЗОВАНІ СЕРЦЯ ДЛЯ ЗДОРОВ'Я
+   Heart shape is created using CSS transform technique:
+   - Main square rotated 45deg becomes a diamond
+   - Two circle pseudo-elements on top and right create the heart lobes
 ============================================================ */
 .heart {
     display: inline-block;
     width: 1.2vw;
     height: 1.2vw;
     background-color: #8B4513;
-    margin: 0 0.1vw;
     transform: rotate(-45deg);
     position: relative;
 }
