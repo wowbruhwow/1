@@ -46,7 +46,10 @@ function startTimer(seconds = 60) {
         updateTimerDisplay();
         if (timerSeconds <= 0) {
             stopTimer();
-            fsm.send("theirTurn");
+            // Only transition if FSM is in myTurn state
+            if (fsm.state === "myTurn") {
+                fsm.send("theirTurn");
+            }
         }
     }, 1000);
 }
@@ -206,7 +209,6 @@ window.addEventListener("DOMContentLoaded", () => {
         }
         if (event === "theirTurn") {
             systemMessage("Хід суперника!");
-            stopTimer();
             resetTimer(60);
         }
     };
