@@ -516,7 +516,7 @@ body.body[data-page="play"] {
 }
 
 .popup_name {
-  font-family: "Jura";
+  font-family: "Jura", sans-serif;
   text-align: center;
   font-size: 2.61vw;
   background-color: #422828;  
@@ -572,7 +572,7 @@ body.body[data-page="play"] {
 .exit_title {
   width: 35.94vw;
   height: 6.27vw;
-  font-family: "Jura";
+  font-family: "Jura", sans-serif;
   font-size: 2.6vw;
   background-color: #7c6b6b;
   color: #f5f5f5;
@@ -600,7 +600,7 @@ body.body[data-page="play"] {
 }
 
 .menu_btn {
-  font-family: "Jura";
+  font-family: "Jura", sans-serif;
   font-size: 1.6vw;
   background-color: #a99797;
   color: #2b2b2b;
@@ -667,7 +667,7 @@ body.body[data-page="play"] {
     background: #7A6A66;
     border-radius: 0.6vw 0.6vw 0 0;
     color: white;
-    font-family: "Jura";
+    font-family: "Jura", sans-serif;
     font-size: 1.2vw;
 
     display: flex;
