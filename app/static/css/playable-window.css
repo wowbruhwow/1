@@ -4,7 +4,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Kelly+Slab&display=swap');
 
 /* ============================================================
-   ЗАНУЛЮЮЧИЙ КОД
+   ROOT VARIABLES
+============================================================ */
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+/* ============================================================
+   RESET STYLES
 ============================================================ */
 * {
   padding: 0;
@@ -16,7 +26,6 @@
   box-sizing: border-box;
 }
 
-
 nav, footer, header, aside {
   display: block;
 }
@@ -26,7 +35,6 @@ html, body {
   width: 100%;
   font-size: 100%;
   line-height: 1;
-  font-size: 14px;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -70,410 +78,493 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: inherit;
 }
 
-/* ============================================================
-   ОСНОВНІ СТИЛІ СТОРІНКИ
-============================================================ */
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
 
+/* ============================================================
+   BODY STYLES
+============================================================ */
 .body {
     margin: 0;
     background-color: #F1E9D2;
     font-family: "Jura", system-ui, sans-serif;
 }
 
-/* Full-screen game layout only on Play screen */
 body.body[data-page="play"] {
     min-height: 100vh;
     overflow: hidden;
 }
 
-.game-layout {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    max-width: 100%;
-    margin: 0;
-    overflow: hidden;
-}
-
-.hourglass_border {
-  position: absolute;
-  top: 1vh;
-  left: 1.5vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 5.88vw;
-  height: 9vh;
-  background: black;
-  clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%, 30% 50%);
-  overflow: hidden;
-  margin: 0;
-}
-
-.hourglass {
-  width: 5.3vw;
-  height: 8vh;
-  background: #ccc;
-  clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%, 30% 50%);
-  overflow: hidden;
-}
-
-.PlayersAndButtonsMenu {
-  position: absolute;
-  top: 0.5vh;
-  left: 50%;
-  transform: translateX(-50%);
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1vh;
-  z-index: 1000;
-}
-
-.buttons {
-  display: flex;
-  gap: 0;
-  align-items: center;
-  justify-content: center;
-}
-
-.CardsFAQ {
+/* ============================================================
+   MAIN CONTAINER - Full viewport based on 1530x856
+============================================================ */
+.main-container {
   position: relative;
-  left: 38px;
-  width: 9.15vw;
-  height: 3.5vh;
-  background-color: #947070;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  font-size: clamp(12px, 1.2vw, 18px);
-  clip-path: polygon(0% 0%, 100% 0%, 71.42% 100%, 0% 100%);
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background: #f1e9d2;
+  overflow: hidden;
 }
 
-.GameMenu {
-  width: 9.15vw;
-  height: 3.5vh;
-  background-color: #947070;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  font-size: clamp(12px, 1.2vw, 18px);
-  clip-path: polygon(28.57% 0%, 100% 0%, 71.42% 100%, 0% 100%);
+.main-container,
+.main-container * {
+  box-sizing: border-box;
 }
 
-.GameChat {
-    position: relative;
-  right: 38px;
-  width: 9.15vw;
-  height: 3.5vh;
-  background-color: #947070;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  font-size: clamp(12px, 1.2vw, 18px);
-  clip-path: polygon(0% 100%, 28.57% 0%, 100% 0%, 100% 100%);
+/* ============================================================
+   FLEX ROW - Top section
+   Height: 693px / 856px * 100 = 80.96vh
+============================================================ */
+.flex-row {
+  position: relative;
+  width: 98.04vw; /* 1500/1530*100 */
+  height: 80.96vh; /* 693/856*100 */
+  margin: 1.05vh 0 0 0.78vw; /* 9/856, 12/1530 */
+  z-index: 16;
 }
 
-.Players {
-    width: 18vw;
-    height: 4vh;
-    background-color: #663A3A;
-    margin-top: 0;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0.5vh 1vw;
+/* ============================================================
+   REGROUP - Timer and interaction box
+============================================================ */
+.regroup {
+  position: absolute;
+  width: 14.38vw; /* 220/1530*100 */
+  height: 80.96vh; /* 693/856*100 */
+  top: 0;
+  left: 0.59vw; /* 9/1530*100 */
+  z-index: 14;
+}
+
+/* ============================================================
+   HOURGLASS - Timer
+============================================================ */
+.hourglass {
+  position: absolute;
+  width: 6.34vw; /* 97.009/1530*100 */
+  height: 13.67vh; /* 117/856*100 */
+  top: -0.41vh; /* -3.5/856*100 */
+  left: -0.23vw; /* -3.509/1530*100 */
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/6yqwiYFtdA.png)
+    no-repeat center;
+  background-size: cover;
+  filter: blur(1.5px);
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hourglass #timer-seconds {
+  font-family: "Jura", sans-serif;
+  font-size: 1.5vw;
+  font-weight: bold;
+  color: #422828;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  filter: blur(0);
+}
+
+/* ============================================================
+   INTERACTION BOX
+============================================================ */
+.interaction-box {
+  position: absolute;
+  width: 7.39vw; /* 113/1530*100 */
+  height: 8.29vh; /* 71/856*100 */
+  top: 2.34vh; /* 20/856*100 */
+  left: 6.99vw; /* 107/1530*100 */
+  background: #837070;
+  z-index: 14;
+  border-radius: 5px;
+}
+
+/* ============================================================
+   ENCYCLOPEDIA MAP - CardsFAQ button
+============================================================ */
+.encyclopedia-map {
+  position: absolute;
+  width: 9.53vw; /* 145.807/1530*100 */
+  height: 5.49vh; /* 47/856*100 */
+  top: 0.41vh; /* 3.5/856*100 */
+  left: 37.16vw; /* 568.5/1530*100 */
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JRRepwptQw.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 1;
+  border: none;
+  cursor: pointer;
+}
+
+.encyclopedia-map:hover {
+  filter: brightness(1.1);
+}
+
+/* ============================================================
+   MENU KEY - GameMenu button
+============================================================ */
+.menu-key {
+  position: absolute;
+  width: 9.57vw; /* 146.336/1530*100 */
+  height: 5.49vh; /* 47/856*100 */
+  top: 0.41vh; /* 3.5/856*100 */
+  left: 44.43vw; /* 679.798/1530*100 */
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/TeirzXO80a.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 2;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-key:hover {
+  filter: brightness(1.1);
+}
+
+/* ============================================================
+   CHAT KEY - GameChat button
+============================================================ */
+.chat-key {
+  position: absolute;
+  width: 9.52vw; /* 145.728/1530*100 */
+  height: 5.49vh; /* 47/856*100 */
+  top: 0.41vh; /* 3.5/856*100 */
+  left: 51.88vw; /* 793.772/1530*100 */
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/GpfiFvWbX7.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 3;
+  border: none;
+  cursor: pointer;
+}
+
+.chat-key:hover {
+  filter: brightness(1.1);
+}
+
+/* ============================================================
+   PLAYER ICON PANEL - Players container
+============================================================ */
+.player-icon-panel {
+  position: absolute;
+  width: 21.31vw; /* 326/1530*100 */
+  height: 5.49vh; /* 47/856*100 */
+  top: 6.78vh; /* 58/856*100 */
+  left: 38.56vw; /* 590/1530*100 */
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/p02KtYsPPX.png)
+    no-repeat center;
+  background-size: cover;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 1vw;
 }
 
 .PlayerME,
 .Player_1,
 .Player_2,
 .Player_3 {
-    width: 2vw;
-    height: 2vw;
-    max-width: 3vh;
-    max-height: 3vh;
-    border-radius: 50%;
-    background-color: #ccc;
-    transition: transform 0.2s;
+  width: 2.5vw;
+  height: 2.5vw;
+  max-width: 4vh;
+  max-height: 4vh;
+  border-radius: 50%;
+  background-color: rgba(204, 204, 204, 0.7);
+  transition: transform 0.2s;
+  border: none;
+  cursor: pointer;
 }
 
 .PlayerME:hover,
 .Player_1:hover,
 .Player_2:hover,
 .Player_3:hover {
-    transform: scale(1.05);
-}
-
-.EnemyHealth {
-    position: absolute;
-    top: 10vh;
-    right: 1vw;
-    width: 7.5vw;
-    height: 2.2vh;
-    background-color: #E9D6AC;
-    border-radius: 15px;
-    border: 2px solid #E7BF65;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.2vw;
-    padding: 0 0.3vw;
-    z-index: 1000;
-    overflow: hidden;
-}
-
-/* ===== ЛІВА БІЧНА ПАНЕЛЬ: ЛОКАЦІЇ (сітка 2x3) ===== */
-.ActiveLocations {
-    position: absolute;
-    top: 12vh;
-    left: 1vw;
-    width: 12vw;
-    height: 65vh;
-    background-color: #A88E7F;
-    border-radius: 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    gap: 0.8vh;
-    padding: 1vh 0.5vw;
-}
-
-/* Слоти для карт локацій */
-.ActiveLocations .Position_0,
-.ActiveLocations .Position_1,
-.ActiveLocations .Position_2,
-.ActiveLocations .Position_3,
-.ActiveLocations .Position_4,
-.ActiveLocations .Position_5 {
-    background-color: #D9D9D9;
-    border-radius: 6px;
-    width: 100%;
-    height: 100%;
-}
-
-/* ===== ПРАВА БІЧНА ПАНЕЛЬ: КАРТИ В РУЦІ + PREVIEW ===== */
-.MyAndEnemyPoints {
-    position: absolute;
-    top: 12vh;
-    right: 1vw;
-    width: 8vw;
-    height: 65vh;
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
-}
-
-.MyPoints,
-.EnemyPoints {
-    flex: 1;
-    background-color: #D9D9D9;
-    border-radius: 8px;
-}
-
-/* ===== ЦЕНТРАЛЬНА ІГРОВА ДОШКА ===== */
-.board {
-    position: absolute;
-    top: 14vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 66vw;
-    height: 62vh;
-    background-color: #F23131;
-    border-radius: 20px;
-}
-
-/* Ліва світла дошка */
-.MyLightSideBoard {
-    position: absolute;
-    top: 2vh;
-    left: 1vw;
-    width: 20vw;
-    height: 62vh;
-    background-color: #D9D9D980;
-    border-radius: 10px;
-}
-
-/* Права світла дошка */
-.EnemyLightSideBoard {
-    position: absolute;
-    top: 2vh;
-    right: 1vw;
-    width: 20vw;
-    height: 62vh;
-    background-color: #D9D9D980;
-    border-radius: 10px;
-}
-
-/* Верхня дарксайд дошка */
-.MyDarkSideBoard {
-    position: absolute;
-    top: 2vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 23vw;
-    height: 17vh;
-    background-color: #D9D9D980;
-    border-radius: 10px;
-}
-
-/* Нижня дарксайд дошка */
-.EnemyDarkSideBoard {
-    position: absolute;
-    bottom: 2vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 23vw;
-    height: 17vh;
-    background-color: #D9D9D980;
-    border-radius: 10px;
-}
-
-/* Центральна дошка для спеціальних карт */
-.SpecialCardsBoard {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 23vw;
-    height: 20vh;
-    background-color: #D9D9D9;
-    border-radius: 10px;
-}
-
-/* ===== НИЖНЯ ПАНЕЛЬ: ХОДИ ===== */
-.Moves {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 14vw;
-    height: 14vh;
-    background-color: #906565;
-    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
-    filter: drop-shadow(0 -2px 0 black) drop-shadow(-2px 0 0 black);
-}
-
-.Moves p {
-    position: absolute;
-    border-radius: 25px;
-    background-color: #D9D9D9;
-    width: 7vw;
-    height: 5vh;
-    top: 1.5vh;
-    left: 1.3vw;
-    font-size: clamp(18px, 2vw, 32px);
-    font-family: "Jura";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ===== ЗДОРОВ'Я ГРАВЦЯ ===== */
-.MyHealth {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 14.5vh;
-    width: 7.5vw;
-    height: 2.2vh;
-    background-color: #E9D6AC;
-    border-radius: 15px;
-    border: 2px solid #E7BF65;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.2vw;
-    padding: 0 0.3vw;
-    z-index: 1000;
-    overflow: hidden;
-}
-
-/* ===== РУКА ГРАВЦЯ (НИЖНЯ ТРАПЕЦІЯ) ===== */
-.Hand {
-    position: absolute;
-    left: 4vw;
-    bottom: 0;
-    width: 92vw;
-    height: 13vh;
-    background-color: #B49B73;
-    clip-path: polygon(0% 100%, 17% 0%, 83% 0%, 100% 100%);
-    filter: drop-shadow(0 -3px 0 black);
-}
-
-/* ===== СКИД (ПРАВА НИЖНЯ ПАНЕЛЬ) ===== */
-.Drops {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 14vw;
-    height: 14vh;
-    background-color: #906565;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    filter: drop-shadow(0 -2px 0 black) drop-shadow(2px 0 0 black);
-}
-
-.OpenDrops {
-    position: absolute;
-    border-radius: 25px;
-    background-color: #D9D9D9;
-    width: 7vw;
-    height: 5vh;
-    top: 1.5vh;
-    right: 1.3vw;
-    font-size: clamp(18px, 2vw, 32px);
-    font-family: "Jura";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.2s;
-}
-
-.OpenDrops:hover{
-    background-color: #aeadad;
-    transform: translateY(-3px);
+  transform: scale(1.1);
 }
 
 /* ============================================================
-   СПЛИВНЕ ВІКНО СКИДУ
+   ENEMY HP - EnemyHealth
 ============================================================ */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.5);
-    display: none;
-    justify-content: center;
-    align-items: flex-start;
-    z-index: 5000;
-
-    overflow-y: auto;
-    padding: 5vh 0;
+.enemy-hp {
+  position: absolute;
+  width: 7.58vw; /* 116/1530*100 */
+  height: 2.45vh; /* 21/856*100 */
+  top: 9.81vh; /* 84/856*100 */
+  left: 81.50vw; /* 1247/1530*100 */
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/cYHdmLreAt.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 16;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2vw;
+  padding: 0 0.3vw;
 }
 
-.modal_drops {
-    width: 56.73vw;
-    height: 60vh;
-    background-color: #C9BE9F;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
+/* ============================================================
+   GLASSES - Right side panel
+============================================================ */
+.glasses {
+  position: absolute;
+  width: 6.60vw; /* 101/1530*100 */
+  height: 46.14vh; /* 395/856*100 */
+  top: 9.81vh; /* 84/856*100 */
+  left: 90.59vw; /* 1386/1530*100 */
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/NNdzxro8vZ.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 11;
+}
 
-    max-height: 90vh;
-    overflow-y: auto;
-    overflow-x: hidden;
+/* ============================================================
+   SPECIAL CARDS - Left panel
+============================================================ */
+.special-cards {
+  position: absolute;
+  width: 20.92vw; /* 320/1530*100 */
+  height: 61.45vh; /* 526/856*100 */
+  top: 13.79vh; /* 118/856*100 */
+  left: 0;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/VHW24Ncrf9.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 9;
+  border-radius: 10px;
+}
+
+/* ============================================================
+   CARD ZONE - Main game area
+============================================================ */
+.card-zone {
+  position: absolute;
+  width: 67.45vw; /* 1032/1530*100 */
+  height: 67.17vh; /* 575/856*100 */
+  top: 13.79vh; /* 118/856*100 */
+  left: 21.63vw; /* 331/1530*100 */
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/EkabCrkL6h.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 7;
+}
+
+/* ============================================================
+   CARD BACK TEMPLATE - Deck
+============================================================ */
+.card-back-template {
+  position: absolute;
+  width: 8.24vw; /* 126/1530*100 */
+  height: 21.61vh; /* 185/856*100 */
+  top: 58.18vh; /* 498/856*100 */
+  left: 89.80vw; /* 1374/1530*100 */
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/2XTVfzW3pM.png)
+    no-repeat center;
+  background-size: 100% 100%;
+  z-index: 13;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* ============================================================
+   FLEX ROW F - Bottom section
+   Height: 132px / 856px * 100 = 15.42vh
+============================================================ */
+.flex-row-f {
+  position: relative;
+  width: 97.42vw; /* 1490.5/1530*100 */
+  height: 15.42vh; /* 132/856*100 */
+  margin: 1.17vh 0 0 0.98vw; /* 10/856, 15/1530 */
+  z-index: 15;
+}
+
+/* ============================================================
+   NUMBER OF MOVES - Moves counter
+============================================================ */
+.number-of-moves {
+  position: absolute;
+  width: 20.75vw; /* 317.5/1530*100 */
+  height: 15.42vh; /* 132/856*100 */
+  top: 0;
+  left: 0;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/UwEwQPSyhQ.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number-of-moves p,
+.Moves p {
+  font-family: "Jura", sans-serif;
+  font-size: clamp(18px, 2vw, 32px);
+  font-weight: bold;
+  color: #422828;
+  background-color: rgba(217, 217, 217, 0.8);
+  padding: 0.5vh 1vw;
+  border-radius: 10px;
+}
+
+/* ============================================================
+   OUR HP - MyHealth
+============================================================ */
+.our-hp {
+  position: absolute;
+  width: 7.58vw; /* 116/1530*100 */
+  height: 2.45vh; /* 21/856*100 */
+  top: 0;
+  left: 21.44vw; /* 328/1530*100 */
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/fkyMZhmpXN.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2vw;
+  padding: 0 0.3vw;
+}
+
+/* ============================================================
+   DISCOUNT - Drops button
+============================================================ */
+.discount {
+  position: absolute;
+  width: 20.75vw; /* 317.5/1530*100 */
+  height: 15.42vh; /* 132/856*100 */
+  top: 0;
+  left: 76.67vw; /* 1173/1530*100 */
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JcV2P69SWX.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.OpenDrops {
+  font-family: "Jura", sans-serif;
+  font-size: clamp(14px, 1.5vw, 24px);
+  font-weight: bold;
+  color: #422828;
+  background-color: rgba(217, 217, 217, 0.8);
+  padding: 0.5vh 1.5vw;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.OpenDrops:hover {
+  background-color: rgba(174, 173, 173, 0.9);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   TABLE - Background table
+============================================================ */
+.table {
+  position: absolute;
+  width: 145.62vw; /* 2228/1530*100 */
+  height: 116.94vh; /* 1001/856*100 */
+  top: 38.32vh; /* 328/856*100 */
+  left: -22.88vw; /* -350/1530*100 */
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/K7Q1rxMGV7.png)
+    no-repeat center;
+  background-size: cover;
+  filter: blur(25px);
+  z-index: 5;
+}
+
+/* ============================================================
+   CARD SELECTION ZONE - Bottom card area
+============================================================ */
+.card-selection-zone {
+  position: absolute;
+  width: 113.07vw; /* 1730/1530*100 */
+  height: 43.46vh; /* 372/856*100 */
+  top: 86.68vh; /* 742/856*100 */
+  left: -6.60vw; /* -101/1530*100 */
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/9vQGQwmFA5.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 8;
+}
+
+/* ============================================================
+   HEARTS FOR HEALTH
+============================================================ */
+.heart {
+  width: 0.7vw;
+  height: 0.7vw;
+  background-color: #6B3A3A;
+  transform: rotate(-45deg);
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 0.7vw;
+  height: 0.7vw;
+  background-color: #6B3A3A;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -0.35vw;
+  left: 0;
+}
+
+.heart::after {
+  left: 0.35vw;
+  top: 0;
+}
+
+/* ============================================================
+   MODAL OVERLAY
+============================================================ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 5000;
+  overflow-y: auto;
+  padding: 5vh 0;
+}
+
+/* ============================================================
+   MODAL DROPS
+============================================================ */
+.modal_drops {
+  width: 56.73vw;
+  height: 60vh;
+  background-color: #C9BE9F;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .popup_name {
@@ -493,17 +584,17 @@ body.body[data-page="play"] {
 }
 
 .modal-close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #422828;
-    transition: color 0.2s;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #422828;
+  transition: color 0.2s;
 }
 
 .modal-close:hover {
-    color: #6c4242;
+  color: #6c4242;
 }
 
 .modal_form {
@@ -515,7 +606,7 @@ body.body[data-page="play"] {
 }
 
 /* ============================================================
-   МОДАЛЬНЕ ВІКНО GAME MENU
+   MODAL GAME MENU
 ============================================================ */
 .modal_gameMenu {
   width: 45.75vw;
@@ -550,7 +641,7 @@ body.body[data-page="play"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3vw; /* відстань між "Так" і "Ні" */
+  gap: 3vw;
 }
 
 .menu_buttons_container {
@@ -574,7 +665,6 @@ body.body[data-page="play"] {
   transform: scale(1.05);
 }
 
-/* Вісімкутники ("Так" / "Ні") */
 .polygon_btn {
   color: #f5f5f5;
   width: 16.89vw;
@@ -582,7 +672,6 @@ body.body[data-page="play"] {
   clip-path: polygon(15% 0, 85% 0, 100% 25%, 100% 75%, 85% 100%, 15% 100%, 0 75%, 0 25%);
 }
 
-/* Трапеція ("Налаштування") */
 .trapezoid_btn {
   width: 35.94vw;
   height: 6.6vw;
@@ -591,7 +680,6 @@ body.body[data-page="play"] {
   color: white;
 }
 
-/* Шестикутник ("Назад") */
 .hex_btn {
   color: #f5f5f5;
   width: 13.98vw;
@@ -601,125 +689,89 @@ body.body[data-page="play"] {
   margin-top: 10vh;
 }
 
-/* === GAME CHAT WINDOW === */
+/* ============================================================
+   GAME CHAT WINDOW
+============================================================ */
 .game-chat-window {
-    position: fixed;
-    top: 10vw;
-    right: 2vw;
-    width: 22vw;
-    height: 28vw;
-    background: #5C4646;
-    border-radius: 0.6vw;
-    box-shadow: 0 0 1vw rgba(0,0,0,0.6);
-    display: flex;
-    flex-direction: column;
-    z-index: 99999;
-
-    pointer-events: auto; /* чат взаємодіє */
+  position: fixed;
+  top: 10vw;
+  right: 2vw;
+  width: 22vw;
+  height: 28vw;
+  background: #5C4646;
+  border-radius: 0.6vw;
+  box-shadow: 0 0 1vw rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  z-index: 99999;
+  pointer-events: auto;
 }
 
 .game-chat-header {
-    position: relative;
-    height: 2.5vw;
-    background: #7A6A66;
-    border-radius: 0.6vw 0.6vw 0 0;
-    color: white;
-    font-family: "Jura";
-    font-size: 1.2vw;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 0.8vw;
-    cursor: move;
+  position: relative;
+  height: 2.5vw;
+  background: #7A6A66;
+  border-radius: 0.6vw 0.6vw 0 0;
+  color: white;
+  font-family: "Jura";
+  font-size: 1.2vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.8vw;
+  cursor: move;
 }
 
-
 .game-chat-close {
-    background: none;
-    border: none;
-    font-size: 1.6vw;
-    color: white;
-    cursor: pointer;
+  position: absolute;
+  right: 0.5vw;
+  top: 0.2vw;
+  background: none;
+  border: none;
+  font-size: 1.6vw;
+  color: white;
+  cursor: pointer;
+  z-index: 999999 !important;
+  pointer-events: auto !important;
 }
 
 .game-chat-messages {
-    flex-grow: 1;
-    background: #E8D8CC;
-    margin: 0.5vw;
-    border-radius: 0.5vw;
-    padding: 0.5vw;
-    overflow-y: auto;
-    font-size: 0.9vw;
+  flex-grow: 1;
+  background: #E8D8CC;
+  margin: 0.5vw;
+  border-radius: 0.5vw;
+  padding: 0.5vw;
+  overflow-y: auto;
+  font-size: 0.9vw;
 }
 
 .game-chat-input-row {
-    display: flex;
-    gap: 0.4vw;
-    padding: 0.5vw;
+  display: flex;
+  gap: 0.4vw;
+  padding: 0.5vw;
 }
 
 #gameChatInput {
-    flex-grow: 1;
-    border-radius: 0.4vw;
-    border: none;
-    padding-left: 0.6vw;
-    height: 2vw;
+  flex-grow: 1;
+  border-radius: 0.4vw;
+  border: none;
+  padding-left: 0.6vw;
+  height: 2vw;
 }
 
 .game-chat-send {
-    width: 2.2vw;
-    height: 2vw;
-    background-color: #c79d77;
-    background-image: url("/assets/art/send_icon.png");
-    background-size: 60%;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: none;
-    border-radius: 0.4vw;
-    cursor: pointer;
+  width: 2.2vw;
+  height: 2vw;
+  background-color: #c79d77;
+  background-image: url("/assets/art/send_icon.png");
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 0.4vw;
+  cursor: pointer;
 }
 
 .game-chat-send:hover {
-    background-color: #d5a882;
-}
-
-.game-chat-close {
-    position: absolute;
-    right: 0.5vw;
-    top: 0.2vw;
-    z-index: 999999 !important;
-    pointer-events: auto !important;
-}
-
-/* ===== СЕРЦЯ ДЛЯ ЗДОРОВ'Я ===== */
-.heart {
-    width: 0.7vw;
-    height: 0.7vw;
-    background-color: #6B3A3A;
-    transform: rotate(-45deg);
-    position: relative;
-    display: inline-block;
-    flex-shrink: 0;
-}
-
-.heart::before,
-.heart::after {
-    content: '';
-    position: absolute;
-    width: 0.7vw;
-    height: 0.7vw;
-    background-color: #6B3A3A;
-    border-radius: 50%;
-}
-
-.heart::before {
-    top: -0.35vw;
-    left: 0;
-}
-
-.heart::after {
-    left: 0.35vw;
-    top: 0;
+  background-color: #d5a882;
 }
