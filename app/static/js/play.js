@@ -23,6 +23,47 @@ const fsm = new StateMachine("idle", {
     finished: {}
 });
 
+// =============================================================
+// ================   TIMER FUNCTIONALITY   ====================
+// =============================================================
+
+let timerSeconds = 60;
+let timerInterval = null;
+
+function updateTimerDisplay() {
+    const timerElement = document.getElementById("timer-seconds");
+    if (timerElement) {
+        timerElement.textContent = timerSeconds;
+    }
+}
+
+function startTimer(seconds = 60) {
+    stopTimer();
+    timerSeconds = seconds;
+    updateTimerDisplay();
+    timerInterval = setInterval(() => {
+        timerSeconds--;
+        updateTimerDisplay();
+        if (timerSeconds <= 0) {
+            stopTimer();
+            fsm.send("theirTurn");
+        }
+    }, 1000);
+}
+
+function stopTimer() {
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
+}
+
+function resetTimer(seconds = 60) {
+    stopTimer();
+    timerSeconds = seconds;
+    updateTimerDisplay();
+}
+
 
 // =============================================================
 // ============  ВСЕ ІНШЕ В ОДНОМУ DOMContentLoaded  ===========
@@ -126,7 +167,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     // =========================================================
-    // FSM + CHAT INTEGRATION
+    // FSM + CHAT + TIMER INTEGRATION
     // =========================================================
 
     function systemMessage(text) {
@@ -144,10 +185,30 @@ window.addEventListener("DOMContentLoaded", () => {
     fsm.send = function(event) {
         originalSend(event);
 
-        if (event === "start") systemMessage("ГРА ПОЧАЛАСЬ!");
-        if (event === "finish") systemMessage("ГРУ ЗАВЕРШЕНО!");
-        if (event === "myTurn") systemMessage("Твій хід!");
-        if (event === "theirTurn") systemMessage("Хід суперника!");
+        // Update FSM debug state display
+        const stateValue = document.getElementById("state-value");
+        if (stateValue) {
+            stateValue.textContent = fsm.state;
+        }
+
+        // Timer integration with FSM states
+        if (event === "start") {
+            systemMessage("ГРА ПОЧАЛАСЬ!");
+            resetTimer(60);
+        }
+        if (event === "finish") {
+            systemMessage("ГРУ ЗАВЕРШЕНО!");
+            stopTimer();
+        }
+        if (event === "myTurn") {
+            systemMessage("Твій хід!");
+            startTimer(60);
+        }
+        if (event === "theirTurn") {
+            systemMessage("Хід суперника!");
+            stopTimer();
+            resetTimer(60);
+        }
     };
 
     document.querySelectorAll("#fsm-debug button").forEach(btn => {
@@ -155,6 +216,9 @@ window.addEventListener("DOMContentLoaded", () => {
             fsm.send(btn.dataset.event);
         });
     });
+
+    // Initialize timer display on page load
+    updateTimerDisplay();
 
     // =========================================================
     // DRAGGABLE CHAT WINDOW
