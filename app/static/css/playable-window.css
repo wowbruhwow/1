@@ -419,7 +419,7 @@ body.body[data-page="play"] {
     align-items: center;
     gap: 0.2vw;
     padding: 0 0.3vw;
-    z-index: 2001;
+    z-index: 2000;
     overflow: hidden;
 }
 
