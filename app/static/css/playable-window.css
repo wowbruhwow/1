@@ -136,12 +136,12 @@ body.body[data-page="play"] {
 ============================================================ */
 .interaction-box {
     position: absolute;
-    top: 1.5vh;
-    left: 8vw;
-    width: 4vw;
-    height: 3vh;
+    top: 2.5vh;
+    left: 7.5vw;
+    width: 2.5vw;
+    height: 2vh;
     background-color: #E9D6AC;
-    border-radius: 6px;
+    border-radius: 4px;
     z-index: 100;
 }
 
@@ -254,18 +254,18 @@ body.body[data-page="play"] {
 ============================================================ */
 .EnemyHealth {
     position: absolute;
-    top: 1.5vh;
-    right: 5vw;
-    width: 5vw;
-    height: 2.2vh;
+    top: 0.8vh;
+    right: 1.5vw;
+    width: 4vw;
+    height: 2vh;
     background-color: #E9D6AC;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 2px solid #E7BF65;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.2vw;
-    padding: 0 0.3vw;
+    gap: 0.15vw;
+    padding: 0 0.25vw;
     z-index: 1000;
     overflow: hidden;
 }
@@ -350,26 +350,27 @@ body.body[data-page="play"] {
 ============================================================ */
 .right-panel {
     position: absolute;
-    top: 12vh;
+    top: 9vh;
     right: 1vw;
-    width: 8vw;
-    height: 65vh;
+    width: 6vw;
+    height: 58vh;
     display: flex;
     flex-direction: column;
-    gap: 1vh;
+    gap: 0.8vh;
     z-index: 100;
 }
 
 .right-slot {
     flex: 1;
     background-color: #D9D9D9;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 .right-slot-small {
-    height: 10vh;
+    flex: 1.3;
     background-color: #D9D9D9;
-    border-radius: 8px;
+    border-radius: 6px;
+    border: 2px solid #C5C5C5;
 }
 
 /* ============================================================
@@ -379,8 +380,8 @@ body.body[data-page="play"] {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 12vw;
-    height: 12vh;
+    width: 10vw;
+    height: 8vh;
     background-color: #906565;
     clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
     filter: drop-shadow(0 -2px 0 black) drop-shadow(-2px 0 0 black);
@@ -389,13 +390,13 @@ body.body[data-page="play"] {
 
 .Moves p {
     position: absolute;
-    border-radius: 25px;
+    border-radius: 20px;
     background-color: #D9D9D9;
-    width: 6vw;
-    height: 4vh;
-    top: 1vh;
-    left: 1vw;
-    font-size: clamp(16px, 1.8vw, 28px);
+    width: 5vw;
+    height: 3vh;
+    top: 0.5vh;
+    left: 0.8vw;
+    font-size: clamp(14px, 1.5vw, 24px);
     font-family: "Jura", sans-serif;
     display: flex;
     justify-content: center;
@@ -407,18 +408,20 @@ body.body[data-page="play"] {
 ============================================================ */
 .MyHealth {
     position: absolute;
-    left: 15vw;
-    bottom: 8vh;
-    width: 5vw;
-    height: 2.2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: -21vw;
+    bottom: 14vh;
+    width: 4vw;
+    height: 2vh;
     background-color: #E9D6AC;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 2px solid #E7BF65;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.2vw;
-    padding: 0 0.3vw;
+    gap: 0.15vw;
+    padding: 0 0.25vw;
     z-index: 2000;
     overflow: hidden;
 }
@@ -430,26 +433,26 @@ body.body[data-page="play"] {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 12vw;
-    height: 12vh;
+    width: 10vw;
+    height: 8vh;
     background-color: #906565;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-start;
     z-index: 2000;
     filter: drop-shadow(0 -2px 0 black) drop-shadow(2px 0 0 black);
 }
 
 .OpenDrops {
     position: absolute;
-    border-radius: 25px;
+    border-radius: 20px;
     background-color: #D9D9D9;
-    width: 6vw;
-    height: 4vh;
-    top: 1vh;
-    right: 1vw;
-    font-size: clamp(16px, 1.8vw, 28px);
+    width: 5vw;
+    height: 3vh;
+    top: 0.5vh;
+    right: 0.8vw;
+    font-size: clamp(14px, 1.5vw, 24px);
     font-family: "Jura", sans-serif;
     display: flex;
     justify-content: center;
@@ -470,9 +473,9 @@ body.body[data-page="play"] {
     left: 4vw;
     bottom: 0;
     width: 92vw;
-    height: 13vh;
+    height: 10vh;
     background-color: #B49B73;
-    clip-path: polygon(0% 100%, 17% 0%, 83% 0%, 100% 100%);
+    clip-path: polygon(0% 100%, 12% 0%, 88% 0%, 100% 100%);
     filter: drop-shadow(0 -3px 0 black);
     z-index: 1000;
 }
@@ -737,8 +740,8 @@ body.body[data-page="play"] {
 
 /* ===== СЕРЦЯ ДЛЯ ЗДОРОВ'Я ===== */
 .heart {
-    width: 0.7vw;
-    height: 0.7vw;
+    width: 0.5vw;
+    height: 0.5vw;
     background-color: #6B3A3A;
     transform: rotate(-45deg);
     position: relative;
@@ -750,18 +753,18 @@ body.body[data-page="play"] {
 .heart::after {
     content: '';
     position: absolute;
-    width: 0.7vw;
-    height: 0.7vw;
+    width: 0.5vw;
+    height: 0.5vw;
     background-color: #6B3A3A;
     border-radius: 50%;
 }
 
 .heart::before {
-    top: -0.35vw;
+    top: -0.25vw;
     left: 0;
 }
 
 .heart::after {
-    left: 0.35vw;
+    left: 0.25vw;
     top: 0;
 }
