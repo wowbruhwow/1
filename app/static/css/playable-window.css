@@ -227,10 +227,10 @@ body.body[data-page="play"] {
 /* ===== ЛІВА БІЧНА ПАНЕЛЬ: ЛОКАЦІЇ (сітка 2x3) ===== */
 .ActiveLocations {
     position: absolute;
-    top: 12vh;
+    top: 14vh;
     left: 1vw;
     width: 12vw;
-    height: 65vh;
+    height: 63vh;
     background-color: #A88E7F;
     border-radius: 10px;
     display: grid;
@@ -256,10 +256,10 @@ body.body[data-page="play"] {
 /* ===== ПРАВА БІЧНА ПАНЕЛЬ: КАРТИ В РУЦІ + PREVIEW ===== */
 .MyAndEnemyPoints {
     position: absolute;
-    top: 12vh;
+    top: 14vh;
     right: 1vw;
     width: 8vw;
-    height: 65vh;
+    height: 63vh;
     display: flex;
     flex-direction: column;
     gap: 1vh;
@@ -275,11 +275,11 @@ body.body[data-page="play"] {
 /* ===== ЦЕНТРАЛЬНА ІГРОВА ДОШКА ===== */
 .board {
     position: absolute;
-    top: 12vh;
+    top: 14vh;
     left: 50%;
     transform: translateX(-50%);
     width: 66vw;
-    height: 66vh;
+    height: 64vh;
     background-color: #F23131;
     border-radius: 20px;
 }
