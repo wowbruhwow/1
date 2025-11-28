@@ -138,9 +138,9 @@ body.body[data-page="play"] {
     position: absolute;
     top: 1.5vh;
     left: 8vw;
-    width: 6vw;
-    height: 4vh;
-    background-color: #D9D9D9;
+    width: 4vw;
+    height: 3vh;
+    background-color: #E9D6AC;
     border-radius: 6px;
     z-index: 100;
 }
@@ -254,9 +254,9 @@ body.body[data-page="play"] {
 ============================================================ */
 .EnemyHealth {
     position: absolute;
-    top: 2vh;
-    right: 1vw;
-    width: 7.5vw;
+    top: 1.5vh;
+    right: 5vw;
+    width: 5vw;
     height: 2.2vh;
     background-color: #E9D6AC;
     border-radius: 15px;
@@ -379,8 +379,8 @@ body.body[data-page="play"] {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 14vw;
-    height: 14vh;
+    width: 12vw;
+    height: 12vh;
     background-color: #906565;
     clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
     filter: drop-shadow(0 -2px 0 black) drop-shadow(-2px 0 0 black);
@@ -391,11 +391,11 @@ body.body[data-page="play"] {
     position: absolute;
     border-radius: 25px;
     background-color: #D9D9D9;
-    width: 7vw;
-    height: 5vh;
-    top: 1.5vh;
-    left: 1.3vw;
-    font-size: clamp(18px, 2vw, 32px);
+    width: 6vw;
+    height: 4vh;
+    top: 1vh;
+    left: 1vw;
+    font-size: clamp(16px, 1.8vw, 28px);
     font-family: "Jura", sans-serif;
     display: flex;
     justify-content: center;
@@ -407,10 +407,9 @@ body.body[data-page="play"] {
 ============================================================ */
 .MyHealth {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 14.5vh;
-    width: 7.5vw;
+    left: 15vw;
+    bottom: 8vh;
+    width: 5vw;
     height: 2.2vh;
     background-color: #E9D6AC;
     border-radius: 15px;
@@ -420,7 +419,7 @@ body.body[data-page="play"] {
     align-items: center;
     gap: 0.2vw;
     padding: 0 0.3vw;
-    z-index: 1000;
+    z-index: 2001;
     overflow: hidden;
 }
 
@@ -431,8 +430,8 @@ body.body[data-page="play"] {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 14vw;
-    height: 14vh;
+    width: 12vw;
+    height: 12vh;
     background-color: #906565;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
     display: flex;
@@ -446,11 +445,11 @@ body.body[data-page="play"] {
     position: absolute;
     border-radius: 25px;
     background-color: #D9D9D9;
-    width: 7vw;
-    height: 5vh;
-    top: 1.5vh;
-    right: 1.3vw;
-    font-size: clamp(18px, 2vw, 32px);
+    width: 6vw;
+    height: 4vh;
+    top: 1vh;
+    right: 1vw;
+    font-size: clamp(16px, 1.8vw, 28px);
     font-family: "Jura", sans-serif;
     display: flex;
     justify-content: center;
