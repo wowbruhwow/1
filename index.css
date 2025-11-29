@@ -3,6 +3,17 @@
     Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
     "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
     "Source Han Sans CN", sans-serif;
+  
+  /* FIX: Fallback color palette for when external images are unavailable */
+  --fallback-hourglass: #c9a97c;
+  --fallback-menu-btn: #8b7355;
+  --fallback-panel: #d4c4a8;
+  --fallback-card-zone: #e8dcc4;
+  --fallback-hp: #cc4444;
+  --fallback-triangle: #a89070;
+  --fallback-card: #b8a888;
+  --fallback-selection: #ddd4c0;
+  --fallback-table: #c8b898;
 }
 
 .main-container {
@@ -46,18 +57,25 @@ button {
   left: 9px;
   z-index: 14;
 }
+/* FIX: Added fallback background color, border and shadow for visibility when external image unavailable */
 .hourglass {
   position: absolute;
   width: 97.009px;
   height: 117px;
   top: -3.5px;
   left: -3.509px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/6yqwiYFtdA.png)
-    no-repeat center;
+  background-color: var(--fallback-hourglass);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/6yqwiYFtdA.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   filter: blur(1.5px);
   z-index: 4;
+  border: 2px solid #8b7355;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
+/* FIX: Updated interaction-box styling per mockup - adjusted size, rounded corners, border and shadow */
 .interaction-box {
   position: absolute;
   width: 113px;
@@ -66,108 +84,155 @@ button {
   left: 107px;
   background: #837070;
   z-index: 14;
-  border-radius: 5px;
+  border-radius: 10px;
+  border: 2px solid #5a4a4a;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
 }
+/* FIX: Added fallback background color and border for visibility */
 .encyclopedia-map {
   position: absolute;
   width: 145.807px;
   height: 47px;
   top: 3.5px;
   left: 568.5px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JRRepwptQw.png)
-    no-repeat center;
+  background-color: var(--fallback-menu-btn);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JRRepwptQw.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 1;
+  border: 1px solid #6a5940;
+  border-radius: 5px;
 }
+/* FIX: Added fallback background color and border for visibility */
 .menu-key {
   position: absolute;
   width: 146.336px;
   height: 47px;
   top: 3.5px;
   left: 679.798px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/TeirzXO80a.png)
-    no-repeat center;
+  background-color: var(--fallback-menu-btn);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/TeirzXO80a.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 2;
+  border: 1px solid #6a5940;
+  border-radius: 5px;
 }
+/* FIX: Added fallback background color and border for visibility */
 .chat-key {
   position: absolute;
   width: 145.728px;
   height: 47px;
   top: 3.5px;
   left: 793.772px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/GpfiFvWbX7.png)
-    no-repeat center;
+  background-color: var(--fallback-menu-btn);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/GpfiFvWbX7.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 3;
+  border: 1px solid #6a5940;
+  border-radius: 5px;
 }
+/* FIX: Added fallback background color and border for visibility */
 .player-icon-panel {
   position: absolute;
   width: 326px;
   height: 47px;
   top: 58px;
   left: 590px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/p02KtYsPPX.png)
-    no-repeat center;
+  background-color: var(--fallback-panel);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/p02KtYsPPX.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
+  border: 1px solid #9a8a6a;
+  border-radius: 5px;
 }
+/* FIX: Repositioned enemy HP to upper right of main game field, added oval panel background with border */
 .enemy-hp {
   position: absolute;
-  width: 116px;
-  height: 21px;
-  top: 84px;
-  left: 1247px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/cYHdmLreAt.png)
-    no-repeat center;
+  width: 130px;
+  height: 30px;
+  top: 125px;
+  left: 1220px;
+  background-color: var(--fallback-hp);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/cYHdmLreAt.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 16;
+  border: 2px solid #aa2222;
+  border-radius: 15px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
+/* FIX: Added fallback background color and border for visibility */
 .glasses {
   position: absolute;
   width: 101px;
   height: 395px;
   top: 84px;
   left: 1386px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/NNdzxro8vZ.png)
-    no-repeat center;
+  background-color: var(--fallback-panel);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/NNdzxro8vZ.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 11;
+  border: 1px solid #9a8a6a;
+  border-radius: 8px;
 }
+/* FIX: Added fallback background color and border for visibility */
 .special-cards {
   position: absolute;
   width: 320px;
   height: 526px;
   top: 118px;
   left: 0;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/VHW24Ncrf9.png)
-    no-repeat center;
+  background-color: var(--fallback-card);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/VHW24Ncrf9.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 9;
   border-radius: 10px;
+  border: 2px solid #8a7860;
 }
+/* FIX: Added fallback background color and border for visibility (main game area) */
 .card-zone {
   position: absolute;
   width: 1032px;
   height: 575px;
   top: 118px;
   left: 331px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/EkabCrkL6h.png)
-    no-repeat center;
+  background-color: var(--fallback-card-zone);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/EkabCrkL6h.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 7;
+  border: 2px solid #a09078;
+  border-radius: 8px;
 }
+/* FIX: Added fallback background color for visibility (card back) */
 .card-back-template {
   position: absolute;
   width: 126px;
   height: 185px;
   top: 498px;
   left: 1374px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/2XTVfzW3pM.png)
-    no-repeat center;
+  background-color: var(--fallback-card);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/2XTVfzW3pM.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: 100% 100%;
   z-index: 13;
   overflow: hidden;
   border-radius: 10px;
+  border: 2px solid #8a7860;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
 }
 .flex-row-f {
   position: relative;
@@ -176,59 +241,85 @@ button {
   margin: 10px 0 0 15px;
   z-index: 15;
 }
+/* FIX: Updated bottom left triangle - adjusted size, position, added clip-path for proper angle per mockup */
 .number-of-moves {
   position: absolute;
-  width: 317.5px;
-  height: 132px;
-  top: 0;
-  left: 0;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/UwEwQPSyhQ.png)
-    no-repeat center;
+  width: 280px;
+  height: 140px;
+  top: -5px;
+  left: -40px;
+  background-color: var(--fallback-triangle);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/UwEwQPSyhQ.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 10;
+  border: 2px solid #7a6850;
+  border-radius: 0 10px 0 0;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
 }
+/* FIX: Added fallback HP hearts styling with oval/pill shape and border for visibility */
 .our-hp {
   position: absolute;
-  width: 116px;
-  height: 21px;
-  top: 0;
+  width: 130px;
+  height: 30px;
+  top: 5px;
   left: 328px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/fkyMZhmpXN.png)
-    no-repeat center;
+  background-color: var(--fallback-hp);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/fkyMZhmpXN.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 15;
+  border: 2px solid #aa2222;
+  border-radius: 15px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
+/* FIX: Updated bottom right triangle - adjusted size, position, mirrored clip-path for symmetry with left triangle */
 .discount {
   position: absolute;
-  width: 317.5px;
-  height: 132px;
-  top: 0;
-  left: 1173px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JcV2P69SWX.png)
-    no-repeat center;
+  width: 280px;
+  height: 140px;
+  top: -5px;
+  left: 1210px;
+  background-color: var(--fallback-triangle);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JcV2P69SWX.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 6;
+  border: 2px solid #7a6850;
+  border-radius: 10px 0 0 0;
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
 }
+/* FIX: Added fallback background color for table (blurred background layer) */
 .table {
   position: absolute;
   width: 2228px;
   height: 1001px;
   top: 328px;
   left: -350px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/K7Q1rxMGV7.png)
-    no-repeat center;
+  background-color: var(--fallback-table);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/K7Q1rxMGV7.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   filter: blur(25px);
   z-index: 5;
 }
+/* FIX: Added fallback background color and border for card selection zone (bottom white panel) */
 .card-selection-zone {
   position: absolute;
   width: 1730px;
   height: 372px;
   top: 742px;
   left: -101px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/9vQGQwmFA5.png)
-    no-repeat center;
+  background-color: var(--fallback-selection);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/9vQGQwmFA5.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 8;
+  border: 2px solid #b8a888;
+  border-radius: 20px 20px 0 0;
 }
