@@ -64,8 +64,10 @@ button {
   height: 117px;
   top: -3.5px;
   left: -3.509px;
-  background: var(--fallback-hourglass) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/6yqwiYFtdA.png)
-    no-repeat center;
+  background-color: var(--fallback-hourglass);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/6yqwiYFtdA.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   filter: blur(1.5px);
   z-index: 4;
@@ -93,8 +95,10 @@ button {
   height: 47px;
   top: 3.5px;
   left: 568.5px;
-  background: var(--fallback-menu-btn) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JRRepwptQw.png)
-    no-repeat center;
+  background-color: var(--fallback-menu-btn);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JRRepwptQw.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 1;
   border: 1px solid #6a5940;
@@ -107,8 +111,10 @@ button {
   height: 47px;
   top: 3.5px;
   left: 679.798px;
-  background: var(--fallback-menu-btn) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/TeirzXO80a.png)
-    no-repeat center;
+  background-color: var(--fallback-menu-btn);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/TeirzXO80a.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 2;
   border: 1px solid #6a5940;
@@ -121,8 +127,10 @@ button {
   height: 47px;
   top: 3.5px;
   left: 793.772px;
-  background: var(--fallback-menu-btn) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/GpfiFvWbX7.png)
-    no-repeat center;
+  background-color: var(--fallback-menu-btn);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/GpfiFvWbX7.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 3;
   border: 1px solid #6a5940;
@@ -135,8 +143,10 @@ button {
   height: 47px;
   top: 58px;
   left: 590px;
-  background: var(--fallback-panel) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/p02KtYsPPX.png)
-    no-repeat center;
+  background-color: var(--fallback-panel);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/p02KtYsPPX.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   border: 1px solid #9a8a6a;
   border-radius: 5px;
@@ -148,8 +158,10 @@ button {
   height: 30px;
   top: 125px;
   left: 1220px;
-  background: var(--fallback-hp) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/cYHdmLreAt.png)
-    no-repeat center;
+  background-color: var(--fallback-hp);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/cYHdmLreAt.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 16;
   border: 2px solid #aa2222;
@@ -163,8 +175,10 @@ button {
   height: 395px;
   top: 84px;
   left: 1386px;
-  background: var(--fallback-panel) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/NNdzxro8vZ.png)
-    no-repeat center;
+  background-color: var(--fallback-panel);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/NNdzxro8vZ.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 11;
   border: 1px solid #9a8a6a;
@@ -177,8 +191,10 @@ button {
   height: 526px;
   top: 118px;
   left: 0;
-  background: var(--fallback-card) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/VHW24Ncrf9.png)
-    no-repeat center;
+  background-color: var(--fallback-card);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/VHW24Ncrf9.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 9;
   border-radius: 10px;
@@ -191,8 +207,10 @@ button {
   height: 575px;
   top: 118px;
   left: 331px;
-  background: var(--fallback-card-zone) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/EkabCrkL6h.png)
-    no-repeat center;
+  background-color: var(--fallback-card-zone);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/EkabCrkL6h.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 7;
   border: 2px solid #a09078;
@@ -205,8 +223,10 @@ button {
   height: 185px;
   top: 498px;
   left: 1374px;
-  background: var(--fallback-card) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/2XTVfzW3pM.png)
-    no-repeat center;
+  background-color: var(--fallback-card);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/2XTVfzW3pM.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: 100% 100%;
   z-index: 13;
   overflow: hidden;
@@ -221,20 +241,22 @@ button {
   margin: 10px 0 0 15px;
   z-index: 15;
 }
-/* FIX: Updated bottom left triangle - adjusted size, position, added skew transform for proper angle per mockup */
+/* FIX: Updated bottom left triangle - adjusted size, position, added clip-path for proper angle per mockup */
 .number-of-moves {
   position: absolute;
   width: 280px;
   height: 140px;
   top: -5px;
   left: -40px;
-  background: var(--fallback-triangle) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/UwEwQPSyhQ.png)
-    no-repeat center;
+  background-color: var(--fallback-triangle);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/UwEwQPSyhQ.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 10;
   border: 2px solid #7a6850;
   border-radius: 0 10px 0 0;
-  clip-path: polygon(0 100%, 0 0, 100% 100%);
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
 }
 /* FIX: Added fallback HP hearts styling with oval/pill shape and border for visibility */
 .our-hp {
@@ -243,8 +265,10 @@ button {
   height: 30px;
   top: 5px;
   left: 328px;
-  background: var(--fallback-hp) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/fkyMZhmpXN.png)
-    no-repeat center;
+  background-color: var(--fallback-hp);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/fkyMZhmpXN.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 15;
   border: 2px solid #aa2222;
@@ -258,13 +282,15 @@ button {
   height: 140px;
   top: -5px;
   left: 1210px;
-  background: var(--fallback-triangle) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JcV2P69SWX.png)
-    no-repeat center;
+  background-color: var(--fallback-triangle);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JcV2P69SWX.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 6;
   border: 2px solid #7a6850;
   border-radius: 10px 0 0 0;
-  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
 }
 /* FIX: Added fallback background color for table (blurred background layer) */
 .table {
@@ -273,8 +299,10 @@ button {
   height: 1001px;
   top: 328px;
   left: -350px;
-  background: var(--fallback-table) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/K7Q1rxMGV7.png)
-    no-repeat center;
+  background-color: var(--fallback-table);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/K7Q1rxMGV7.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   filter: blur(25px);
   z-index: 5;
@@ -286,8 +314,10 @@ button {
   height: 372px;
   top: 742px;
   left: -101px;
-  background: var(--fallback-selection) url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/9vQGQwmFA5.png)
-    no-repeat center;
+  background-color: var(--fallback-selection);
+  background-image: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/9vQGQwmFA5.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   z-index: 8;
   border: 2px solid #b8a888;
