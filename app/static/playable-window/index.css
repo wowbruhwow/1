@@ -243,6 +243,7 @@
   background: 
     linear-gradient(to bottom right, transparent calc(50% - 2px), #FFFFFF calc(50% - 2px), #FFFFFF calc(50% + 2px), transparent calc(50% + 2px)),
     linear-gradient(to bottom left, transparent calc(50% - 2px), #FFFFFF calc(50% - 2px), #FFFFFF calc(50% + 2px), transparent calc(50% + 2px));
+  /* 332px matches the width of the corner triangles (317.5px) plus offset for proper diagonal alignment */
   background-size: 332px 100%, 332px 100%;
   background-position: left bottom, right bottom;
   background-repeat: no-repeat;
