@@ -124,14 +124,13 @@
  
 .frame-frame12 {
   top: 711px;
-  left: 1197px;
+  left: 1505.5px;
   width: 317.5px;
   height: 132px;
   display: flex;
   position: absolute;
   align-items: flex-start;
   flex-shrink: 1;
-  z-index: 2;
 }
  
 .frame-svg11 {
@@ -144,13 +143,11 @@
  
 .frame-image12 {
   top: 17px;
-  left: 190px;
+  left: -16px;
   width: 110px;
   height: 49px;
   position: absolute;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
  
 .frame-frame13 {
@@ -215,39 +212,6 @@
   width: 1730px;
   height: 372px;
   position: absolute;
-  z-index: 1;
-  display: none;
-}
-
-/* Floor background - brown floor between triangles */
-.frame-frame10::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 145px;
-  background-color: #A68B5B;
-  z-index: 0;
-}
-
-/* White diagonal lines connecting triangles to floor */
-.frame-frame10::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 145px;
-  z-index: 1;
-  background: 
-    linear-gradient(to bottom right, transparent calc(50% - 2px), #FFFFFF calc(50% - 2px), #FFFFFF calc(50% + 2px), transparent calc(50% + 2px)),
-    linear-gradient(to bottom left, transparent calc(50% - 2px), #FFFFFF calc(50% - 2px), #FFFFFF calc(50% + 2px), transparent calc(50% + 2px));
-  /* 332px matches the width of the corner triangles (317.5px) plus offset for proper diagonal alignment */
-  background-size: 332px 100%, 332px 100%;
-  background-position: left bottom, right bottom;
-  background-repeat: no-repeat;
-  pointer-events: none;
 }
  
 .frame-frame14 {
@@ -259,7 +223,7 @@
   position: absolute;
   align-items: flex-start;
   flex-shrink: 1;
-  background-color: rgba(126, 50, 50, 0.85);
+  background-color: rgba(126, 50, 50, 0.5299999713897705);
 }
  
 .frame-image17 {
@@ -343,7 +307,6 @@
   position: absolute;
   align-items: flex-start;
   flex-shrink: 1;
-  z-index: 2;
 }
  
 .frame-svg31 {
@@ -361,8 +324,6 @@
   height: 49px;
   position: absolute;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
  
 .frame-frame16 {
@@ -375,8 +336,6 @@
   align-items: flex-start;
   flex-shrink: 1;
   background-color: rgba(163, 154, 154, 0.5);
-  border: 2px solid rgba(128, 128, 128, 0.6);
-  border-radius: 4px;
 }
  
 .frame-image19 {
@@ -404,8 +363,6 @@
   position: absolute;
   align-items: flex-start;
   flex-shrink: 0;
-  border: 3px solid #E7BE65;
-  border-radius: 10px;
 }
  
 .frame-frame18 {
