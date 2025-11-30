@@ -4,4 +4,4 @@ Disallow: /nogooglebot/
 User-agent: *
 Allow: /
 
-Sitemap: https://untitled-copy-kn29w6.teleporthq.app/sitemap.xml
+Sitemap: ./sitemap.xml
