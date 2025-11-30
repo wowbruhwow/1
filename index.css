@@ -308,11 +308,13 @@ button {
   position: relative;
 }
 
+/* Angled corner shape: starts 30% down on outside edge, goes to top on inside */
 .bottom-corner.left {
   border-radius: 0 50px 0 0;
   clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
 }
 
+/* Angled corner shape: starts at top on inside edge, goes to 30% down on outside */
 .bottom-corner.right {
   border-radius: 50px 0 0 0;
   clip-path: polygon(0 0, 100% 30%, 100% 100%, 0 100%);
