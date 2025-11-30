@@ -3,6 +3,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Kelly+Slab&display=swap');
 
+/* CSS Variables from global.css */
+:root {
+  /* Color */
+  --color: #f1e9d2;
+  --color-brown: rgba(126, 50, 50, 0.53);
+  --color-crimson: #f23131;
+  --color-darkgray-100: #b0aa99;
+  --color-darkgray-200: rgba(164, 154, 154, 0.5);
+  --color-darkkhaki-100: #e8bf65;
+  --color-darkkhaki-200: #e7bf65;
+  --color-darkslategray: #494747;
+  --color-dimgray-100: #837070;
+  --color-dimgray-200: #502d2d;
+  --color-gainsboro-100: #d9d9d9;
+  --color-gainsboro-200: rgba(217, 217, 217, 0.5);
+  --color-gray: #432929;
+  --color-silver-100: #c4c4c3;
+  --color-silver-200: #c3c2c2;
+  --color-wheat: #e9d6ac;
+
+  /* Gap */
+  --gap-20: 20px;
+
+  /* Padding */
+  --padding-0: 0px;
+  --padding-5: 5px;
+
+  /* BorderRadius */
+  --br-10: 10px;
+  --br-20: 20px;
+
+  /* Borders */
+  --border-1: 1px solid var(--color-gray);
+
+  /* Shadows */
+  --shadow-drop: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --shadow-drop-1: 0px 4px 2px rgba(0, 0, 0, 0.25);
+
+  /* WidthHeights */
+  --height-40: 40px;
+  --height-185: 185px;
+  --width-126: 126px;
+}
+
 /* ============================================================
    ЗАНУЛЮЮЧИЙ КОД
 ============================================================ */
@@ -75,8 +119,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .body {
     margin: 0;
-    background-color: #F1E9D2;
+    background-color: var(--color);
     font-family: "Jura", system-ui, sans-serif;
+    line-height: normal;
 }
 
 /* Full-screen game layout only on Play screen */
@@ -85,396 +130,650 @@ body.body[data-page="play"] {
     overflow: hidden;
 }
 
-.game-layout {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    max-width: 100%;
-    margin: 0;
-    overflow: hidden;
-}
-
 /* ============================================================
-   ТАЙМЕР (ПІСОЧНИЙ ГОДИННИК)
+   ОСНОВНИЙ КОНТЕЙНЕР
 ============================================================ */
-.hourglass-container {
-    position: absolute;
-    top: 1vh;
-    left: 1.5vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 5.88vw;
-    height: 9vh;
-    background: black;
-    clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%, 30% 50%);
-    overflow: hidden;
-    margin: 0;
-    z-index: 100;
+.div {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  box-shadow: var(--shadow-drop);
+  background-color: var(--color);
+  border: 1px solid var(--color-dimgray-200);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 7px 17px 122px;
+  isolation: isolate;
+  gap: 388px;
+  line-height: normal;
+  letter-spacing: normal;
 }
 
-.hourglass {
-    width: 5.3vw;
-    height: 8vh;
-    background: #ccc;
-    clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%, 30% 50%);
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.game-window {
+  width: 100%;
+  height: 763px;
+  margin: 0 !important;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: relative;
 }
 
-#timer-seconds {
-    font-family: "Jura", sans-serif;
-    font-size: clamp(16px, 1.8vw, 28px);
-    font-weight: bold;
-    color: #333;
+.div2,
+.game-window,
+.icon {
+  position: absolute;
+  flex-shrink: 0;
 }
 
-/* ============================================================
-   КНОПКА ВЗАЄМОДІЇ
-============================================================ */
-.interaction-box {
-    position: absolute;
-    top: 1.5vh;
-    left: 8vw;
-    width: 4vw;
-    height: 3vh;
-    background-color: #E9D6AC;
-    border-radius: 6px;
-    z-index: 100;
+.div2 {
+  top: 236px;
+  left: -349px;
+  filter: blur(50px);
+  border-radius: 50%;
+  background-color: var(--color-gainsboro-100);
+  border: 0 solid var(--color-silver-100);
+  box-sizing: border-box;
+  width: 2228px;
+  height: 1001px;
 }
 
-/* ============================================================
-   КНОПКИ МЕНЮ (ТРАПЕЦІЄПОДІБНІ)
-============================================================ */
-.top-buttons {
-    position: absolute;
-    top: 0.5vh;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.CardsFAQ {
-    position: relative;
-    left: 38px;
-    width: 9.15vw;
-    height: 3.5vh;
-    background-color: #947070;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    font-size: clamp(12px, 1.2vw, 18px);
-    font-family: "Jura", sans-serif;
-    color: #fff;
-    clip-path: polygon(0% 0%, 100% 0%, 71.42% 100%, 0% 100%);
-}
-
-.GameMenu {
-    width: 9.15vw;
-    height: 3.5vh;
-    background-color: #947070;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    font-size: clamp(12px, 1.2vw, 18px);
-    font-family: "Jura", sans-serif;
-    color: #fff;
-    clip-path: polygon(28.57% 0%, 100% 0%, 71.42% 100%, 0% 100%);
-}
-
-.GameChat {
-    position: relative;
-    right: 38px;
-    width: 9.15vw;
-    height: 3.5vh;
-    background-color: #947070;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    font-size: clamp(12px, 1.2vw, 18px);
-    font-family: "Jura", sans-serif;
-    color: #fff;
-    clip-path: polygon(0% 100%, 28.57% 0%, 100% 0%, 100% 100%);
-}
-
-.CardsFAQ:hover,
-.GameMenu:hover,
-.GameChat:hover {
-    background-color: #7d5d5d;
-}
-
-/* ============================================================
-   ПАНЕЛЬ ГРАВЦІВ
-============================================================ */
-.Players {
-    position: absolute;
-    top: 4.5vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 18vw;
-    height: 4vh;
-    background-color: #663A3A;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0.5vh 1vw;
-    z-index: 1000;
-}
-
-.PlayerME,
-.Player_1,
-.Player_2,
-.Player_3 {
-    width: 2.5vw;
-    height: 2.5vw;
-    max-width: 3.5vh;
-    max-height: 3.5vh;
-    border-radius: 50%;
-    background-color: #fff;
-    border: none;
-    transition: transform 0.2s;
-}
-
-.PlayerME:hover,
-.Player_1:hover,
-.Player_2:hover,
-.Player_3:hover {
-    transform: scale(1.05);
-}
-
-/* ============================================================
-   ХП ВОРОГА
-============================================================ */
-.EnemyHealth {
-    position: absolute;
-    top: 1.5vh;
-    right: 5vw;
-    width: 5vw;
-    height: 2.2vh;
-    background-color: #E9D6AC;
-    border-radius: 15px;
-    border: 2px solid #E7BF65;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.2vw;
-    padding: 0 0.3vw;
-    z-index: 1000;
-    overflow: hidden;
-}
-
-/* ============================================================
-   ЛІВА ПАНЕЛЬ ЛОКАЦІЙ (сітка 2x3)
-============================================================ */
-.ActiveLocations {
-    position: absolute;
-    top: 12vh;
-    left: 1vw;
-    width: 12vw;
-    height: 65vh;
-    background-color: #A88E7F;
-    border-radius: 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    gap: 0.8vh;
-    padding: 1vh 0.5vw;
-    z-index: 100;
-}
-
-.location-slot {
-    background-color: #D9D9D9;
-    border-radius: 6px;
-    width: 100%;
-    height: 100%;
+.icon {
+  top: 618px;
+  left: 1188px;
+  width: 317.5px;
+  height: 132px;
+  object-fit: contain;
+  z-index: 1;
 }
 
 /* ============================================================
    ЦЕНТРАЛЬНЕ ІГРОВЕ ПОЛЕ
 ============================================================ */
-.board {
-    position: absolute;
-    top: 12vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 58vw;
-    height: 62vh;
-    background-color: #F23131;
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-between;
-    padding: 1vh 1vw;
-    z-index: 50;
+.div3,
+.div4 {
+  border-radius: var(--br-20);
+  background-color: var(--color-crimson);
 }
 
-.board-left,
-.board-right {
-    width: 18vw;
-    height: 100%;
-    background-color: rgba(217, 217, 217, 0.5);
-    border-radius: 10px;
+.div3 {
+  position: absolute;
+  top: 34px;
+  left: 343px;
+  width: 1032px;
+  height: 575px;
+  z-index: 1;
+  flex-shrink: 0;
 }
 
-.board-center {
-    width: 18vw;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.div4 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
 }
 
-.board-top-zone,
-.board-bottom-zone {
-    width: 100%;
-    height: 28%;
-    background-color: rgba(217, 217, 217, 0.5);
-    border-radius: 10px;
+.div4,
+.div5,
+.div6 {
+  position: absolute;
 }
 
-.board-middle-zone {
-    width: 100%;
-    height: 38%;
-    background-color: #D9D9D9;
-    border-radius: 10px;
+.div5 {
+  top: 180px;
+  left: 334px;
+  box-shadow: var(--shadow-drop);
+  border-radius: var(--br-20);
+  background-color: var(--color-gainsboro-100);
+  width: 367px;
+  height: 212.9px;
+  z-index: 1;
 }
 
-/* ============================================================
-   ПРАВА ПАНЕЛЬ
-============================================================ */
-.right-panel {
-    position: absolute;
-    top: 12vh;
-    right: 1vw;
-    width: 8vw;
-    height: 65vh;
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
-    z-index: 100;
+.div6 {
+  left: 9px;
+  background-color: var(--color-gainsboro-200);
+  width: 312px;
+  height: 545px;
+  top: 14px;
+  border-radius: var(--br-10);
+  z-index: 1;
+  position: absolute;
 }
 
-.right-slot {
-    flex: 1;
-    background-color: #D9D9D9;
-    border-radius: 8px;
+.icon2 {
+  position: absolute;
+  top: 14px;
+  left: 712px;
+  width: 312px;
+  height: 545px;
+  border-radius: var(--br-10);
+  z-index: 1;
 }
 
-.right-slot-small {
-    height: 10vh;
-    background-color: #D9D9D9;
-    border-radius: 8px;
+.div7 {
+  left: 333px;
+  background-color: var(--color-gainsboro-200);
+  width: 367px;
+  height: 166px;
+  top: 14px;
+  border-radius: var(--br-10);
+  z-index: 1;
+  position: absolute;
 }
 
-/* ============================================================
-   НИЖНІЙ ЛІВИЙ ТРИКУТНИК (ХОДИ)
-============================================================ */
-.Moves {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 12vw;
-    height: 12vh;
-    background-color: #906565;
-    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
-    filter: drop-shadow(0 -2px 0 black) drop-shadow(-2px 0 0 black);
-    z-index: 2000;
+.div7,
+.div8,
+.icon3 {
+  position: absolute;
 }
 
-.Moves p {
-    position: absolute;
-    border-radius: 25px;
-    background-color: #D9D9D9;
-    width: 6vw;
-    height: 4vh;
-    top: 1vh;
-    left: 1vw;
-    font-size: clamp(16px, 1.8vw, 28px);
-    font-family: "Jura", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.div8 {
+  top: 393px;
+  left: 334px;
+  border-radius: var(--br-10);
+  background-color: var(--color-gainsboro-200);
+  width: 367px;
+  height: 166px;
+  z-index: 1;
+}
+
+.icon3 {
+  top: 650px;
+  left: -100px;
+  border-radius: 1px;
+  width: 1730px;
+  height: 372px;
+  z-index: 2;
+  flex-shrink: 0;
 }
 
 /* ============================================================
-   ХП ГРАВЦЯ
+   ЛІВА ПАНЕЛЬ ЛОКАЦІЙ (СІТКА 2x3)
 ============================================================ */
-.MyHealth {
-    position: absolute;
-    left: 15vw;
-    bottom: 8vh;
-    width: 5vw;
-    height: 2.2vh;
-    background-color: #E9D6AC;
-    border-radius: 15px;
-    border: 2px solid #E7BF65;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.2vw;
-    padding: 0 0.3vw;
-    z-index: 2000;
-    overflow: hidden;
+.div9 {
+  top: 34px;
+  left: 12px;
+  background-color: var(--color-brown);
+  width: 320px;
+  height: 526px;
+  z-index: 1;
+  flex-shrink: 0;
+  position: absolute;
+  border-radius: var(--br-10);
+}
+
+.div10,
+.div11,
+.div12,
+.div13,
+.div14,
+.div15,
+.div9 {
+  position: absolute;
+  border-radius: var(--br-10);
+}
+
+.div10 {
+  top: 0;
+  left: 0;
+  background-color: var(--color-brown);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.div11,
+.div12,
+.div13,
+.div14,
+.div15 {
+  top: 14px;
+  left: 19px;
+  background-color: var(--color-gainsboro-100);
+  border: var(--border-1);
+  box-sizing: border-box;
+  width: var(--width-126);
+  height: var(--height-185);
+  z-index: 1;
+}
+
+.div12,
+.div13,
+.div14,
+.div15 {
+  left: 172px;
+}
+
+.div13,
+.div14,
+.div15 {
+  top: 168px;
+  z-index: 2;
+}
+
+.div14,
+.div15 {
+  top: 311px;
+  z-index: 3;
+}
+
+.div15 {
+  top: 168px;
+  left: 19px;
+  z-index: 2;
+}
+
+.div16,
+.div17 {
+  position: absolute;
+  z-index: 3;
+}
+
+.div16 {
+  top: 311px;
+  left: 19px;
+  border-radius: var(--br-10);
+  background-color: var(--color-gainsboro-100);
+  border: var(--border-1);
+  box-sizing: border-box;
+  width: var(--width-126);
+  height: var(--height-185);
+}
+
+.div17 {
+  top: 618px;
+  left: 15px;
+  width: 317.5px;
+  height: 132px;
+  flex-shrink: 0;
+}
+
+.div18,
+.icon4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.div18 {
+  top: 17px;
+  left: 16px;
+  border-radius: var(--br-20);
+  background-color: var(--color-gainsboro-100);
+  width: 110px;
+  height: 49px;
+  z-index: 1;
+}
+
+.div19,
+.div20 {
+  position: absolute;
+  top: 0;
+  border-radius: var(--br-10);
+  background-color: var(--color-darkgray-200);
+  border: 1px solid var(--color-darkslategray);
+  box-sizing: border-box;
+}
+
+.div19 {
+  left: 1398px;
+  width: 101px;
+  height: 395px;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.div20 {
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.div21,
+.div22 {
+  position: absolute;
+  top: 17.4px;
+  left: 19px;
+  background-color: var(--color-gainsboro-100);
+  width: 63px;
+  height: 174.5px;
+  z-index: 1;
+}
+
+.div22 {
+  top: 204.9px;
 }
 
 /* ============================================================
-   НИЖНІЙ ПРАВИЙ ТРИКУТНИК (СКИД)
+   ВЕРХНЯ ЧАСТИНА (TOP BAR)
 ============================================================ */
-.Drops {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 12vw;
-    height: 12vh;
-    background-color: #906565;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    filter: drop-shadow(0 -2px 0 black) drop-shadow(2px 0 0 black);
+.top-bar {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--padding-0) 3px;
+  box-sizing: border-box;
+  max-width: 100%;
+  flex-shrink: 0;
 }
 
-.OpenDrops {
-    position: absolute;
-    border-radius: 25px;
-    background-color: #D9D9D9;
-    width: 6vw;
-    height: 4vh;
-    top: 1vh;
-    right: 1vw;
-    font-size: clamp(16px, 1.8vw, 28px);
-    font-family: "Jura", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.2s;
+.time-display-parent {
+  width: 1354px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--gap-20);
+  max-width: 100%;
 }
 
-.OpenDrops:hover {
-    background-color: #aeadad;
-    transform: translateY(-3px);
+.time-display {
+  width: 252px;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--padding-0) 32px var(--padding-0) var(--padding-0);
+  box-sizing: border-box;
+  gap: 17px;
+}
+
+.icon5 {
+  height: 110px;
+  width: 90px;
+  position: relative;
+  filter: blur(3px);
+}
+
+.interaction-button {
+  height: 90px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: var(--padding-0) var(--padding-0) 19px;
+  box-sizing: border-box;
+}
+
+.div23 {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: 5px;
+  background-color: var(--color-dimgray-100);
+}
+
+.utilities-bar-wrapper {
+  width: 366px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: var(--padding-0) var(--padding-0) var(--padding-5);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.utilities-bar {
+  align-self: stretch;
+  height: 101px;
+  position: relative;
+}
+
+.icon6 {
+  position: absolute;
+  top: 54px;
+  left: 19px;
+  filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.25));
+  width: 326px;
+  height: 47px;
+}
+
+.icon7,
+.icon8,
+.icon9 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: var(--shadow-drop-1);
+  width: 140px;
+  height: var(--height-40);
+}
+
+.icon8,
+.icon9 {
+  left: 112px;
+  z-index: 1;
+}
+
+.icon9 {
+  left: 226px;
+  z-index: 2;
+}
+
+.enemy-health {
+  width: 116px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: var(--padding-0) var(--padding-0) var(--padding-5);
+  box-sizing: border-box;
+}
+
+.div24 {
+  align-self: stretch;
+  height: 21px;
+  position: relative;
+}
+
+.div25 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-20);
+  background-color: var(--color-wheat);
+  border: 1px solid var(--color-darkkhaki-200);
+  box-sizing: border-box;
+}
+
+.icon10,
+.icon11,
+.icon12,
+.icon13,
+.icon14 {
+  position: absolute;
+  height: 47.62%;
+  width: 17.24%;
+  top: 28.57%;
+  right: 75.86%;
+  bottom: 23.81%;
+  left: 6.9%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  z-index: 1;
+}
+
+.icon11,
+.icon12,
+.icon13,
+.icon14 {
+  right: 58.62%;
+  left: 24.14%;
+}
+
+.icon12,
+.icon13,
+.icon14 {
+  right: 41.38%;
+  left: 41.38%;
+}
+
+.icon13,
+.icon14 {
+  right: 24.14%;
+  left: 58.62%;
+}
+
+.icon14 {
+  right: 6.9%;
+  left: 75.86%;
 }
 
 /* ============================================================
-   НИЖНЯ ТРАПЕЦІЯ (РУКА ГРАВЦЯ)
+   НИЖНЯ ЧАСТИНА (BOTTOM BAR)
 ============================================================ */
-.Hand {
-    position: absolute;
-    left: 4vw;
-    bottom: 0;
-    width: 92vw;
-    height: 13vh;
-    background-color: #B49B73;
-    clip-path: polygon(0% 100%, 17% 0%, 83% 0%, 100% 100%);
-    filter: drop-shadow(0 -3px 0 black);
-    z-index: 1000;
+.bottom-bar,
+.card-area {
+  display: flex;
+  align-items: flex-start;
+}
+
+.bottom-bar {
+  width: 1169px;
+  flex-direction: column;
+  gap: 19px;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+.card-area {
+  align-self: stretch;
+  justify-content: flex-end;
+}
+
+.div26,
+.div27 {
+  height: var(--height-185);
+  width: var(--width-126);
+}
+
+.div26 {
+  display: flex;
+  align-items: flex-start;
+}
+
+.div27 {
+  position: relative;
+  border-radius: var(--br-10);
+  background-color: var(--color);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.div28,
+.div29 {
+  position: absolute;
+}
+
+.div28 {
+  top: 6px;
+  left: 7px;
+  border: 1px solid var(--color-darkgray-100);
+  box-sizing: border-box;
+  width: 112px;
+  height: 174px;
+}
+
+.div29 {
+  top: 12px;
+  left: 12px;
+  background-color: var(--color-silver-200);
+  width: 101px;
+  height: 162px;
+}
+
+.div30 {
+  width: 116px;
+  height: 21px;
+  position: relative;
+  z-index: 1;
+}
+
+.div31 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-20);
+  background-color: var(--color-wheat);
+  border: 1px solid var(--color-darkkhaki-100);
+  box-sizing: border-box;
+}
+
+.icon15,
+.icon16,
+.icon17,
+.icon18,
+.icon19 {
+  position: absolute;
+  height: 47.62%;
+  width: 17.24%;
+  top: 23.81%;
+  right: 75.86%;
+  bottom: 28.57%;
+  left: 6.9%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  z-index: 1;
+}
+
+.icon16,
+.icon17,
+.icon18,
+.icon19 {
+  right: 58.62%;
+  left: 24.14%;
+}
+
+.icon17,
+.icon18,
+.icon19 {
+  right: 41.38%;
+  left: 41.38%;
+}
+
+.icon18,
+.icon19 {
+  right: 24.14%;
+  left: 58.62%;
+}
+
+.icon19 {
+  right: 6.9%;
+  left: 75.86%;
+}
+
+@media screen and (max-width: 825px) {
+  .div {
+    gap: 194px;
+  }
+  .time-display-parent {
+    flex-wrap: wrap;
+    gap: var(--gap-20);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .div {
+    gap: 97px;
+  }
 }
 
 /* ============================================================
@@ -491,9 +790,12 @@ body.body[data-page="play"] {
     justify-content: center;
     align-items: flex-start;
     z-index: 5000;
-
     overflow-y: auto;
     padding: 5vh 0;
+}
+
+.modal-overlay:not([hidden]) {
+    display: flex;
 }
 
 .modal_drops {
@@ -508,7 +810,6 @@ body.body[data-page="play"] {
     justify-content: flex-start;
     align-items: center;
     position: relative;
-
     max-height: 90vh;
     overflow-y: auto;
     overflow-x: hidden;
@@ -528,6 +829,9 @@ body.body[data-page="play"] {
   top: 3.24vh;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-close {
@@ -538,6 +842,8 @@ body.body[data-page="play"] {
     cursor: pointer;
     color: #422828;
     transition: color 0.2s;
+    background: none;
+    border: none;
 }
 
 .modal-close:hover {
@@ -588,7 +894,7 @@ body.body[data-page="play"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3vw; /* відстань між "Так" і "Ні" */
+  gap: 3vw;
 }
 
 .menu_buttons_container {
@@ -612,7 +918,6 @@ body.body[data-page="play"] {
   transform: scale(1.05);
 }
 
-/* Вісімкутники ("Так" / "Ні") */
 .polygon_btn {
   color: #f5f5f5;
   width: 16.89vw;
@@ -620,7 +925,6 @@ body.body[data-page="play"] {
   clip-path: polygon(15% 0, 85% 0, 100% 25%, 100% 75%, 85% 100%, 15% 100%, 0 75%, 0 25%);
 }
 
-/* Трапеція ("Налаштування") */
 .trapezoid_btn {
   width: 35.94vw;
   height: 6.6vw;
@@ -629,7 +933,6 @@ body.body[data-page="play"] {
   color: white;
 }
 
-/* Шестикутник ("Назад") */
 .hex_btn {
   color: #f5f5f5;
   width: 13.98vw;
@@ -652,8 +955,7 @@ body.body[data-page="play"] {
     display: none;
     flex-direction: column;
     z-index: 99999;
-
-    pointer-events: auto; /* чат взаємодіє */
+    pointer-events: auto;
 }
 
 .game-chat-window:not([hidden]) {
@@ -668,15 +970,12 @@ body.body[data-page="play"] {
     color: white;
     font-family: "Jura", sans-serif;
     font-size: 1.2vw;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 0 0.8vw;
     cursor: move;
 }
-
 
 .game-chat-close {
     background: none;
@@ -684,6 +983,11 @@ body.body[data-page="play"] {
     font-size: 1.6vw;
     color: white;
     cursor: pointer;
+    position: absolute;
+    right: 0.5vw;
+    top: 0.2vw;
+    z-index: 999999 !important;
+    pointer-events: auto !important;
 }
 
 .game-chat-messages {
@@ -727,41 +1031,3 @@ body.body[data-page="play"] {
     background-color: #d5a882;
 }
 
-.game-chat-close {
-    position: absolute;
-    right: 0.5vw;
-    top: 0.2vw;
-    z-index: 999999 !important;
-    pointer-events: auto !important;
-}
-
-/* ===== СЕРЦЯ ДЛЯ ЗДОРОВ'Я ===== */
-.heart {
-    width: 0.7vw;
-    height: 0.7vw;
-    background-color: #6B3A3A;
-    transform: rotate(-45deg);
-    position: relative;
-    display: inline-block;
-    flex-shrink: 0;
-}
-
-.heart::before,
-.heart::after {
-    content: '';
-    position: absolute;
-    width: 0.7vw;
-    height: 0.7vw;
-    background-color: #6B3A3A;
-    border-radius: 50%;
-}
-
-.heart::before {
-    top: -0.35vw;
-    left: 0;
-}
-
-.heart::after {
-    left: 0.35vw;
-    top: 0;
-}

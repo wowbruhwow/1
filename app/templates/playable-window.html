@@ -9,92 +9,112 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/playable-window.css') }}" />
 </head>
 <body class="body" data-page="play">
-    <div class="game-layout">
+    <div class="div">
+        <main class="game-window">
+            <!-- Фонова текстура столу -->
+            <div class="div2"></div>
+            
+            <!-- Правий трикутник (скид) -->
+            <img class="icon" loading="lazy" alt="" src="{{ url_for('static', filename='img/@2x.png') }}" />
+            
+            <!-- Центральне ігрове поле -->
+            <div class="div3">
+                <div class="div4"></div>
+                <!-- Центральний слот -->
+                <div class="div5"></div>
+                <!-- Ліва панель локацій -->
+                <div class="div6"></div>
+                <!-- Права панель (окуляри) -->
+                <img class="icon2" loading="lazy" alt="" src="{{ url_for('static', filename='img/1.svg') }}" />
+                <!-- Додаткові слоти -->
+                <div class="div7"></div>
+                <div class="div8"></div>
+            </div>
+            
+            <!-- Нижня трапеція (карти) -->
+            <img class="icon3" alt="" src="{{ url_for('static', filename='img/31.svg') }}" />
+            
+            <!-- Ліва панель локацій (сітка 2x3) -->
+            <div class="div9">
+                <div class="div10"></div>
+                <div class="div11"></div>
+                <div class="div12"></div>
+                <div class="div13"></div>
+                <div class="div14"></div>
+                <div class="div15"></div>
+                <div class="div16"></div>
+            </div>
+            
+            <!-- Лівий трикутник (ходи) -->
+            <div class="div17">
+                <img class="icon4" alt="" src="{{ url_for('static', filename='img/31.svg') }}" />
+                <div class="div18"></div>
+            </div>
+            
+            <!-- Права панель (окуляри) -->
+            <div class="div19">
+                <div class="div20"></div>
+                <div class="div21"></div>
+                <div class="div22"></div>
+            </div>
+        </main>
+        
         <!-- ВЕРХНЯ ЧАСТИНА -->
-        <!-- Таймер (пісочний годинник) -->
-        <div class="hourglass-container">
-            <div class="hourglass">
-                <span id="timer-seconds">60</span>
+        <section class="top-bar">
+            <div class="time-display-parent">
+                <!-- Ліва група: пісочний годинник та інтеракційна коробка -->
+                <div class="time-display">
+                    <img class="icon5" alt="" src="{{ url_for('static', filename='img/2.svg') }}" />
+                    <div class="interaction-button">
+                        <div class="div23"></div>
+                    </div>
+                </div>
+                
+                <!-- Кнопки меню та панель гравців -->
+                <div class="utilities-bar-wrapper">
+                    <div class="utilities-bar">
+                        <img class="icon6" loading="lazy" alt="" src="{{ url_for('static', filename='img/3.svg') }}" />
+                        <img class="icon7" alt="" src="{{ url_for('static', filename='img/4.svg') }}" />
+                        <img class="icon8" alt="" src="{{ url_for('static', filename='img/5.svg') }}" />
+                        <img class="icon9" alt="" src="{{ url_for('static', filename='img/6.svg') }}" />
+                    </div>
+                </div>
+                
+                <!-- ХП ворога (5 сердець) -->
+                <div class="enemy-health">
+                    <div class="div24">
+                        <div class="div25"></div>
+                        <img class="icon10" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
+                        <img class="icon11" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
+                        <img class="icon12" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
+                        <img class="icon13" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
+                        <img class="icon14" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <!-- Кнопка взаємодії -->
-        <div class="interaction-box"></div>
-        
-        <!-- Кнопки меню -->
-        <div class="top-buttons">
-            <button class="CardsFAQ" type="button" aria-label="Енциклопедія">Енциклопедія</button>
-            <button class="GameMenu" type="button" aria-label="Меню гри">Меню</button>
-            <button class="GameChat" type="button" aria-label="Чат гри">Чат</button>
-        </div>
-        
-        <!-- Панель гравців -->
-        <div class="Players">
-            <button class="PlayerME" type="button" aria-label="Ваш огляд"></button>
-            <button class="Player_1" type="button" aria-label="Гравець 1"></button>
-            <button class="Player_2" type="button" aria-label="Гравець 2"></button>
-            <button class="Player_3" type="button" aria-label="Гравець 3"></button>
-        </div>
-        
-        <!-- ХП ворога -->
-        <div class="EnemyHealth">
-            <span class="heart"></span>
-            <span class="heart"></span>
-            <span class="heart"></span>
-            <span class="heart"></span>
-            <span class="heart"></span>
-        </div>
-        
-        <!-- ЛІВА ПАНЕЛЬ ЛОКАЦІЙ -->
-        <div class="ActiveLocations">
-            <div class="location-slot"></div>
-            <div class="location-slot"></div>
-            <div class="location-slot"></div>
-            <div class="location-slot"></div>
-            <div class="location-slot"></div>
-            <div class="location-slot"></div>
-        </div>
-        
-        <!-- ЦЕНТРАЛЬНЕ ІГРОВЕ ПОЛЕ -->
-        <div class="board">
-            <div class="board-left"></div>
-            <div class="board-center">
-                <div class="board-top-zone"></div>
-                <div class="board-middle-zone"></div>
-                <div class="board-bottom-zone"></div>
-            </div>
-            <div class="board-right"></div>
-        </div>
-        
-        <!-- ПРАВА ПАНЕЛЬ -->
-        <div class="right-panel">
-            <div class="right-slot"></div>
-            <div class="right-slot"></div>
-            <div class="right-slot-small"></div>
-        </div>
+        </section>
         
         <!-- НИЖНЯ ЧАСТИНА -->
-        <!-- Лівий трикутник (ходи) -->
-        <div class="Moves">
-            <p id="MoveCount">5</p>
-        </div>
-        
-        <!-- ХП гравця -->
-        <div class="MyHealth">
-            <span class="heart"></span>
-            <span class="heart"></span>
-            <span class="heart"></span>
-            <span class="heart"></span>
-            <span class="heart"></span>
-        </div>
-        
-        <!-- Правий трикутник (скид) -->
-        <div class="Drops">
-            <button class="OpenDrops">Скид</button>
-        </div>
-        
-        <!-- Нижня трапеція (карти) -->
-        <div class="Hand"></div>
+        <section class="bottom-bar">
+            <div class="card-area">
+                <div class="div26">
+                    <div class="div27">
+                        <div class="div28"></div>
+                        <div class="div29"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ХП гравця (5 сердець) -->
+            <div class="div30">
+                <div class="div31"></div>
+                <img class="icon15" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
+                <img class="icon16" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
+                <img class="icon17" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
+                <img class="icon18" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
+                <img class="icon19" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
+            </div>
+        </section>
     </div>
         
         <div class="modal-overlay" id="modalOverlay_drops" hidden>
