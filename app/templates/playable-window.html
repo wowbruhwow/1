@@ -1,213 +1,283 @@
 <!DOCTYPE html>
 <!-- SPDX-License-Identifier: LicenseRef-CityLegends-Proprietary-Software -->
-<html lang="ua">
-<head>
-    <meta charset="UTF-8" />
+<html lang="en">
+  <head>
+    <title>Playable Window — City Legends</title>
+    <meta property="og:title" content="Playable Window — City Legends" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Вікно гри — City Legends</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/playable-window.css') }}" />
-</head>
-<body class="body" data-page="play">
-    <div class="div">
-        <main class="game-window">
-            <!-- Фонова текстура столу -->
-            <div class="div2"></div>
-            
-            <!-- Правий трикутник (скид) -->
-            <img class="icon" loading="lazy" alt="" src="{{ url_for('static', filename='img/@2x.png') }}" />
-            
-            <!-- Центральне ігрове поле -->
-            <div class="div3">
-                <div class="div4"></div>
-                <!-- Центральний слот -->
-                <div class="div5"></div>
-                <!-- Ліва панель локацій -->
-                <div class="div6"></div>
-                <!-- Права панель (окуляри) -->
-                <img class="icon2" loading="lazy" alt="" src="{{ url_for('static', filename='img/1.svg') }}" />
-                <!-- Додаткові слоти -->
-                <div class="div7"></div>
-                <div class="div8"></div>
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-theme-neutral-dark);
+        background: var(--dl-color-theme-neutral-light);
+
+        fill: var(--dl-color-theme-neutral-dark);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='playable-window/style.css') }}" />
+    <div>
+      <link href="{{ url_for('static', filename='playable-window/index.css') }}" rel="stylesheet" />
+
+      <div class="frame-container1">
+        <div class="frame-frame10">
+          <div class="frame-frame11">
+            <img src="{{ url_for('static', filename='playable-window/public/svg795-ufwe.svg') }}" alt="SVG795" class="frame-svg6" />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image2799-57yc-200h.png') }}"
+              alt="IMAGE2799"
+              class="frame-image21"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image1503-u7ou-200h.png') }}"
+              alt="IMAGE1503"
+              class="frame-image11"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image47101-w96o-200h.png') }}"
+              alt="IMAGE47101"
+              class="frame-image41"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image37103-b49i-200h.png') }}"
+              alt="IMAGE37103"
+              class="frame-image31"
+            />
+          </div>
+          <img src="{{ url_for('static', filename='playable-window/public/svg777-7ghl.svg') }}" alt="SVG777" class="frame-svg7" />
+          <img src="{{ url_for('static', filename='playable-window/public/svg778-7mqr.svg') }}" alt="SVG778" class="frame-svg8" />
+          <img src="{{ url_for('static', filename='playable-window/public/svg779-zw9.svg') }}" alt="SVG779" class="frame-svg9" />
+          <img
+            src="{{ url_for('static', filename='playable-window/public/svg1213-w1a7.svg') }}"
+            alt="SVG1213"
+            class="frame-svg10"
+          />
+          <img
+            src="{{ url_for('static', filename='playable-window/public/image1213-0f8k-1100h.png') }}"
+            alt="IMAGE1213"
+            class="frame-image10"
+          />
+          <div class="frame-frame12">
+            <img
+              src="{{ url_for('static', filename='playable-window/public/svg4741-2gjn.svg') }}"
+              alt="SVG4741"
+              class="frame-svg11"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image4741-xl7-200h.png') }}"
+              alt="IMAGE4741"
+              class="frame-image12"
+            />
+          </div>
+          <div class="frame-frame13">
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image4318-8xeu-300h.png') }}"
+              alt="IMAGE4318"
+              class="frame-image13"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image1179-8dm-400w.png') }}"
+              alt="IMAGE1179"
+              class="frame-image14"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/svg1179-mzpu.svg') }}"
+              alt="SVG1179"
+              class="frame-svg12"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image1291-1i2-200h.png') }}"
+              alt="IMAGE1291"
+              class="frame-image15"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image1301-fe1n-200h.png') }}"
+              alt="IMAGE1301"
+              class="frame-image16"
+            />
+          </div>
+          <img src="{{ url_for('static', filename='playable-window/public/svg435-2ji.svg') }}" alt="SVG435" class="frame-svg13" />
+          <div class="frame-frame14">
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image14315-7sgs-200w.png') }}"
+              alt="IMAGE14315"
+              class="frame-image17"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image41451-x2ac-200w.png') }}"
+              alt="IMAGE41451"
+              class="frame-image42"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image51452-je-200w.png') }}"
+              alt="IMAGE51452"
+              class="frame-image5"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image61452-nct-200w.png') }}"
+              alt="IMAGE61452"
+              class="frame-image6"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image21451-1oh-200w.png') }}"
+              alt="IMAGE21451"
+              class="frame-image22"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image31451-y52-200w.png') }}"
+              alt="IMAGE31451"
+              class="frame-image32"
+            />
+          </div>
+          <div class="frame-frame15">
+            <img
+              src="{{ url_for('static', filename='playable-window/public/svg31301-1zqd.svg') }}"
+              alt="SVG31301"
+              class="frame-svg31"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image1301-8rqh-200h.png') }}"
+              alt="IMAGE1301"
+              class="frame-image18"
+            />
+          </div>
+          <div class="frame-frame16">
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image1301-ntar-200w.png') }}"
+              alt="IMAGE1301"
+              class="frame-image19"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/image1301-lkmn-200w.png') }}"
+              alt="IMAGE1301"
+              class="frame-image20"
+            />
+          </div>
+          <div class="frame-frame17">
+            <div class="frame-frame18">
+              <img
+                src="{{ url_for('static', filename='playable-window/public/imagei418-3u3u-200h.png') }}"
+                alt="IMAGEI418"
+                class="frame-image23"
+              />
+              <img
+                src="{{ url_for('static', filename='playable-window/public/imagei418-2vw-200w.png') }}"
+                alt="IMAGEI418"
+                class="frame-image24"
+              />
             </div>
-            
-            <!-- Нижня трапеція (карти) -->
-            <img class="icon3" alt="" src="{{ url_for('static', filename='img/31.svg') }}" />
-            
-            <!-- Ліва панель локацій (сітка 2x3) -->
-            <div class="div9">
-                <div class="div10"></div>
-                <div class="div11"></div>
-                <div class="div12"></div>
-                <div class="div13"></div>
-                <div class="div14"></div>
-                <div class="div15"></div>
-                <div class="div16"></div>
-            </div>
-            
-            <!-- Лівий трикутник (ходи) -->
-            <div class="div17">
-                <img class="icon4" alt="" src="{{ url_for('static', filename='img/31.svg') }}" />
-                <div class="div18"></div>
-            </div>
-            
-            <!-- Права панель (окуляри) -->
-            <div class="div19">
-                <div class="div20"></div>
-                <div class="div21"></div>
-                <div class="div22"></div>
-            </div>
-        </main>
-        
-        <!-- ВЕРХНЯ ЧАСТИНА -->
-        <section class="top-bar">
-            <div class="time-display-parent">
-                <!-- Ліва група: пісочний годинник та інтеракційна коробка -->
-                <div class="time-display">
-                    <img class="icon5" alt="" src="{{ url_for('static', filename='img/2.svg') }}" />
-                    <div class="interaction-button">
-                        <div class="div23"></div>
-                    </div>
-                </div>
-                
-                <!-- Кнопки меню та панель гравців -->
-                <div class="utilities-bar-wrapper">
-                    <div class="utilities-bar">
-                        <img class="icon6" loading="lazy" alt="" src="{{ url_for('static', filename='img/3.svg') }}" />
-                        <img class="icon7" alt="" src="{{ url_for('static', filename='img/4.svg') }}" />
-                        <img class="icon8" alt="" src="{{ url_for('static', filename='img/5.svg') }}" />
-                        <img class="icon9" alt="" src="{{ url_for('static', filename='img/6.svg') }}" />
-                    </div>
-                </div>
-                
-                <!-- ХП ворога (5 сердець) -->
-                <div class="enemy-health">
-                    <div class="div24">
-                        <div class="div25"></div>
-                        <img class="icon10" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
-                        <img class="icon11" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
-                        <img class="icon12" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
-                        <img class="icon13" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
-                        <img class="icon14" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- НИЖНЯ ЧАСТИНА -->
-        <section class="bottom-bar">
-            <div class="card-area">
-                <div class="div26">
-                    <div class="div27">
-                        <div class="div28"></div>
-                        <div class="div29"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- ХП гравця (5 сердець) -->
-            <div class="div30">
-                <div class="div31"></div>
-                <img class="icon15" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
-                <img class="icon16" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
-                <img class="icon17" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
-                <img class="icon18" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
-                <img class="icon19" alt="" src="{{ url_for('static', filename='img/21.svg') }}" />
-            </div>
-        </section>
+          </div>
+          <img
+            src="{{ url_for('static', filename='playable-window/public/image4741-oualc-200h.png') }}"
+            alt="IMAGE4741"
+            class="frame-image25"
+          />
+          <div class="frame-frame19">
+            <img
+              src="{{ url_for('static', filename='playable-window/public/imagei607-bfd-200h.png') }}"
+              alt="IMAGEI607"
+              class="frame-image26"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/svg1i607-t88t.svg') }}"
+              alt="SVG1I607"
+              class="frame-svg14"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/svg2i607-2xw.svg') }}"
+              alt="SVG2I607"
+              class="frame-svg21"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/svg3i607-gxic.svg') }}"
+              alt="SVG3I607"
+              class="frame-svg32"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/svg4i607-f0c.svg') }}"
+              alt="SVG4I607"
+              class="frame-svg41"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/svg5i607-996t.svg') }}"
+              alt="SVG5I607"
+              class="frame-svg51"
+            />
+          </div>
+          <div class="frame-frame20">
+            <img
+              src="{{ url_for('static', filename='playable-window/public/imagei607-0hf-200h.png') }}"
+              alt="IMAGEI607"
+              class="frame-image27"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/svg1i607-sk54.svg') }}"
+              alt="SVG1I607"
+              class="frame-svg15"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/svg2i607-9r2a.svg') }}"
+              alt="SVG2I607"
+              class="frame-svg22"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/svg3i607-9fdq.svg') }}"
+              alt="SVG3I607"
+              class="frame-svg33"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/svg4i607-0nn.svg') }}"
+              alt="SVG4I607"
+              class="frame-svg42"
+            />
+            <img
+              src="{{ url_for('static', filename='playable-window/public/svg5i607-xzee.svg') }}"
+              alt="SVG5I607"
+              class="frame-svg52"
+            />
+          </div>
+        </div>
+      </div>
     </div>
-        
-        <div class="modal-overlay" id="modalOverlay_drops" hidden>
-            <div
-              class="modal_drops"
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="drops-title"
-              tabindex="-1"
-            >
-                <span class="modal-close" id="closeModal_drops" aria-label="Закрити">&times;</span>
-                <div class="popup_name" id="drops-title">Скинуті карти</div>
-
-                <div class="modal_form">
-                    <p style="font-family: 'Jura'; font-size: 1.3vw; color: #2b2b2b; text-align: center; margin-top: 5vh;">
-                        Тут відображатимуться карти, які ви скинули під час гри.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- ВСПЛИВНЕ ВІКНО МЕНЮ ГРИ -->
-        <div class="modal-overlay" id="modalOverlay_gameMenu" hidden>
-            <div
-              class="modal_gameMenu"
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="game-menu-title"
-              tabindex="-1"
-            >
-                <span class="modal-close" id="closeModal_gameMenu" aria-label="Закрити">&times;</span>
-                <div class="exit_title" id="game-menu-title">~ Вийти з гри? ~</div>
-
-                <div class="menu_buttons_container">
-                    <div class="yes_no_container">
-                        <button class="menu_btn polygon_btn">-Так-</button>
-                        <button class="menu_btn polygon_btn">-Ні-</button>
-                    </div>
-                    <button class="menu_btn trapezoid_btn">-Налаштування-</button>
-                    <button class="menu_btn hex_btn">--Назад--</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- DEBUG FSM PANEL -->
-        <div id="fsm-debug" style="
-            position: fixed;
-            bottom: 1vw;
-            left: 1vw;
-            background: rgba(50, 50, 50, 0.8);
-            color: white;
-            padding: 1vw;
-            border-radius: 8px;
-            z-index: 999999;
-            font-family: monospace;
-            font-size: 0.9vw;
-        ">
-            <div>State: <span id="state-value">idle</span></div>
-
-            <div style="margin-top: .5vw;">Events:</div>
-            <button data-event="start">start</button>
-            <button data-event="myTurn">myTurn</button>
-            <button data-event="theirTurn">theirTurn</button>
-            <button data-event="finish">finish</button>
-
-            <div style="margin-top: .5vw;">Log:</div>
-            <div id="log" style="
-                max-height: 8vw;
-                overflow-y: auto;
-                background: rgba(0,0,0,.3);
-                padding: .5vw;
-                border-radius: 4px;
-            "></div>
-        </div>
-
-        <!-- === FLOATING GAME CHAT === -->
-    <div id="gameChatWindow" class="game-chat-window" hidden>
-        <div class="game-chat-header">
-            <span>Чат</span>
-
-            <!-- ОБОВʼЯЗКОВО ID !!! -->
-            <button id="closeGameChat" class="game-chat-close">✖</button>
-        </div>
-
-        <div id="gameChatMessages" class="game-chat-messages"></div>
-
-        <div class="game-chat-input-row">
-            <input id="gameChatInput" type="text">
-            <button id="gameChatSend" class="game-chat-send"></button>
-        </div>
-    </div>
-
-        <script src="{{ url_for('static', filename='js/play.js') }}"></script>
-
-    </body>
+  </body>
 </html>
