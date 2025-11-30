@@ -3,6 +3,13 @@
     Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
     "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
     "Source Han Sans CN", sans-serif;
+  --bg-cream: #f1e9d2;
+  --dark-maroon: #502d2d;
+  --maroon-brown: #7a5c5c;
+  --card-red: #c87878;
+  --dark-red: #a52a2a;
+  --gray-panel: #c4c4c4;
+  --brown-floor: #b8a080;
 }
 
 .main-container {
@@ -26,11 +33,13 @@ button {
   width: 1530px;
   height: 856px;
   margin: 0 auto;
-  background: #f1e9d2;
-  border: 1px solid #502d2d;
+  background: var(--bg-cream);
+  border: 1px solid var(--dark-maroon);
   overflow: hidden;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
+
+/* Flex Row - Main Layout */
 .flex-row {
   position: relative;
   width: 1500px;
@@ -38,199 +47,311 @@ button {
   margin: 9px 0 0 12px;
   z-index: 16;
 }
+
+/* Top Left: Hourglass and Interaction Box */
 .regroup {
   position: absolute;
-  width: 220px;
-  height: 693px;
+  width: 240px;
+  height: 120px;
   top: 0;
   left: 9px;
   z-index: 14;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
+
 .hourglass {
-  position: absolute;
-  width: 97.009px;
-  height: 117px;
-  top: -3.5px;
-  left: -3.509px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/6yqwiYFtdA.png)
-    no-repeat center;
-  background-size: cover;
-  filter: blur(1.5px);
-  z-index: 4;
+  position: relative;
+  width: 90px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+.hourglass-top {
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-top: 45px solid #8a8a8a;
+}
+
+.hourglass-middle {
+  width: 12px;
+  height: 12px;
+  background: #6a6a6a;
+  border-radius: 2px;
+}
+
+.hourglass-bottom {
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 45px solid #8a8a8a;
+}
+
 .interaction-box {
-  position: absolute;
   width: 130px;
   height: 75px;
-  top: 18px;
-  left: 100px;
-  background: linear-gradient(180deg, #c4b8a8 0%, #a89888 100%);
+  margin-top: 18px;
+  background: linear-gradient(180deg, #5c3d3d 0%, #4a2e2e 100%);
   z-index: 14;
   border-radius: 8px;
-  border: 2px solid #8b7355;
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 3px solid #3d2424;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.3);
 }
-.encyclopedia-map {
+
+/* Top Center: Diagonal Stripes and Control Panel */
+.top-center-panel {
   position: absolute;
-  width: 145.807px;
-  height: 47px;
-  top: 3.5px;
-  left: 568.5px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JRRepwptQw.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 1;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 15;
 }
-.menu-key {
-  position: absolute;
-  width: 146.336px;
-  height: 47px;
-  top: 3.5px;
-  left: 679.798px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/TeirzXO80a.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 2;
+
+.diagonal-stripes {
+  width: 180px;
+  height: 45px;
+  background: var(--bg-cream);
+  border: 2px solid var(--maroon-brown);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 10px;
 }
-.chat-key {
-  position: absolute;
-  width: 145.728px;
-  height: 47px;
-  top: 3.5px;
-  left: 793.772px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/GpfiFvWbX7.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 3;
+
+.diagonal-stripes .stripe {
+  width: 20px;
+  height: 50px;
+  background: var(--maroon-brown);
+  transform: skewX(-20deg);
 }
-.player-icon-panel {
-  position: absolute;
-  width: 326px;
-  height: 47px;
-  top: 58px;
-  left: 590px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/p02KtYsPPX.png)
-    no-repeat center;
-  background-size: cover;
+
+.control-panel {
+  width: 320px;
+  height: 42px;
+  background: linear-gradient(180deg, #5c3d3d 0%, #4a2e2e 100%);
+  border-radius: 8px;
+  border: 2px solid #3d2424;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 20px;
 }
+
+.control-button {
+  width: 28px;
+  height: 28px;
+  background: #f5f5f5;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Top Right: Enemy HP Hearts */
 .enemy-hp {
   position: absolute;
-  width: 140px;
-  height: 28px;
-  top: 15px;
-  right: 20px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/cYHdmLreAt.png)
-    no-repeat center;
-  background-size: contain;
-  z-index: 16;
+  width: 150px;
+  height: 32px;
+  top: 12px;
+  right: 15px;
+  z-index: 20;
+  display: flex;
+  gap: 3px;
+  justify-content: flex-end;
+  align-items: center;
 }
-.glasses {
-  position: absolute;
-  width: 101px;
-  height: 395px;
-  top: 84px;
-  left: 1386px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/NNdzxro8vZ.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 11;
+
+.enemy-hp .heart,
+.our-hp .heart {
+  font-size: 18px;
+  color: var(--dark-maroon);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
+
+/* Left Side: Special Cards Container */
 .special-cards {
   position: absolute;
-  width: 320px;
-  height: 526px;
-  top: 118px;
-  left: 0;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/VHW24Ncrf9.png)
-    no-repeat center;
-  background-size: cover;
+  width: 200px;
+  height: 400px;
+  top: 130px;
+  left: 15px;
+  background: linear-gradient(180deg, #6b4c4c 0%, #5a3d3d 100%);
+  border: 4px solid #4a2e2e;
+  border-radius: 12px;
   z-index: 9;
-  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 12px;
+  padding: 15px;
 }
+
+.card-slot {
+  background: var(--gray-panel);
+  border-radius: 6px;
+  border: 2px solid #aaa;
+}
+
+/* Main Center: Card Zone */
 .card-zone {
   position: absolute;
-  width: 1032px;
-  height: 575px;
-  top: 118px;
-  left: 331px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/EkabCrkL6h.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 7;
-}
-.card-back-template {
-  position: absolute;
-  width: 126px;
-  height: 185px;
-  top: 498px;
-  left: 1374px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/2XTVfzW3pM.png)
-    no-repeat center;
-  background-size: 100% 100%;
-  z-index: 13;
-  overflow: hidden;
+  width: 950px;
+  height: 500px;
+  top: 130px;
+  left: 240px;
+  background: var(--card-red);
+  border: 5px solid var(--dark-red);
   border-radius: 10px;
+  z-index: 7;
+  display: flex;
+  overflow: hidden;
 }
-.flex-row-f {
+
+.card-section {
+  flex: 1;
+  background: var(--card-red);
+  border-right: 3px solid var(--dark-red);
   position: relative;
-  width: 1490.5px;
-  height: 132px;
-  margin: 10px 0 0 15px;
-  z-index: 15;
 }
-.number-of-moves {
+
+.card-section:last-child {
+  border-right: none;
+}
+
+.center-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-card-area {
+  width: 180px;
+  height: 250px;
+  background: #d0d0d0;
+  border-radius: 8px;
+  border: 2px solid #bbb;
+}
+
+/* Right Side: Glasses Panels */
+.right-panels {
   position: absolute;
-  width: 317.5px;
-  height: 132px;
-  top: 0;
-  left: 0;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/UwEwQPSyhQ.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 10;
+  right: 20px;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 11;
 }
+
+.glasses {
+  display: flex;
+  gap: 10px;
+}
+
+.glass-panel {
+  width: 50px;
+  height: 180px;
+  background: var(--gray-panel);
+  border: 3px solid var(--maroon-brown);
+  border-radius: 6px;
+}
+
+.bottom-right-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bottom-panel {
+  width: 110px;
+  height: 80px;
+  background: var(--gray-panel);
+  border: 3px solid var(--maroon-brown);
+  border-radius: 6px;
+}
+
+.bottom-panel.light {
+  background: var(--bg-cream);
+  border-color: #d4c9b0;
+}
+
+/* Bottom Area */
+.bottom-area {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 8;
+}
+
+.bottom-corner {
+  width: 300px;
+  height: 120px;
+  background: linear-gradient(180deg, #5c3d3d 0%, #4a2e2e 100%);
+  position: relative;
+}
+
+.bottom-corner.left {
+  border-radius: 0 50px 0 0;
+  clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+}
+
+.bottom-corner.right {
+  border-radius: 50px 0 0 0;
+  clip-path: polygon(0 0, 100% 30%, 100% 100%, 0 100%);
+}
+
+.corner-button {
+  position: absolute;
+  bottom: 20px;
+  width: 120px;
+  height: 45px;
+  background: #d0d0d0;
+  border-radius: 8px;
+  border: 2px solid #bbb;
+}
+
+.bottom-corner.left .corner-button {
+  left: 30px;
+}
+
+.bottom-corner.right .corner-button {
+  right: 30px;
+}
+
+.table {
+  flex: 1;
+  height: 80px;
+  background: var(--brown-floor);
+  margin: 0 -50px;
+  z-index: -1;
+}
+
+/* Bottom Left: Our HP Hearts */
 .our-hp {
   position: absolute;
-  width: 140px;
+  width: 100px;
   height: 28px;
-  bottom: 15px;
-  left: 20px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/fkyMZhmpXN.png)
-    no-repeat center;
-  background-size: contain;
-  z-index: 15;
-}
-.discount {
-  position: absolute;
-  width: 280px;
-  height: 110px;
-  top: 10px;
-  right: 20px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/JcV2P69SWX.png)
-    no-repeat center;
-  background-size: contain;
-  z-index: 6;
-}
-.table {
-  position: absolute;
-  width: 2228px;
-  height: 1001px;
-  top: 328px;
-  left: -350px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/K7Q1rxMGV7.png)
-    no-repeat center;
-  background-size: cover;
-  filter: blur(25px);
-  z-index: 5;
-}
-.card-selection-zone {
-  position: absolute;
-  width: 1730px;
-  height: 372px;
-  top: 742px;
-  left: -101px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-11-27/9vQGQwmFA5.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 8;
+  bottom: 140px;
+  left: 25px;
+  z-index: 20;
+  display: flex;
+  gap: 3px;
 }
