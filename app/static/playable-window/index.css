@@ -227,8 +227,27 @@
   left: 0;
   right: 0;
   height: 145px;
-  background: linear-gradient(to bottom, #F1E9D2 0%, #D4C4A8 20%, #A68B5B 50%, #8B7355 100%);
+  background-color: #A68B5B;
   z-index: 0;
+}
+
+/* White diagonal lines connecting triangles to floor */
+.frame-frame10::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 145px;
+  z-index: 1;
+  background: 
+    linear-gradient(to bottom right, transparent calc(50% - 2px), #FFFFFF calc(50% - 2px), #FFFFFF calc(50% + 2px), transparent calc(50% + 2px)),
+    linear-gradient(to bottom left, transparent calc(50% - 2px), #FFFFFF calc(50% - 2px), #FFFFFF calc(50% + 2px), transparent calc(50% + 2px));
+  /* 332px matches the width of the corner triangles (317.5px) plus offset for proper diagonal alignment */
+  background-size: 332px 100%, 332px 100%;
+  background-position: left bottom, right bottom;
+  background-repeat: no-repeat;
+  pointer-events: none;
 }
  
 .frame-frame14 {
